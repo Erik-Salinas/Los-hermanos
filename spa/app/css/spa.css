@@ -1,1 +1,108 @@
-/* ? ESTILOS PARA SPA (SINGLE PAGES APPLICATIONS) */
+/**ESTILOS PARA SPA (SINGLE PAGES APPLICATIONS) */
+/* ?Variables */
+:root {
+    --first-color: #ffffff;
+    --second-color: #ffffff;
+    --text-first-color: #ffffff;
+    --text-second-color: #ffffff;
+    --font-family-first: "Montserrat", sans-serif;
+    ;
+    /*  --font-family-second:; */
+    --font-size-title: 1.5rem;
+    --font-size-text: 1rem;
+    --line-height-base: 1.5;
+}
+/* ?Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+img, picture, video, iframe, figure {
+    max-width: 100%; 
+    width: 100%;
+    display: block;
+}
+h1, h2, h3, h4, h5, h6, p, span, a, p, strong{
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    padding: 2rem;
+    background-color: red;
+}
+/*!Responsive Desing*/
+
+
+/* ?Movil */
+
+.logo {
+    max-width: 5rem;
+}
+.navList{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+}
+.navList li a{
+    color: black;
+}
+.openMenu, .closeMenu{
+    display: block;
+    margin-left: auto;
+}
+/* 
+nav{
+    opacity: 0;
+    visibility: hidden;
+    display: flex ;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: aqua;
+    padding: 2rem;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.508);
+} */
+
+nav {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    width: 50%; 
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: end; 
+    gap: 1rem;
+    background-color: aqua;
+    padding: 2rem;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.508);
+    transition: opacity 0.5s ease-in-out;
+}
+.visible{
+    opacity: 1;
+    visibility: visible;
+}
+/* ?Tablets */
+
+@media screen and (min-width:768px) and (max-width: 992px) {}
+
+/* ?Desktops */
+@media screen and (min-width: 992px) {}
+
+/* ?Alta resolución  img*/
+@media (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 3) {}
