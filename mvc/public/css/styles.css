@@ -42,7 +42,16 @@ header{
 
 
 /* ?Movil */
-
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../img/fondo-login.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 .logo {
     max-width: 5rem;
 }
@@ -96,6 +105,63 @@ nav {
 .visible{
     opacity: 1;
     visibility: visible;
+}
+
+.login, .signUp{
+    display: flex;
+    justify-content: center;
+}
+.loginForm, .signUpForm{
+    background-color: rgba(0, 0, 0, 0.725);
+    min-width:90%;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    padding:  1rem;
+    border-radius: 10px;
+    border: 2px solid #F5600E;
+}
+.loginForm > .logo > img, .signUpForm > .logo > img{
+    width: 7rem;
+    border-radius: 100%;
+    margin: 1rem 0;
+}
+.loginForm > .input, .signUpForm > .input{
+    width: 100%;
+}
+.loginForm  input, .signUpForm input{
+    min-width:100% ;
+    height: 2rem;
+    margin: 0.3rem 0;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid black;
+    padding: 0 0.5rem;
+}
+.loginForm input::placeholder{
+    font-size: 0.8rem;
+}
+.loginForm button, .signUpForm button{
+    font-size: 1rem;
+    margin: 1rem 0;
+    background-color: #F5600E;
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+.loginForm .data{
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.loginForm .data a{
+    text-decoration: none;
+    color:#1877f2;
+}
+.loginForm .data a:hover{
+    text-decoration: underline;
+    color:#1877f2;
 }
 /* ?Tablets */
 
