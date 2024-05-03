@@ -1,0 +1,1 @@
+<!-- En este index se visualizara todas las secciones de la pagina web (unico arhivo que se ejecuta) -->
