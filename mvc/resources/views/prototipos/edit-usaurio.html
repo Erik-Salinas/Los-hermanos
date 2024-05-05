@@ -3,10 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Panel</title>
     <link rel="stylesheet" href="../../../public/css/styles.css" />
 </head>
 <body>
     <!-- *ERIK -->
+    <header>
+        <button class="openMenu" id="openMenu"><i class="fa-solid fa-bars"></i></button>
+        <nav class="nav" id="nav">
+            <button class="closeMenu" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <img src="../../../public/img/logo.png" alt="Los hermanos" srcset="../assets/perfil.png 2x" class="logo">
+            <ul class="navList">
+                <li><a href="panel.html"><i class="fa-solid fa-house"></i>Panel</a></li>
+                <li><a href="menu.html"><i class="fa-brands fa-product-hunt"></i>Menu</a></li>
+                <li><a href="pedidos.html"><i class="fa-solid fa-clipboard-list"></i></i>Pedidos</a></li>
+                <li><a href="productos.html"><i class="fa-solid fa-box-open"></i>Productos</a></li>
+                <li class="listActive"><a href="usuarios.html"><i class="fa-solid fa-user"></i></i>Usuarios</a></li>
+                <li><button type="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i>Cerrar sesión</button></li>
+            </ul>
+        </nav>
+    </header>
+    <script src="../../../public/js/menu.js"></script>
 </body>
 </html>
