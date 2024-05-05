@@ -15,36 +15,39 @@
 
 <body>
     <main>
-        <section>
-            <h1>Registrate</h1>
-            <form action="" method="post" autocomplete="off" class="signUp signUpForm">
-                <div class="logo">
-                    <img src="../../../public/img/perfil.png" alt="Perfil de usuario" />
+        <section class="signUp">
+            <form action="" method="post" autocomplete="off" class=" signUpForm">
+                <h1>Registrate</h1>
+                <div class="input">
+                    <input type="text" name="name" placeholder="Nombre">
                 </div>
                 <div class="input">
-                    <label>Usuario</label>
-                    <input type="text" name="user">
+                    <input type="text" name="lestname" placeholder="Apellido">
                 </div>
                 <div class="input">
-                    <label>Contraseña</label>
-                    <input type="password" name="password">
+                    <input type="text" name="user" placeholder="Usuario">
                 </div>
                 <div class="input">
-                    <label>Nombre</label>
-                    <input type="text" name="name">
+                    <input type="password" name="password" placeholder="Contraseña">
                 </div>
                 <div class="input">
-                    <label>Apellido</label>
-                    <input type="text" name="lestname">
-                </div class="input">
+                    <input type="email" name="email" placeholder="Correo">
+                </div>
                 <div class="input">
-                    <label>correo</label>
-                    <input type="email" name="email">
+                    <label>Fecha de nacimiento</label>
+                    <input type="date" name="date">
                 </div>
-                <div>
-                    <input type="submit" value="Registrarse" name="btnRecord">
+                <div class="input sex">
+                    <label>Sexo</label>
+                    <select name="sex">
+                        <option value="#" disabled selected>Seleccionar</option>
+                        <option value="mujer">Mujer</option>
+                        <option value="hombre">Hombre</option>
+                        <option value="personalizado">Personalizado</option>
+                    </select>
                 </div>
-                <div>
+                <div class="btnRecord">
+                    <button type="submit"name="btnRecord">Registrate</button>
                     <a href="user.html">volver</a>
                 </div>
             </form>

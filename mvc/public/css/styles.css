@@ -3,6 +3,7 @@
 :root {
     --first-color: #ff7b1b;
     --second-color: #6aa0ab;
+    --third-color:#d86716;
     --text-first-color: #000000;
     --text-second-color: #ffffff;
     --font-family-first: "Montserrat", sans-serif;
@@ -11,7 +12,10 @@
     --font-size-title: 1.5rem;
     --font-size-text: 1rem;
     --line-height-base: 1.5;
+    --text-login-color: #ffffff;
+    --text-login-color-titel:#ff7b1b;
 }
+
 /* ?Reset */
 * {
     padding: 0;
@@ -19,30 +23,49 @@
     box-sizing: border-box;
     vertical-align: baseline;
 }
-img, picture, video, iframe, figure {
-    max-width: 100%; 
+
+img,
+picture,
+video,
+iframe,
+figure {
+    max-width: 100%;
     width: 100%;
     display: block;
 }
-h1, h2, h3, h4, h5, h6, p, span, a, p, strong{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+p,
+strong {
     text-decoration: none;
 }
-li{
+
+li {
     list-style-type: none;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
 
-header{
+header {
     padding: 2rem;
     background-color: var(--first-color);
 }
+
 /*!Responsive Desing*/
 
 
 /* ?Movil */
-main{
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,6 +75,7 @@ main{
     background-position: center;
     background-size: cover;
 }
+
 .logo {
     max-width: 5rem;
 }
@@ -59,11 +83,11 @@ main{
 .nav {
     opacity: 0;
     visibility: hidden;
-    position: fixed; 
+    position: fixed;
     top: 0;
-    left: 0; 
-    width: 50%; 
-    height: 100vh; 
+    left: 0;
+    width: 50%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -72,11 +96,13 @@ main{
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.508);
     transition: opacity 0.5s ease-in-out;
 }
-.nav img{
+
+.nav img {
     border-radius: 100%;
-    margin:0 auto;
+    margin: 0 auto;
 }
-.navList{
+
+.navList {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -84,29 +110,35 @@ main{
     padding: 0rem 0rem 0rem 1rem;
 }
 
-.navList a i, .navList button i{
-    margin-right: 0.625rem; 
+.navList a i,
+.navList button i {
+    margin-right: 0.625rem;
     width: 1.25rem;
     font-size: 1.1rem;
 }
-.navList  li  a , .navList li button{
+
+.navList li a,
+.navList li button {
     font-family: var(--font-family-first);
     color: var(--text-second-color);
     font-size: var(--font-size-text);
     font-weight: 500;
     margin-left: 0.5rem;
 }
+
 .navList li button {
     border: none;
     background-color: transparent;
     color: rgb(255, 0, 0);
 }
+
 .listActive {
     background-color: var(--first-color);
     width: 90%;
-    padding:0.6rem 0 0.6rem 0;
+    padding: 0.6rem 0 0.6rem 0;
 }
-.openMenu{
+
+.openMenu {
     display: block;
     margin-left: auto;
     color: #ffffff;
@@ -114,53 +146,64 @@ main{
     background-color: transparent;
     font-size: 2rem;
 }
-.nav .closeMenu{
+
+.nav .closeMenu {
     display: block;
     margin-right: auto;
     border: none;
     color: rgb(255, 254, 254);
     background-color: transparent;
     font-size: 1.5rem;
-    padding:0 0.3rem;
+    padding: 0 0.3rem;
 }
 
-.nav .closeMenu:hover{
+.nav .closeMenu:hover {
     border: none;
     background-color: rgb(212, 31, 31);
     color: #ffffff;
     font-size: 1.5rem;
-    padding:0 0.4rem;
+    padding: 0 0.4rem;
 }
 
-.visible{
+.visible {
     opacity: 1;
     visibility: visible;
 }
 
-.login, .signUp{
+/* !LOGIN */
+.login,
+.signUp {
     display: flex;
     justify-content: center;
 }
-.loginForm, .signUpForm{
+
+.loginForm,
+.signUpForm {
     background-color: rgba(0, 0, 0, 0.725);
-    min-width:90%;
-    display: flex ;
+    min-width: 90%;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    padding:  1rem;
+    padding: 0 1rem;
     border-radius: 10px;
-    border: 2px solid #F5600E;
+    border: 2px solid var(--first-color);
 }
-.loginForm > .logo > img, .signUpForm > .logo > img{
+
+.loginForm>.logo>img,
+.signUpForm>.logo>img {
     width: 7rem;
     border-radius: 100%;
     margin: 1rem 0;
 }
-.loginForm > .input, .signUpForm > .input{
+
+.loginForm>.input,
+.signUpForm>.input {
     width: 100%;
 }
-.loginForm  input, .signUpForm input{
-    min-width:100% ;
+
+.loginForm input,
+.signUpForm input {
+    min-width: 100%;
     height: 2rem;
     margin: 0.3rem 0;
     outline: none;
@@ -168,30 +211,105 @@ main{
     border: 1px solid black;
     padding: 0 0.5rem;
 }
-.loginForm input::placeholder{
+
+.loginForm input::placeholder {
+    font-family: var(--font-family-first);
     font-size: 0.8rem;
 }
-.loginForm button, .signUpForm button{
+
+.loginForm button,
+.signUpForm button {
+    font-family: var(--font-family-first);
     font-size: 1rem;
     margin: 1rem 0;
-    background-color: #F5600E;
+    background-color: var(--first-color);
     border: none;
     color: white;
     padding: 0.5rem;
     border-radius: 6px;
 }
-.loginForm .data{
+.loginForm button:hover{
+    background-color: var(--third-color);
+}
+.loginForm .data {
     min-width: 100%;
     display: flex;
     justify-content: space-between;
 }
-.loginForm .data a{
+
+.loginForm .data a {
+    font-family: var(--font-family-first);
     text-decoration: none;
-    color:#1877f2;
+    color: #1877f2;
+    font-size: 0.8rem;
+    margin:1rem 0 ;
 }
-.loginForm .data a:hover{
+
+.loginForm .data a:hover {
     text-decoration: underline;
-    color:#1877f2;
+    color: #1877f2;
+}
+
+.signUpForm h1 {
+    font-size: var(--font-size-title);
+    color: var(--text-login-color-titel);
+    text-align: center;
+    font-family: var(--font-family-first);
+    margin: 1rem 0;
+    text-shadow:
+    -1px 0 black,  
+    1px 0 black,   
+    0 1px black,  
+    0 1px black;   
+}
+
+
+.signUpForm label{
+    color: var(--text-login-color);
+    font-family: var(--font-family-first);
+    font-size: 0.8rem;
+    margin: 0.3rem 0;
+}
+.signUpForm .sex{
+    display: flex;
+    flex-direction: column;
+}
+
+.sex select{
+    min-width: 100%;
+    height: 2rem;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid black;
+    padding: 0 0.5rem;
+}
+.btnRecord{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: end;
+    justify-content: space-between;
+    width: 100%;
+    margin:1rem 0 ;
+}
+.btnRecord button{
+    background-color: rgb(4, 168, 4);
+    padding: 0.5rem 2rem;
+    margin-bottom: auto;
+}
+.btnRecord button:hover{
+    background-color: rgb(3, 144, 3);
+    padding: 0.5rem 2rem;
+}
+.btnRecord a {
+    font-family: var(--font-family-first);
+    text-decoration: none;
+    color: #1877f2;
+    font-size: 0.8rem;
+}
+
+.btnRecord a:hover {
+    text-decoration: underline;
+    color: #1877f2;
 }
 /* ?Tablets */
 
