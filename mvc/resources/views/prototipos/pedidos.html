@@ -30,6 +30,54 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <div class="produ">
+            <h2>LISTA DE PEDIDOS</h2>
+        </div>
+        <?php
+            $conexion= mysqli_connect("localhost","root","","loshermanos") or die ("Problemas con la conexion a la base de datos");
+    
+    /*         $registros= mysqli_query($conexion,"insert into pedido (tipo,nombre_cliente,cantidad,precio) values ('$_POST[type]','$_POST[stock]','$_POST[tam]','$_POST[price]')  ") or die ("Error al insertar los datos");  */
+    
+    
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $registros= mysqli_query($conexion,"insert into pedido (tipo,nombre_cliente,cantidad,precio) values ('$_POST[type]','$_POST[stock]','$_POST[tam]','$_POST[price]')  ") or die ("Error al insertar los datos"); 
+            }
+                // ESTE IF ES POR SI HAY DATOS ENVIADOS DE OTRO ARCHIVO (EN ESTE CASO NO SERIA NECESARIO PERO POR LAS DUDAS LO DEJO)
+    
+    
+            
+            $registros = mysqli_query($conexion,"select * from pedido") or die ("Problemas en la conexion con la tabla");
+    
+    
+            //las opciones ya las cambie por las q estan en el diseño
+            echo "<table>";
+            echo "<tr class=titulo>";
+            echo "<td  >"."Id"."</td>";
+            echo "<td  >"."Tipo"."</td>";
+            echo "<td >"."Cliente"."</td>";
+            echo "<td  >"."Cantidad". "</td>";
+            echo "<td  >"."Precio". "</td>";
+            echo "</tr>"."<br>";
+    
+            while($reg=mysqli_fetch_array($registros)){
+    
+       // HAY QUE CAMBIAR LO QUE SIGE A $REG CON LO QUE PONGAMOS EN LA BASE DE DATOS
+    
+                echo "<tr class=opciones>";
+                echo "<td  >"."N°:".$reg['id_pedido']."</td>" ;
+                echo "<td >".$reg['tipo']."</td>";
+                echo "<td >".$reg['nombre_cliente']."</td>";
+                echo "<td >". $reg['cantidad']."</td>";
+                echo "<td >"."$".$reg['total']."</td>";
+                echo "</tr>";
+    
+            }
+            echo "</table>";
+            mysqli_close($conexion);
+        ?>
+    
+    </main>
     <script src="../../../public/js/menu.js"></script>
 </body>
 
