@@ -15,6 +15,10 @@
 
 <body>
     <main>
+        <?php 
+        include ("../../../config/datebase.php");
+        include ("../../../app/Controllers/Controller-registro.php");
+        ?>
         <section class="signUp">
             <form action="" method="post" autocomplete="off" class=" signUpForm">
                 <h1>Registrate</h1>
