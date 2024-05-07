@@ -9,7 +9,7 @@
         rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Menu</title>
-    <link rel="stylesheet" href="../../../public/css/styles.css" />
+    <link rel="stylesheet" href="../public/css/styles.css" />
 </head>
 <body>
     <!-- *VICKY -->
@@ -28,6 +28,49 @@
             </ul>
         </nav>
     </header>
-    <script src="../../../public/js/menu.js"></script>
+    <main class="mainMenu">
+        <div>
+            <button ><a href="nuevo-producto.php">Agregar</a></button>
+        </div>
+        <?php
+            $conexion= mysqli_connect("localhost","root","","loshermanos") or die ("Problemas con la conexion a la base de datos");
+    
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $registros= mysqli_query($conexion,"insert into menu (tipo,stock,tamaño,precio) values ('$_POST[type]','$_POST[stock]','$_POST[tam]','$_POST[price]')  ") or die ("Error al insertar los datos"); 
+            }
+    
+    
+    
+            
+            $registros = mysqli_query($conexion,"select * from menu") or die ("Problemas en la conexion con la tabla");
+    
+    
+            
+            echo "<table>";
+            echo "<tr class=titulo>";
+            echo "<td  >"."Id"."</td>";
+            echo "<td  >"."Tipo"."</td>";
+            echo "<td >"."Cantidad"."</td>";
+            echo "<td  >"."Tamaño". "</td>";
+            echo "<td  >"."Precio". "</td>";
+            echo "</tr>"."<br>";
+    
+            while($reg=mysqli_fetch_array($registros)){
+    
+                echo "<tr class=opciones>";
+                echo "<td  >"."N°:".$reg['id_producto']."</td>" ;
+                echo "<td >".$reg['tipo']."</td>";
+                echo "<td >".$reg['stock']."</td>";
+                echo "<td >". $reg['tamaño']."</td>";
+                echo "<td >"."$".$reg['precio']."</td>";
+                echo "</tr>";
+    
+            }
+            echo "</table>";
+            mysqli_close($conexion);
+        ?>
+    
+    </main>
+    <script src="../public/js/menu.js"></script>
 </body>
 </html>

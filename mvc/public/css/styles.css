@@ -65,7 +65,7 @@ header {
 
 
 /* ?Movil */
-main {
+.inicioS {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -310,6 +310,77 @@ main {
 .btnRecord a:hover {
     text-decoration: underline;
     color: #1877f2;
+}
+.mainMenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5%;
+    width: 90vw;
+}
+table{
+    width: 100vw;
+    text-align: center;
+    background-color: white;
+    border: solid 2px rgba(0, 0, 0, 0.727);
+    padding: 2%;
+}
+.titulo{
+    padding: 10%;
+    background-color: var(--second-color);
+}
+.opciones{
+    border: solid 1px rgba(0, 0, 0, 0.785);
+}
+td{
+    margin: 2%;
+}
+button{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 2%;
+    margin: 5%;
+    border: solid 1px black;
+    background-color: white;
+    border-radius: 10%;
+    color: white;
+}
+button a{
+    text-decoration: none;
+    color: black;
+}
+.delet{
+    margin-top: 10%;
+    color: white;
+    padding: 6%;
+    border: solid 1px black;
+    background-color: rgba(255, 0, 0, 0.778);
+    border-radius: 10%;
+}
+.ag{
+    color: var(--text-first-color);
+    padding: 6%;
+}
+
+.nuevoProdu{
+    width: 80vw;
+    background-color: rgba(244, 180, 121, 0.398);
+    border: solid 2px var(--first-color);
+    padding: 5%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+input,select{
+    padding: 5%;
+    margin-top: 5%;
+} 
+
+.botonesHeader{
+    display: flex;
+    flex-direction: column;
 }
 /* ?Tablets */
 

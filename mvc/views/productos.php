@@ -9,7 +9,7 @@
         rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Productos</title>
-    <link rel="stylesheet" href="../../../public/css/styles.css" />
+    <link rel="stylesheet" href="../public/css/styles.css" />
 </head>
 <body>
     <!-- *VICKY -->
@@ -28,6 +28,38 @@
             </ul>
         </nav>
     </header>
+    <main class="">
+        
+        <?php
+        $conexion= mysqli_connect("localhost","root","","loshermanos") or die ("Problemas con la conexion a la base de datos");
+    
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $registros= mysqli_query($conexion,"insert into menu (tipo,stock,tamaño,precio) values ('$_POST[type]','$_POST[stock]','$_POST[tam]','$_POST[price]')  ") or die ("Error al insertar los datos"); 
+        }
+    
+    
+    
+        
+        $registros = mysqli_query($conexion,"select * from menu") or die ("Problemas en la conexion con la tabla");
+    
+    
+        while($reg=mysqli_fetch_array($registros)){
+    
+            echo "<div class=card> ";
+            echo "<img>".$reg['imagen']."</img>";
+            echo "<h3 >".$reg['tipo']."</h3>"
+            echo "<h3 >". $reg['tamaño']."</h3>";
+            echo "<h4 >"."$".$reg['precio']."</h4>";
+            echo "<h4 >"."$".$reg['descripcion']."</h4>";
+            echo "<button ><a href="">Eliminar</a></button>";
+            echo "<button ><a href="">Editar</a></button>";
+            echo "</div>";
+    
+        }
+        echo "</table>";
+        mysqli_close($conexion);
+    ?>
+    </main>
     <script src="../../../public/js/menu.js"></script>
 </body>
 </html>
