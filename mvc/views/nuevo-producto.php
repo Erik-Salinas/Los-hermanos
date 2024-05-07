@@ -8,8 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<<<<<<< HEAD:mvc/views/menu.html
+    <title>Menu</title>
+=======
     <title>Panel</title>
-    <link rel="stylesheet" href="../../../public/css/styles.css" />
+>>>>>>> a4991946e3e2deefaaf5f1207c4bd2a64dafdf77:mvc/views/nuevo-producto.php
+    <link rel="stylesheet" href="../public/css/styles.css" />
 </head>
 <body>
     <!-- *ERIK -->
@@ -28,6 +32,32 @@
             </ul>
         </nav>
     </header>
+<<<<<<< HEAD:mvc/views/menu.html
+    <script src="../public/js/menu.js"></script>
+=======
+    <main class="mainMenu">
+        <form class="nuevoProdu" action="mvc\resources\views\prototipos\menu.php" method="post">
+            
+            TIPO
+            <input type="text" autocomplete="off" name="type" id="">
+            <br>
+            STOCK
+            <input type="number" autocomplete="off" name="stock" id="">
+            <br>
+            TAMAÑO
+            <select name="tam" id="">
+                <option value="Chica">Chica</option>
+                <option value="Grande">Grande</option>
+            </select>
+            <br>
+            PRECIO
+            <input type="number"autocomplete="off"  name="price" id="">
+            <br>
+            <button class="ag" type="submit">Agregar</button>
+            <button class="delet" type="reset">Eliminar</button>
+        </form>
+    </main>
     <script src="../../../public/js/menu.js"></script>
+>>>>>>> a4991946e3e2deefaaf5f1207c4bd2a64dafdf77:mvc/views/nuevo-producto.php
 </body>
 </html>

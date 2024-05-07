@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2024 a las 20:28:32
+-- Tiempo de generación: 07-05-2024 a las 05:44:07
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -64,6 +64,30 @@ CREATE TABLE `pedido` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `registro_usuario`
+--
+
+CREATE TABLE `registro_usuario` (
+  `id_regis_usuario` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `lastname` text NOT NULL,
+  `user_registration` varchar(255) NOT NULL,
+  `registry_key` varchar(255) NOT NULL,
+  `email` text NOT NULL,
+  `date` date NOT NULL,
+  `sex` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `registro_usuario`
+--
+
+INSERT INTO `registro_usuario` (`id_regis_usuario`, `name`, `lastname`, `user_registration`, `registry_key`, `email`, `date`, `sex`) VALUES
+(1, 'Erik', 'Salinas', ' erikS', 'erik123', 'esalinas@emae.edu.ar', '2024-05-01', 'Personalizado');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -92,6 +116,12 @@ ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id_pedido`);
 
 --
+-- Indices de la tabla `registro_usuario`
+--
+ALTER TABLE `registro_usuario`
+  ADD PRIMARY KEY (`id_regis_usuario`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -112,6 +142,12 @@ ALTER TABLE `menu`
 --
 ALTER TABLE `pedido`
   MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `registro_usuario`
+--
+ALTER TABLE `registro_usuario`
+  MODIFY `id_regis_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
