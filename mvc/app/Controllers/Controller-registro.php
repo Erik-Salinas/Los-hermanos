@@ -15,7 +15,7 @@
             $date = $_POST["date"];
             $sex = $_POST["sex"];
     
-            $sql = "insert into registro_usuario(name,lastname,user_registration,registry_key,email,date,sex)value('$name','$lastname',' $user_registration','$registry_key','$email','$date','$sex')";
+            $sql = "insert into registro_usuario(name,lastname,user_registration,registry_key,email,date,sex)value('$name','$lastname','$user_registration','$registry_key','$email','$date','$sex')";
             // Construye la consulta SQL para insertar los datos del usuario
     
             $sql = $conexion->query($sql); // Ejecuta la consulta

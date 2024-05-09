@@ -52,7 +52,7 @@
                 </div>
                 <div class="btnRecord">
                     <button type="submit"name="btnRecord" value="registrarse">Registrate</button>
-                    <a href="user.html">volver</a>
+                    <a href="user.php">volver</a>
                 </div>
             </form>
         </section>
