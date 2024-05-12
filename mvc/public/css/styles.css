@@ -65,7 +65,7 @@ header {
 
 
 /* ?Movil */
-.inicioS {
+.inicioS, .mainMenu {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -311,14 +311,7 @@ header {
     text-decoration: underline;
     color: #1877f2;
 }
-.mainMenu{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 5%;
-    width: 90vw;
-}
+
 table{
     width: 100vw;
     text-align: center;

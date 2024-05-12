@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,25 +11,22 @@
     <title>Panel</title>
     <link rel="stylesheet" href="../public/css/styles.css" />
 </head>
-
 <body>
-    <!--* VICKY Y ERIK  -->
     <header>
         <button class="openMenu" id="openMenu"><i class="fa-solid fa-bars"></i></button>
         <nav class="nav" id="nav">
             <button class="closeMenu" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
-            <img src="../public/img/logo.png" alt="Los hermanos" srcset="../assets/perfil.png 2x" class="logo">
+            <img src="../../../public/img/logo.png" alt="Los hermanos" srcset="../assets/perfil.png 2x" class="logo">
             <ul class="navList">
-                <li class="listActive"><a href="panel.html"><i class="fa-solid fa-house"></i>Panel</a></li>
-                <li><a href="menu.html"><i class="fa-brands fa-product-hunt"></i>Menu</a></li>
-                <li><a href="pedidos.html"><i class="fa-solid fa-clipboard-list"></i></i>Pedidos</a></li>
-                <li><a href="productos.html"><i class="fa-solid fa-box-open"></i>Productos</a></li>
-                <li><a href="usuarios.html"><i class="fa-solid fa-user"></i></i>Usuarios</a></li>
+                <li><a href="panel.php"><i class="fa-solid fa-house"></i>Panel</a></li>
+                <li class="listActive"><a href="menu.html"><i class="fa-brands fa-product-hunt"></i>Menu</a></li>
+                <li><a href="pedidos.php"><i class="fa-solid fa-clipboard-list"></i></i>Pedidos</a></li>
+                <li><a href="productos.php"><i class="fa-solid fa-box-open"></i>Productos</a></li>
+                <li><a href="usuarios.php"><i class="fa-solid fa-user"></i></i>Usuarios</a></li>
                 <li><button type="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i>Cerrar sesión</button></li>
             </ul>
         </nav>
     </header>
-    <script src="../../../public/js/menu.js"></script>
+    <script src="../public/js/menu.js"></script>
 </body>
-
 </html>

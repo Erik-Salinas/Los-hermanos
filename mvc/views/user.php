@@ -13,23 +13,28 @@
   </head>
   <body>
     <main class="inicioS">
+      <?php 
+        include ("../config/conexcion.php");
+        include ("../app/Controllers/Controller-user.php");
+        include ("../app/Controllers/Controller-registro.php");
+      ?>
       <section class="login">
         <form action="" method="post" autocomplete="off" class="loginForm">
           <div class="logo">
-            <img src="../../../public/img/perfil.png" alt="Perfil de usuario" />
+            <img src="../public/img/perfil.png" alt="Perfil de usuario" />
           </div>
           <div class="input">
-            <input type="text" name="user" placeholder="Usuario" required>
+            <input type="text" name="user" placeholder="Usuario">
           </div>
           <div class="input">
-            <input type="text" name="password"  placeholder="Contraseña" required>
+            <input type="password" name="password"  placeholder="Contraseña">
           </div>
           <div>
-            <button>Iniciar sesión</button>
+            <button type="submit" name="Iniciar" value="Iniciar">Iniciar sesión</button>
           </div>
           <div class="data">
             <a href="#">¿Olvidaste tu cuenta?</a>
-            <a href="registre.html">Registrate</a>
+            <a href="registre.php">Registrate</a>
           </div>
         </form>
       </section>
