@@ -26,7 +26,7 @@
                 <li><a href="pedidos.php"><i class="fa-solid fa-clipboard-list"></i></i>Pedidos</a></li>
                 <li><a href="productos.php"><i class="fa-solid fa-box-open"></i>Productos</a></li>
                 <li><a href="usuarios.php"><i class="fa-solid fa-user"></i></i>Usuarios</a></li>
-                <li><button type="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i>Cerrar sesión</button></li>
+                <li><a href="../../front-end/index.php" > <i class="fa-solid fa-arrow-right-to-bracket"></i>Cerrar sesión</a></li>
             </ul>
         </nav>
     </header>

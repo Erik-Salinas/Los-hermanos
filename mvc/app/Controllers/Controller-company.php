@@ -9,9 +9,9 @@
             $user = $_POST["user"];
             $password= $_POST["password"];
             //Consulta a la Base de Datos
-            $sql = $conexion->query("select * from registro_usuario  where user_registration ='$user' and registry_key  ='$password'");
+            $sql = $conexion->query("select * from login_empresa  where user ='$user' and password ='$password'");
             if($data = $sql->fetch_object()){
-                header("location: ../../front-end/index.php");
+                header("location: ../views/panel.php");
             }
             else{
                 echo"<div> <h2>ACCESO DENEGADO <h2/> </div>";

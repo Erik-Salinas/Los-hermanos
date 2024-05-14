@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-05-2024 a las 05:44:07
+-- Tiempo de generación: 14-05-2024 a las 17:08:12
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -22,6 +22,25 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `loshermanos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `loshermanos`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `login_empresa`
+--
+
+CREATE TABLE `login_empresa` (
+  `id_login` int(11) NOT NULL,
+  `user` text NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `login_empresa`
+--
+
+INSERT INTO `login_empresa` (`id_login`, `user`, `password`) VALUES
+(1, 'leo123', '123');
 
 -- --------------------------------------------------------
 
@@ -83,7 +102,10 @@ CREATE TABLE `registro_usuario` (
 --
 
 INSERT INTO `registro_usuario` (`id_regis_usuario`, `name`, `lastname`, `user_registration`, `registry_key`, `email`, `date`, `sex`) VALUES
-(1, 'Erik', 'Salinas', ' erikS', 'erik123', 'esalinas@emae.edu.ar', '2024-05-01', 'Personalizado');
+(11, 'erik', 'salinas', 'erik123', '123', 'erik@gmail.com', '2024-05-29', 'Hombre'),
+(12, 'estela', 'coronel', ' estela123', '123', 'estela@gmail.com', '2024-05-25', 'Mujer'),
+(13, 'erik', 'sss', ' erik1234', '123', 'e@gmail.com', '2024-05-11', 'Hombre'),
+(14, 'Ramon', 'Salinas', 'ramon123', '123', 'ramon@gmail.com', '2024-05-16', 'Hombre');
 
 -- --------------------------------------------------------
 
@@ -102,6 +124,12 @@ CREATE TABLE `usuarios` (
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `login_empresa`
+--
+ALTER TABLE `login_empresa`
+  ADD PRIMARY KEY (`id_login`);
 
 --
 -- Indices de la tabla `menu`
@@ -132,6 +160,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `login_empresa`
+--
+ALTER TABLE `login_empresa`
+  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `menu`
 --
 ALTER TABLE `menu`
@@ -147,7 +181,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `registro_usuario`
 --
 ALTER TABLE `registro_usuario`
-  MODIFY `id_regis_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_regis_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

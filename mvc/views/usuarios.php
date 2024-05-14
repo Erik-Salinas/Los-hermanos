@@ -17,51 +17,52 @@
         <button class="openMenu" id="openMenu"><i class="fa-solid fa-bars"></i></button>
         <nav class="nav" id="nav">
             <button class="closeMenu" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
-            <img src="../../../public/img/logo.png" alt="Los hermanos" srcset="../assets/perfil.png 2x" class="logo">
+            <img src="../public/img/logo.png" alt="Los hermanos" srcset="../assets/perfil.png 2x" class="logo">
             <ul class="navList">
                 <li><a href="panel.php"><i class="fa-solid fa-house"></i>Panel</a></li>
                 <li><a href="menu.php"><i class="fa-brands fa-product-hunt"></i>Menu</a></li>
                 <li><a href="pedidos.php"><i class="fa-solid fa-clipboard-list"></i></i>Pedidos</a></li>
                 <li><a href="productos.php"><i class="fa-solid fa-box-open"></i>Productos</a></li>
                 <li class="listActive"><a href="usuarios.html"><i class="fa-solid fa-user"></i></i>Usuarios</a></li>
-                <li><button type="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i>Cerrar sesión</button></li>
+                <li><a href="../../front-end/index.php" > <i class="fa-solid fa-arrow-right-to-bracket"></i>Cerrar sesión</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <?php
+    <?php
             $conexion= mysqli_connect("localhost","root","","loshermanos") or die ("Problemas con la conexion a la base de datos");
   
 
-            // ESTE IF ES POR SI HAY DATOS ENVIADOS DE OTRO ARCHIVO (EN ESTE CASO NO SERIA NECESARIO PERO POR LAS DUDAS LO DEJO)
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $registros= mysqli_query($conexion,"insert into menu (tipo,stock,tamaño,precio) values ('$_POST[type]','$_POST[stock]','$_POST[tam]','$_POST[price]')  ") or die ("Error al insertar los datos"); 
-            }
+
     
     
     
             
-            $registros = mysqli_query($conexion,"select * from menu") or die ("Problemas en la conexion con la tabla");
+            $registros = mysqli_query($conexion,"select * from registro_usuario") or die ("Problemas en la conexion con la tabla");
     
     
             //las opciones ya las cambie por unas q invente yo
             echo "<table>";
             echo "<tr class=titulo>";
-            echo "<td  >"."Usuario"."</td>";
-            echo "<td  >"."Constraseña"."</td>";
-            echo "<td >"."Mail"."</td>";
-            echo "<td  >"."Telefono". "</td>";
-            echo "<td  >"."Direccion". "</td>";
+            echo "<td  >"."ID"."</td>";
+            echo "<td  >"."Nombre"."</td>";
+            echo "<td >"."Apellido"."</td>";
+            echo "<td  >"."Usuario". "</td>";
+            echo "<td  >"."Email". "</td>";
+            echo "<td  >"."Fecha de Nacimineto". "</td>";
+            echo "<td  >"."Genero". "</td>";
             echo "</tr>"."<br>";
     
             while($reg=mysqli_fetch_array($registros)){
                 // HAY QUE CAMBIAR LO QUE SIGE A $REG CON LO QUE PONGAMOS EN LA BASE DE DATOS
                 echo "<tr class=opciones>";
-                echo "<td  >"."N°:".$reg['id_producto']."</td>" ;
-                echo "<td >".$reg['tipo']."</td>";
-                echo "<td >".$reg['stock']."</td>";
-                echo "<td >". $reg['tamaño']."</td>";
-                echo "<td >"."$".$reg['precio']."</td>";
+                echo "<td  >"."N°:".$reg['id_regis_usuario']."</td>" ;
+                echo "<td  >".$reg['name']."</td>" ;
+                echo "<td >".$reg['lastname']."</td>";
+                echo "<td >".$reg['user_registration']."</td>";
+                echo "<td >". $reg['email']."</td>";
+                echo "<td >".$reg['date']."</td>";
+                echo "<td >".$reg['sex']."</td>";
                 echo "</tr>";
     
             }
