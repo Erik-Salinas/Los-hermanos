@@ -65,12 +65,21 @@ header {
 
 
 /* ?Movil */
-.inicioS, .mainMenu {
+.inicioS{
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
     background-image: url('../img/fondo-login.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.mainMenu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
