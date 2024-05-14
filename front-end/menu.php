@@ -48,7 +48,8 @@
 		</p>
 		<p>info@yourdomain.com</p>
 	</div>
-</div>	<div id="side-search" class="sidenav">
+    </div>	
+    <div id="side-search" class="sidenav">
 	<a href="javascript:void(0)" id="side-search-close">&times;</a>
 	<div class="sidenav-content">
 		<form action="">
@@ -120,6 +121,7 @@
     </div>
 </div>
 </nav>	<!-- Menu Section -->
+
 <section id="gtco-menu" class="section-padding">
     <div class="container">
         <div class="section-content">
