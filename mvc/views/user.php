@@ -33,7 +33,7 @@
             <button type="submit" name="Iniciar" value="Iniciar">Iniciar sesión</button>
           </div>
           <div class="data">
-            <a href="#">¿Olvidaste tu cuenta?</a>
+            <a href="key-recovery.php">¿Olvidaste tu cuenta?</a>
             <a href="registre.php">Registrate</a>
           </div>
         </form>
