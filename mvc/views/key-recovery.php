@@ -22,8 +22,9 @@
         }
     </style>
     <main class="inicioS">
+
         <section class="login">
-            <form action="" method="post" autocomplete="off" class="loginForm">
+            <form action="../app/Controllers/Controller-recovery.php" method="post" autocomplete="off" class="loginForm">
             <div class="key-recovery">
                 <h1>Recupera tu cuenta</h1>
                 <p>Ingresa tu correo electrónico o número de celular para buscar tu cuenta.</p>
@@ -32,7 +33,7 @@
                     <input type="email" name="email" placeholder="Correo electrónico">
                 </div>
                 <div>
-                    <button type="submit" name="enviar" value="enviar">Enviar</button>
+                    <button type="submit" name="enviar" value="recovery">recovery</button>
                 </div>
             </form>
         </section>

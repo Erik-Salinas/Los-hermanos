@@ -19,7 +19,7 @@
         include ("../app/Controllers/Controller-registro.php");
       ?>
       <section class="login">
-        <form action="" method="post" autocomplete="off" class="loginForm">
+        <form action="#" method="post" autocomplete="off" class="loginForm">
           <div class="logo">
             <img src="../public/img/perfil.png" alt="Perfil de usuario" />
           </div>

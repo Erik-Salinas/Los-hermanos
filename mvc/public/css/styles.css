@@ -14,6 +14,8 @@
     --line-height-base: 1.5;
     --text-login-color: #ffffff;
     --text-login-color-titel:#ff7b1b;
+
+    --alert-login-color:red;
 }
 
 /* ?Reset */
@@ -225,7 +227,11 @@ header {
     font-family: var(--font-family-first);
     font-size: 0.8rem;
 }
-
+.alert h2{
+    background-color: var(--alert-login-color);
+    color: white;
+    font-size: 2rem;
+}
 .loginForm button,
 .signUpForm button {
     font-family: var(--font-family-first);
