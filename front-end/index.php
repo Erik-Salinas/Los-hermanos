@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE php>
 <html lang="es">
 
@@ -264,7 +267,7 @@
                                 <h3><span>Pizza Margarita:</span></h3>
                                 <p class="pt-3">La Pizza Margarita es una elección clásica y atemporal que nunca decepciona. Su sencillez es su mayor fortaleza, ya que combina la frescura del tomate con la suavidad de la mozzarella y el aroma distintivo de la albahaca fresca. Esta pizza es ideal para aquellos que buscan una experiencia auténtica y tradicional italiana. La combinación de sabores naturales y la delicadeza de la albahaca hacen que cada bocado sea una verdadera delicia. Además, su versatilidad la convierte en una opción perfecta para cualquier ocasión, desde una cena informal con amigos hasta una comida familiar. Si buscas una pizza que resalte los sabores básicos pero deliciosos de la cocina italiana, la Pizza Margarita es definitivamente la elección perfecta.</p>
                                 <h3 class="special-dishes-price">$12.00</h3>
-                                <a href="#" class="btn-primary mt-3">Comprar <span><i class="fa fa-long-arrow-right"></i></span></a>
+                                <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                             </div>
                         </div>
                     </div>
@@ -303,7 +306,7 @@
                                         </div>
                                     </div>
                                     <p>Tomate, Mozzarella, Albahaca fresca</p>
-                                    <a href="#">Comprar</a>
+                                    <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
@@ -320,7 +323,7 @@
                                         </div>
                                     </div>
                                     <p>Salsa de tomate, Mozzarella, Jamón, Piña</p>
-                                    <a href="#">Comprar</a>
+                                    <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
@@ -337,7 +340,7 @@
                                         </div>
                                     </div>
                                     <p>Salsa de tomate, Mozzarella, Pepperoni</p>
-                                    <a href="#">Comprar</a>
+                                    <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                                 </div>
                             </div>
                         </div>
@@ -360,7 +363,7 @@
                                         Champiñones,
                                         Pimientos,
                                         Cebolla</p>
-                                    <a href="#">Comprar</a>
+                                        <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
@@ -380,7 +383,7 @@
                                         Mozzarella,
                                         Queso parmesano,
                                         Queso azul</p>
-                                    <a href="#">Comprar</a>
+                                        <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
@@ -401,7 +404,7 @@
                                         Pollo a la parrilla,
                                         Cebolla roja,
                                         Maíz dulce</p>
-                                    <a href="#">Comprar</a>
+                                        <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                                 </div>
                             </div>
                         </div>
@@ -426,7 +429,7 @@
                                         Calamares,
                                         Gambas,
                                         Almejas</p>
-                                    <a href="#">Comprar</a>
+                                        <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
@@ -447,7 +450,7 @@
                                         Jamón,
                                         Champiñones,
                                         Aceitunas</p>
-                                    <a href="#">Comprar</a>
+                                        <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                                 </div>
                             </div>
                             <div class="menus d-flex align-items-center">
@@ -468,7 +471,7 @@
                                         Salami picante,
                                         Jalapeños,
                                         Aceitunas negras</p>
-                                    <a href="#">Comprar</a>
+                                        <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                                 </div>
                             </div>
                         </div>

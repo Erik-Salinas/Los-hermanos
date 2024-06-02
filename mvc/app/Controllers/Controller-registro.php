@@ -22,6 +22,7 @@
     
             if ($sql == 1) {  // Comprueba si la ejecución de la consulta fue exitosa (puede variar según el sistema de base de datos)
                 echo "<div class='alert alert-success text-center'><h2 style='font-size: 0.8em;'>USUARIO REGISTRADO CORRECTAMENTE</h2></div>";
+                // header("location: ../views/user.php");  <- Si se pone envia automaticamente al usuario a iniciar sesion pero NO aparece la linea de arriba
                 // Muestra mensaje de éxito al registrarse
             } else {
                 echo "<div class='alert alert-danger text-center'><h2 style='font-size: 0.8em;'>ERROR AL REGISTRAR</h2></div>";

@@ -27,6 +27,30 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <form class="nuevoProdu" action="../app/Controllers/Controller-editmenu.php  " method="post">
+            ID
+            <input type="number" autocomplete="off" name="id" id="id">
+            <br>
+            TIPO
+            <input type="text" autocomplete="off" name="typee" id="typee">
+            <br>
+            STOCK
+            <input type="number" autocomplete="off" name="stock" id="stock">
+            <br>
+            TAMAÑO
+            <select name="tam" id="tam">
+                <option value="Chica">Chica</option>
+                <option value="Grande">Grande</option>
+            </select>
+            <br>
+            PRECIO
+            <input type="number"autocomplete="off"  name="price" id="price">
+            <br>
+            <button class="ag" type="submit">Editar</button>
+        </form>
+        </form>
+    </main>
     <script src="../public/js/menu.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php 
+session_start();// Se necesita iniciar sesion para que luego se pueda usar la varibale USER
     if(!empty($_POST["Iniciar"])){
         if(empty($_POST["user"]) and empty($_POST["password"])){
             //anidada verifica si ambos campos del formulario enviado están vacíos. Si ambos están vacíos, significa que el usuario no ingresó ninguna credencial. 
@@ -11,11 +12,13 @@
             //Consulta a la Base de Datos
             $sql = $conexion->query("select * from registro_usuario  where user_registration ='$user' and registry_key  ='$password'");
             if($data = $sql->fetch_object()){
-                header("location: ../../front-end/index.php");
-            }
+                    $_SESSION['user'] = $user; //Es una variable de sesión en PHP. Las variables de sesión se utilizan para almacenar información del usuario durante su visita a un sitio web.
+                    header("location: ../../front-end/index.php");
+                    exit();
+                }
             else{
                 echo"<div> <h2>ACCESO DENEGADO <h2/> </div>";
-            }
+            }}
         }
-    }
+    
 ?>
