@@ -12,16 +12,18 @@ require '../../phpmailer/Exception.php';
 require '../../phpmailer/PHPMailer.php';
 require '../../phpmailer/SMTP.php';
 
-include ("../../config/conexcion.php");
+include("../../config/conexcion.php");
 
 // Verifica si el formulario ha sido enviado
 if (!empty($_POST["email"])) {
     $email = $conexion->real_escape_string($_POST["email"]);
 
-    // Verifica si el correo está registrado y activo
-    $sql = $conexion->query("SELECT * FROM registro_usuario WHERE email ='$email'");
+    // Consulta para obtener el correo electrónico y el token del usuario específico
+    $sql = $conexion->query("SELECT email, reset_token FROM registro_usuario WHERE email ='$email'");
 
     if ($data = $sql->fetch_object()) {
+        $destinatario = $data->email;
+
         // Crear una instancia de PHPMailer
         $mail = new PHPMailer(true);
 
@@ -36,27 +38,27 @@ if (!empty($_POST["email"])) {
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Habilitar cifrado TLS implícito
             $mail->Port = 465; // Puerto TCP
 
-            // Configuración del remitente y destinatarios
+            // Configuración del remitente y destinatario
             $mail->setFrom('erik61869@gmail.com', 'Erik');
-            $mail->addAddress($email);
+            $mail->addAddress($destinatario);
 
             // Contenido del correo
             $mail->isHTML(true);
             $mail->Subject = 'Recuperación de Contraseña';
             $mail->Body = " <html>
-            <head>
-                <title>Recuperación de Contraseña</title>
-            </head>
-            <body>
-                <p>Hola,</p>
-                <p>Hemos recibido una solicitud para restablecer tu contraseña. Si no realizaste esta solicitud, por favor ignora este correo electrónico. De lo contrario, haz clic en el enlace a continuación para restablecer tu contraseña:</p>
-                <p><a href='http://localhost/los-hermanos/mvc/views/reset_password.php?token={$data->reset_token}'>Restablecer Contraseña</a></p>
-                <p>Si tienes algún problema, por favor contacta con nuestro soporte técnico.</p>
-                <p>Gracias,</p>
-                <p>Equipo de Soporte</p>
-            </body>
-            </html>";
-           
+             <head>
+                 <title>Recuperación de Contraseña</title>
+             </head>
+             <body>
+             <p>Hola,</p>
+             <p>Hemos recibido una solicitud para restablecer tu contraseña. Si no realizaste esta solicitud, por favor ignora este correo electrónico. De lo contrario, haz clic en el enlace a continuación para restablecer tu contraseña:</p>
+             <p><a href='http://localhost/los-hermanos/mvc/views/reset_password.php?token={$data->reset_token}'>Restablecer Contraseña</a></p>
+             <p>Si tienes algún problema, por favor contacta con nuestro soporte técnico.</p>
+             <p>Gracias,</p>
+             <p>Equipo de Soporte</p>
+             </body>
+             </html>";
+
             // Enviar el correo
             $mail->send();
             echo 'El mensaje se envió correctamente. Revisa tu correo electrónico.';
@@ -66,6 +68,6 @@ if (!empty($_POST["email"])) {
     } else {
         echo "<div><h2>El correo no está registrado</h2></div>";
     }
+} else {
+    echo "<div><h2>No se ha proporcionado un correo electrónico</h2></div>";
 }
-
-?>

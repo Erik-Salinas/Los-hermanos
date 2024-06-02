@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Actualiza la contraseña en la base de datos
         $conexion->query("UPDATE registro_usuario SET registry_key='$hashed_password', reset_token=NULL WHERE reset_token='$token'");
 
-        echo "<div><h2>Tu contraseña ha sido actualizada. Ahora puedes <a href='../../front-end/index.php'>iniciar sesión</a>.</h2></div>";
+        echo "<div><h2>Tu contraseña ha sido actualizada. Ahora puedes <a href='user.php'>iniciar sesión</a>.</h2></div>";
     }
 }
 ?>

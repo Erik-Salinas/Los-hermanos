@@ -23,10 +23,10 @@
             <img src="../public/img/logo.png" alt="Logo de empresa" />
           </div>
           <div class="input">
-            <input type="text" name="user" placeholder="Usuario" required>
+            <input type="text" name="user" placeholder="Usuario" >
           </div>
           <div class="input">
-            <input type="text" name="password"  placeholder="Contraseña" required>
+            <input type="password" name="password"  placeholder="Contraseña" >
           </div>
           <div>
           <button type="submit" name="Iniciar" value="Iniciar">Iniciar sesión</button>
