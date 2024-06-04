@@ -28,9 +28,10 @@
             </ul>
         </nav>
     </header>
-    <main class="mainMenu">
-        <div>
+    <main class="">
+        <div class="botones">
             <button ><a href="nuevo-producto.php">Agregar</a></button>
+            <button ><a href="edit-menu.php">Editar</a></button>
         </div>
         <?php
             $conexion= mysqli_connect("localhost","root","","loshermanos") or die ("Problemas con la conexion a la base de datos");

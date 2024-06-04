@@ -369,7 +369,11 @@ button a{
     color: var(--text-first-color);
     padding: 6%;
 }
-
+.botones{
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
 .nuevoProdu{
     width: 80vw;
     background-color: rgba(244, 180, 121, 0.398);

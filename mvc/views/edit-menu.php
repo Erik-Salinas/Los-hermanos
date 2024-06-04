@@ -10,6 +10,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Panel</title>
     <link rel="stylesheet" href="../public/css/styles.css" />
+
+    <script>
+        function showAlert(message) {
+            alert(message);
+        }
+    </script>
+
 </head>
 <body>
     <header>
@@ -27,27 +34,27 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <form class="nuevoProdu" action="../app/Controllers/Controller-editmenu.php  " method="post">
+    <main class="mainMenu">
+        <form class="nuevoProdu" action="../app/Controllers/Controller-editarmenu.php  " method="post">
             ID
             <input type="number" autocomplete="off" name="id" id="id">
             <br>
             TIPO
-            <input type="text" autocomplete="off" name="typee" id="typee">
+            <input type="text" autocomplete="off" name="tipo" id="tipo">
             <br>
             STOCK
             <input type="number" autocomplete="off" name="stock" id="stock">
             <br>
             TAMAÑO
-            <select name="tam" id="tam">
+            <select name="tamaño" id="tamaño">
                 <option value="Chica">Chica</option>
                 <option value="Grande">Grande</option>
             </select>
             <br>
             PRECIO
-            <input type="number"autocomplete="off"  name="price" id="price">
+            <input type="number"autocomplete="off"  name="precio" id="precio">
             <br>
-            <button class="ag" type="submit">Editar</button>
+            <button class="ag" type="submit">Confirmar</button>
         </form>
         </form>
     </main>
