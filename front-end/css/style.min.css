@@ -441,16 +441,81 @@ a:hover {
   margin-bottom: 1rem;
   border-radius: 10%;
 }
-.agregado{
-  margin: 1rem;
+.agregado-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+  max-height: 40%;
+  overflow-y: auto;
 }
-.delet{
-  color: rgba(255, 0, 0, 0.778);
+
+.agregado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.info {
+  flex-grow: 1;
+}
+
+.agregado h5, .agregado p {
+  margin: 0;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-controls button {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.quantity-controls span {
+  width: 30px;
+  text-align: center;
+}
+
+button.delet {
+  background: none;
   border: none;
-  background-color: white;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
 }
-.btn_card button{ 
-  margin: 1rem;
+
+button.delet-all {
+  display: block;
+  width: 100%;
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+}
+button.pay{
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
 }
 
 /*=====  End of SideNav  ======*/

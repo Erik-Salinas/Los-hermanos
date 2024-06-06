@@ -133,25 +133,74 @@ const app = new Vue({
     },
     computed: {
         cantidad: function() {
-            return this.carrito.length;
+            return this.carrito.reduce((total, producto) => total + producto.cantidad, 0);
         },
         total() {
-            let suma = 0;
-            for (let i = 0; i < this.carrito.length; i++) {
-                suma = suma + this.carrito[i].precio;
+            return this.carrito.reduce((accumulator, product) => accumulator + (product.precio * product.cantidad), 0);
+        }
+    },
+    watch: {
+        total(newValue, oldValue) {
+            const totalElement = document.getElementById('tot');
+            if (totalElement) {
+                totalElement.value = newValue;
             }
-            return suma;
-        },
+        }
     },
     methods: {
         agregar(producto) {
-            this.carrito.push(producto);
+            let item = this.carrito.find(p => p.id === producto.id);
+            if (item) {
+                item.cantidad++;
+            } else {
+                this.carrito.push({ ...producto, cantidad: 1 });
+            }
+        },
+        incrementar(index) {
+            this.carrito[index].cantidad++;
+        },
+        decrementar(index) {
+            if (this.carrito[index].cantidad > 1) {
+                this.carrito[index].cantidad--;
+            } else {
+                this.carrito.splice(index, 1);
+            }
         },
         borrar(index) {
-            this.carrito.splice(index, 1);
+            if (this.carrito[index].cantidad > 1) {
+                this.carrito[index].cantidad--;
+            } else {
+                this.carrito.splice(index, 1);
+            }
         },
         borrarTodo() {
             this.carrito = [];
         },
+        pagar() {
+            // Itera sobre los productos en el carrito y crea un array de objetos para enviar
+            const data = this.carrito.map(producto => ({
+                tipo: producto.nombre,
+                tamaño: producto.tamaño,
+                precio: producto.precio,
+                cantidad: producto.cantidad
+            }));
+    
+            fetch('../../mvc/app/Controllers/Controller-guardarpedido.php', {
+                method: 'POST',
+                action:'../../mvc/app/Controllers/Controller-guardarpedido.php', // Investigar
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data) // Envía el array de objetos JSON
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                this.borrarTodo();
+            })
+            .catch(error => {
+                console.error('Error', error);
+            });
+        }
     },
 });
