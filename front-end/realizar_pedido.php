@@ -201,7 +201,7 @@
                 <h6 id="tot">TOTAL: ${{total}}</h6>
                 <button @click="borrarTodo" class="delet-all">Borrar todo</button>
                 <input type="hidden" name="total" :value="total">
-                <button type="submit" @click="pagar" class="pay"><a href="http://mercadopago.com">Pagar</a></button>
+                <button type="submit" @click="pagar" class="pay">Pagar</button>
             </div>
         </div>
     </main>
