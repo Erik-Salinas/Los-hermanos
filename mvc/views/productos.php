@@ -44,7 +44,7 @@
     
     
         while($reg=mysqli_fetch_array($registros)){
-    
+            echo "<div class='pedidos '><h2>PRODUCTOS</h2></div>";
             echo "<div class=card> ";
             echo "<img>".$reg['imagen']."</img>";
             echo "<h3 >".$reg['tipo']."</h3>";

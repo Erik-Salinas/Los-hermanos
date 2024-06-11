@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <!-- Verifica que la ruta al archivo CSS sea correcta -->
     <link rel="stylesheet" href="../public/css/styles.css" />
 </head>
+
 <body>
     <!--* VICKY Y ERIK  -->
     <header>
@@ -29,27 +31,53 @@
         </nav>
     </header>
     <main>
-    <?php
+        <?php
         $conexion = mysqli_connect("localhost", "root", "", "loshermanos") or die("Problemas con la conexion a la base de datos");
 
         $registros = mysqli_query($conexion, "SELECT * FROM registro_usuario") or die("Problemas en la conexión con la tabla");
         echo "<div class='cliente '><h2>CLIENTES</h2></div>";
         echo "<table>";
         echo "<tr class='titulo'>";
-        echo "<td>Cliente</td>";
-        echo "<td>Apellido</td>";
+        echo "<td class='nameCliente'>CLIENTE</td>";
+        echo "<td class='lastnameCliente'>APELLIDO</td>";
         echo "</tr>";
 
-        while($reg = mysqli_fetch_array($registros)) {
+        while ($reg = mysqli_fetch_array($registros)) {
             echo "<tr class='opciones'>";
-            echo "<td>".$reg['name']."</td>";
-            echo "<td>".$reg['lastname']."</td>";
+            echo "<td>" . $reg['name'] . "</td>";
+            echo "<td>" . $reg['lastname'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+
+
+        $registros = mysqli_query($conexion, "select * from pedido") or die("Problemas en la conexion con la tabla");
+
+
+        //las opciones ya las cambie por las q estan en el diseño
+        echo "<div class='pedidos '><h2>PEDIDOS</h2></div>";
+        echo "<table>";
+        echo "<tr class=titulo>";
+        echo "<td class='nameCliente' >" . "TIPO" . "</td>";
+        echo "<td class='lastnameCliente' >" . "TAMAÑO" . "</td>";
+        echo "<td class='nameCliente' >" . "TOTAL" . "</td>";
+        echo "</tr>" . "<br>";
+
+        while ($reg = mysqli_fetch_array($registros)) {
+
+            // HAY QUE CAMBIAR LO QUE SIGE A $REG CON LO QUE PONGAMOS EN LA BASE DE DATOS
+
+            echo "<tr class=opciones>";
+            echo "<td >" . $reg['tipo'] . "</td>";
+            echo "<td >" . $reg['tamaño'] . "</td>";
+            echo "<td >" . "$" . $reg['total'] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
         mysqli_close($conexion);
-    ?>
+        ?>
     </main>
     <script src="../public/js/menu.js"></script>
 </body>
+
 </html>

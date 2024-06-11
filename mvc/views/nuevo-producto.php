@@ -29,27 +29,27 @@
         </nav>
     </header>
     <main class="mainMenu">
-        <form class="nuevoProdu" action="mvc\resources\views\prototipos\menu.php" method="post">
-            
-            TIPO
-            <input type="text" autocomplete="off" name="type" id="">
-            <br>
-            STOCK
-            <input type="number" autocomplete="off" name="stock" id="">
-            <br>
-            TAMAÑO
-            <select name="tam" id="">
-                <option value="Chica">Chica</option>
-                <option value="Grande">Grande</option>
-            </select>
-            <br>
-            PRECIO
-            <input type="number"autocomplete="off"  name="price" id="">
-            <br>
-            <button class="ag" type="submit">Agregar</button>
-            <button class="delet" type="reset">Eliminar</button>
-        </form>
-    </main>
+    <form class="nuevoProdu" action="menu.php" method="post" enctype="multipart/form-data">
+        TIPO
+        <input type="text" autocomplete="off" name="type" id="">
+        <br>
+        STOCK
+        <input type="number" autocomplete="off" name="stock" id="">
+        <br>
+        TAMAÑO
+        <select name="tam" id="">
+            <option value="Chica">Chica</option>
+            <option value="Grande">Grande</option>
+        </select>
+        <br>
+        PRECIO
+        <input type="number" autocomplete="off" name="price" id="">
+        <br>
+        <button class="ag" type="submit">Agregar</button>
+        <button class="delet" type="reset">Eliminar</button>
+    </form>
+</main>
+
     <script src="../public/js/menu.js"></script>
 </body>
 </html>

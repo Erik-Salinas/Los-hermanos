@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,28 +24,31 @@
     <link rel="stylesheet" href="css/style.min.css">
     <!--Font awesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    
     <!-- Modernizr JS for IE8 support of php5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+     <!-- Incluye Axios desde un CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+</head>
 <body>
-    <?php
+<?php
     session_start();
 
-    // Iniciar sesión si no está iniciada
-    if (!isset($_SESSION['user'])) {
-        header("Location: ../mvc/views/user.php");
-        exit();
-    }
-    // Mostrar una ventana emergente con el mensaje de bienvenida usando JavaScript
-    $username = strtoupper($_SESSION['user']);
+// Iniciar sesión si no está iniciada
+/*      if (!isset($_SESSION['user'])) {
+    header("Location: ../mvc/views/user.php");
+    exit();
+}  */
+// Mostrar una ventana emergente con el mensaje de bienvenida usando JavaScript
+$username = strtoupper($_SESSION['user']);
 
-    // Mensaje de bienvenida personalizado
-    $message = "¿QUÉ VAS A LLEVAR HOY $username?"; // Puedes personalizar este mensaje según tus necesidades
+// Mensaje de bienvenida personalizado
+$message = "¿QUÉ VAS A LLEVAR HOY $username?"; // Puedes personalizar este mensaje según tus necesidades
 
-    // Generar un script para mostrar una ventana emergente con estilo personalizado
-    echo "<script>
+// Generar un script para mostrar una ventana emergente con estilo personalizado
+echo "<script>
         // Crear un div para la ventana emergente
         var customAlert = document.createElement('div');
         // Aplicar estilos CSS al div de la ventana emergente
@@ -73,7 +75,8 @@
             customAlert.style.display = 'none';
         }, 2000); // 2000 milisegundos = 2 segundos
       </script>";
-    ?>
+
+?>
     <header>
         <div id="side-nav" class="sidenav">
             <a href="javascript:void(0)" id="side-nav-close">&times;</a>
@@ -108,7 +111,7 @@
 
         </div>
         <div id="canvas-overlay"></div>
-        <div class="boxed-page">
+        
             <nav id="navbar-header" class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">
@@ -153,59 +156,216 @@
                                 </li>
                             </div>
                             <li class="nav-item">
-                                <a id="side-search-open" class="nav-link" href="../mvc/views/user.php">
-                                    <i class="fa-solid fa-user "></i>
-                                </a>
-                            </li>
+                            <!-- Button trigger modal -->
+                            <button type="button" id="side-search-open" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fa-solid fa-user "></i>
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <a id="side-search-open" class="nav-link" href="../mvc/views/user.php">
+                                                Usuario
+                                            </a>
+                                            <a id="side-search-open" class="nav-link" href="../mvc/views/company.php">
+                                                Empresa
+                                            </a>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-    </header>
-    <main id="app" class="">
+</header>
+    <main >
+    <div class="heading-section text-center">
+                <h2 class="subheading">Productos</h2>
+            </div>
+    <div class="products" id="product-list"></div>
 
-        <div class="heading-section text-center">
-            <h2 class="subheading">Productos</h2>
-        </div>
+    <h2>Carrito</h2>
+    <div class="cart">
+        <ul id="cart-items"></ul>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+    <script>
 
-        <div>
-            <div class="card" v-for="(producto, index) in producto" :key="producto.id">
-                <img :src="producto.imagen" alt="">
-                <h3>{{producto.nombre}}</h3>
-                <h4>{{producto.tamaño}}</h4>
-                <p>${{producto.precio}}</p>
-                <div class="btn_card">
-                    <button @click="agregar(producto)" class="btn-primary mt-3">Agregar</button>
+let cart = [];
+
+function addToCart(tipo, precio) {
+    cart.push({ tipo: tipo, precio: precio });
+    updateCartUI();
+}
+
+function updateCartUI() {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+    cart.forEach((item, index) => {
+        cartItems.innerHTML += `
+            <li>
+                <img src="${item.img}" alt="${item.tipo}" style="width:50px; height:50px;">
+                ${item.tipo} - $${item.precio} - ${item.tam}
+                <button onclick="removeFromCart(${index})">Eliminar</button>
+            </li>
+        `;
+    });
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+}
+
+function checkout() {
+    fetch('../mvc/app/Controllers/Controller-guardarpedido.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cart)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert('Compra realizada: ' + data);
+        cart = [];
+        updateCartUI();
+
+
+        const message = encodeURIComponent('¡Hola! He realizado una compra en su tienda. Mi número de pedido es: ' + data);
+
+        const whatsappUrl = `https://wa.me/+5491132742025?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+function loadProducts() {
+    console.log('Cargando productos...');
+    fetch('../mvc/app/Controllers/Controller-mostrarproductos.php')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('La respuesta no fue exitosa');
+        }
+        return response.json();
+    })
+    .then(products => {
+
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = ''; // Limpiar el contenido antes de agregar nuevos productos
+
+        if (!Array.isArray(products)) {
+            throw new Error('Los productos no están en un formato válido');
+        }
+
+        products.forEach(product => {
+            // Crear un elemento de imagen
+            const img = document.createElement('img');
+            img.src = product.img; // Asignar la URL de la imagen
+
+            // Crear un h3 para mostrar el nombre del producto
+            const nom = document.createElement('h3');
+            nom.textContent = product.nombre;
+
+            // Crear un h4 para mostrar el tamaño del producto
+            const tam = document.createElement('h4');
+            tam.textContent = product.tamaño;
+
+            // Crear un p para mostrar el precio del producto
+            const pre = document.createElement('p');
+            pre.textContent = '$' + product.precio;
+
+            // Crear un botón para agregar al carrito
+            const addButton = document.createElement('button');
+            addButton.textContent = 'Agregar';
+            addButton.onclick = function() {
+                addToCart(product.nombre, product.precio,product.tam,product.img);
+            };
+
+            // Asignar la clase "btn_card" al botón
+            addButton.classList.add("btn-primary");
+
+            // Crear un div con la clase card para contener la información del producto
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card');
+
+            // Agregar los elementos al div de la tarjeta (card)
+            cardDiv.appendChild(img);
+            cardDiv.appendChild(nom);
+            cardDiv.appendChild(tam);
+            cardDiv.appendChild(pre);
+            cardDiv.appendChild(addButton);
+
+            // Agregar la tarjeta al listado de productos
+            productList.appendChild(cardDiv);
+        });
+    })
+    .catch(error => console.error('Error al cargar productos:', error));
+}
+
+
+
+
+
+// Llamar a la función para cargar productos al cargar la página
+window.onload = loadProducts;</script>
+    <!-- <div id="app">
+            <div class="heading-section text-center">
+                <h2 class="subheading">Productos</h2>
+            </div>
+        
+            <div>
+                <div class="card" v-for="(producto, index) in producto" :key="producto.id">
+                    <img :src="producto.imagen" alt="">
+                    <h3>{{ producto.nombre }}</h3>
+                    <h4>{{ producto.tamaño }}</h4>
+                    <p>${{ producto.precio }}</p>
+                    <div class="btn_card">
+                        <button @click="agregar(producto)" class="btn-primary mt-3">Agregar</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        
         <div class="agregado-container">
-            <form id="pedidoForm" action="../mvc/app/Controller-guardarpedido.php" method="POST">
-                <div class="agregado" v-for="(producto, index) in carrito" :key="producto.id">
-                    <div class="info">
-                        <h5>{{ producto.nombre }}</h5>
-                        <p>${{ producto.precio * producto.cantidad }}</p>
-                    </div>
-                    <div class="quantity-controls">
-
-                        <button @click.prevent="decrementar(index)">-</button>
-
-                        <span>{{ producto.cantidad }}</span>
-                        <button @click.prevent="incrementar(index)">+</button>
-                    </div>
-
-                </div>
-            </form>
-            <div v-if="carrito.length > 0">
-                <br>
-                <h6 id="tot">TOTAL: ${{total}}</h6>
-                <button @click="borrarTodo" class="delet-all">Borrar todo</button>
-                <input type="hidden" name="total" :value="total">
-                <button type="submit" @click="pagar" class="pay">Pagar</button>
+        <div class="agregado" v-for="(producto, index) in carrito" :key="producto.id">
+            <div class="info">
+                <h5>{{ producto.nombre }}</h5>
+                <p>${{ producto.precio * producto.cantidad }}</p>
             </div>
+            <div class="quantity-controls">
+               
+                <button @click.prevent="decrementar(index)">-</button>
+                <span>{{ producto.cantidad }}</span>
+                <button @click.prevent="incrementar(index)">+</button>
+            </div>
+           
         </div>
-    </main>
+        <div v-if="carrito.length > 0">
+            <br>
+            <h6 id="tot">TOTAL: ${{total}}</h6>
+            <button @click="borrarTodo" class="delet-all">Borrar todo</button>
+            <input type="hidden" name="total" :value="total">
+            <button type="submit" @click="pagar"  class="pay"><a href="../mvc/app/Controllers/Controller-guardarpedido.php">Pagar</a></button>
+        </div>    
+        </div>
+    </div> -->
 
+</main>
     <footer>
         <div class="inner container">
             <div class="row">
@@ -265,9 +425,10 @@
     </footer>
     </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="../public/js/menu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="../front-end/js/comprar.js"></script>
+
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="vendor/bootstrap/popper.min.js"></script>
@@ -280,7 +441,5 @@
 
     <!-- Main JS -->
     <script src="js/app.min.js "></script>
-
 </body>
-
 </html>

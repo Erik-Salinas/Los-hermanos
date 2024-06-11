@@ -28,49 +28,61 @@
             </ul>
         </nav>
     </header>
-    <main class="mainMenu">
-        <div>
-            <button ><a href="nuevo-producto.php">Agregar</a></button>
-        </div>
-        <?php
-            $conexion= mysqli_connect("localhost","root","","loshermanos") or die ("Problemas con la conexion a la base de datos");
-    
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $registros= mysqli_query($conexion,"insert into menu (tipo,stock,tamaño,precio) values ('$_POST[type]','$_POST[stock]','$_POST[tam]','$_POST[price]')  ") or die ("Error al insertar los datos"); 
+    <main>
+    <div>
+        <button><a href="nuevo-producto.php">Agregar</a></button>
+    </div>
+    <?php
+        $conexion = mysqli_connect("localhost", "root", "", "loshermanos") or die("Problemas con la conexión a la base de datos");
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['type'])) {
+            $registros = mysqli_query($conexion, "INSERT INTO menu (tipo, stock, tamaño, precio) VALUES ('{$_POST['type']}', '{$_POST['stock']}', '{$_POST['tam']}', '{$_POST['price']}')") or die("Error al insertar los datos");
+        }
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_id'])) {
+            $delete_id = $_POST['delete_id'];
+            $deleteQuery = "DELETE FROM menu WHERE id_producto = $delete_id";
+            mysqli_query($conexion, $deleteQuery) or die("Error al eliminar el producto");
+
+            if (isset($_POST['is_ajax'])) {
+                echo json_encode(['success' => true]);
+                exit;
             }
-    
-    
-    
-            
-            $registros = mysqli_query($conexion,"select * from menu") or die ("Problemas en la conexion con la tabla");
-    
-    
-            
-            echo "<table>";
-            echo "<tr class=titulo>";
-            echo "<td  >"."Id"."</td>";
-            echo "<td  >"."Tipo"."</td>";
-            echo "<td >"."Cantidad"."</td>";
-            echo "<td  >"."Tamaño". "</td>";
-            echo "<td  >"."Precio". "</td>";
-            echo "</tr>"."<br>";
-    
-            while($reg=mysqli_fetch_array($registros)){
-    
-                echo "<tr class=opciones>";
-                echo "<td  >"."N°:".$reg['id_producto']."</td>" ;
-                echo "<td >".$reg['tipo']."</td>";
-                echo "<td >".$reg['stock']."</td>";
-                echo "<td >". $reg['tamaño']."</td>";
-                echo "<td >"."$".$reg['precio']."</td>";
-                echo "</tr>";
-    
-            }
-            echo "</table>";
-            mysqli_close($conexion);
-        ?>
-    
-    </main>
+        }
+
+        $registros = mysqli_query($conexion, "SELECT * FROM menu") or die("Problemas en la conexión con la tabla");
+
+        echo "<div class='pedidos'><h2>MENU</h2></div>";
+        echo "<table>";
+        echo "<tr class='titulo'>";
+        echo "<td class='nameCliente'>ID</td>";
+        echo "<td class='lastnameCliente'>TIPO</td>";
+        echo "<td class='nameCliente'>CANTIDAD</td>";
+        echo "<td class='lastnameCliente'>TAMAÑO</td>";
+        echo "<td class='nameCliente'>PRECIO</td>";
+        echo "<td class='nameCliente'>Acción</td>";
+        echo "</tr><br>";
+
+        while ($reg = mysqli_fetch_array($registros)) {
+            echo "<tr class='opciones'>";
+            echo "<td>N°:{$reg['id_producto']}</td>";
+            echo "<td>{$reg['tipo']}</td>";
+            echo "<td>{$reg['stock']}</td>";
+            echo "<td>{$reg['tamaño']}</td>";
+            echo "<td>$ {$reg['precio']}</td>";
+            echo "<td>
+                    <form method='post' action=''>
+                        <input type='hidden' name='delete_id' value='{$reg['id_producto']}'>
+                        <button type='submit' style='color:red; cursor: pointer;' >Eliminar</button>
+                    </form>
+                  </td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        mysqli_close($conexion);
+    ?>
+</main>
+
     <script src="../public/js/menu.js"></script>
 </body>
 </html>
