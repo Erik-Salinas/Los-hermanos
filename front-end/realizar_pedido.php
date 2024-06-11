@@ -30,7 +30,13 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
      <!-- Incluye Axios desde un CDN -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <style>
+        .card { border: 1px solid #ccc; padding: 16px; margin: 16px; text-align: center; }
+        .cart-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .cart-item img { width: 50px; height: 50px; }
+        .quantity-controls { display: flex; align-items: center; }
+        .quantity-controls button { margin: 0 5px; }
+    </style>
 </head>
 <body>
 <?php
@@ -167,21 +173,27 @@ echo "<script>
 </header>
     <main >
     <div class="heading-section text-center">
-                <h2 class="subheading">Productos</h2>
-            </div>
-    <div class="products" id="product-list"></div>
+    <h2 class="subheading">Productos</h2>
+</div>
+<div class="products" id="product-list"></div>
+<h2>Carrito</h2>
+<div class="cart">
+    <ul id="cart-items"></ul>
+    <p id="cart-total">Total: $0</p>
+    <button onclick="checkout()">Checkout</button>
+</div>
 
-    <h2>Carrito</h2>
-    <div class="cart">
-        <ul id="cart-items"></ul>
-        <button onclick="checkout()">Checkout</button>
-    </div>
-    <script>
-
+<script>
 let cart = [];
 
-function addToCart(tipo, precio) {
-    cart.push({ tipo: tipo, precio: precio });
+function addToCart(tipo, precio, tam, img) {
+    const productKey = `${tipo}-${precio}-${tam}-${img}`;
+    const productIndex = cart.findIndex(item => item.key === productKey);
+    if (productIndex !== -1) {
+        cart[productIndex].cantidad += 1;
+    } else {
+        cart.push({ key: productKey, tipo: tipo, precio: precio, tam: tam, img: img, cantidad: 1 });
+    }
     updateCartUI();
 }
 
@@ -190,13 +202,33 @@ function updateCartUI() {
     cartItems.innerHTML = '';
     cart.forEach((item, index) => {
         cartItems.innerHTML += `
-            <li>
-                <img src="${item.img}" alt="${item.tipo}" style="width:50px; height:50px;">
-                ${item.tipo} - $${item.precio} - ${item.tam}
+            <li class="cart-item">
+                <img src="${item.img}" alt="${item.tipo}">
+                <span>${item.tipo} - $${item.precio} - ${item.tam}</span>
+                <div class="quantity-controls">
+                    <button onclick="decrementar(${index})">-</button>
+                    <span>${item.cantidad}</span>
+                    <button onclick="incrementar(${index})">+</button>
+                </div>
                 <button onclick="removeFromCart(${index})">Eliminar</button>
             </li>
         `;
     });
+    updateCartTotal();
+}
+
+function incrementar(index) {
+    cart[index].cantidad += 1;
+    updateCartUI();
+}
+
+function decrementar(index) {
+    if (cart[index].cantidad > 1) {
+        cart[index].cantidad -= 1;
+    } else {
+        cart.splice(index, 1);
+    }
+    updateCartUI();
 }
 
 function removeFromCart(index) {
@@ -204,19 +236,42 @@ function removeFromCart(index) {
     updateCartUI();
 }
 
+function clearCart() {
+    cart = [];
+    updateCartUI();
+}
+
+function updateCartTotal() {
+    const total = cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+    document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
+}
+
 function checkout() {
+    const order = {
+        productos: cart,
+        total: cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0)
+    };
+
     fetch('../mvc/app/Controllers/Controller-guardarpedido.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(cart)
+        body: JSON.stringify(order)
     })
     .then(response => response.text())
     .then(data => {
         alert('Compra realizada: ' + data);
         cart = [];
         updateCartUI();
+
+        const message = encodeURIComponent('¡Hola! He realizado una compra en su tienda. Mi número de pedido es: ' + data);
+
+        const phoneNumber = '+5491132742025'; // Número de teléfono de WhatsApp
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+
+
     })
     .catch(error => console.error('Error:', error));
 }
@@ -246,7 +301,7 @@ function loadProducts() {
 
             // Crear un h3 para mostrar el nombre del producto
             const nom = document.createElement('h3');
-            nom.textContent = product.nombre;
+            nom.textContent = product.tipo;
 
             // Crear un h4 para mostrar el tamaño del producto
             const tam = document.createElement('h4');
@@ -260,7 +315,7 @@ function loadProducts() {
             const addButton = document.createElement('button');
             addButton.textContent = 'Agregar';
             addButton.onclick = function() {
-                addToCart(product.nombre, product.precio,product.tam,product.img);
+                addToCart(product.tipo, product.precio, product.tamaño, product.img);
             };
 
             // Asignar la clase "btn_card" al botón
@@ -283,10 +338,6 @@ function loadProducts() {
     })
     .catch(error => console.error('Error al cargar productos:', error));
 }
-
-
-
-
 
 // Llamar a la función para cargar productos al cargar la página
 window.onload = loadProducts;</script>

@@ -13,7 +13,7 @@ if ($conexion->connect_error) {
 }
 
 // Consultar productos
-$sql = "SELECT tipo, precio,img FROM menu";
+$sql = "SELECT tipo, precio,img,tamaño FROM menu";
 $result = $conexion->query($sql);
 
 if ($result === false) {
