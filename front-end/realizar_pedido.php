@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,18 +28,19 @@
     <!-- Modernizr JS for IE8 support of php5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+     <!-- Incluye Axios desde un CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
-
 <body>
 <?php
-session_start();
+    session_start();
 
 // Iniciar sesión si no está iniciada
-    if (!isset($_SESSION['user'])) {
+/*      if (!isset($_SESSION['user'])) {
     header("Location: ../mvc/views/user.php");
     exit();
-}
+}  */
 // Mostrar una ventana emergente con el mensaje de bienvenida usando JavaScript
 $username = strtoupper($_SESSION['user']);
 
@@ -73,7 +73,7 @@ echo "<script>
         // Desaparecer la ventana emergente después de 2 segundos
         setTimeout(function() {
             customAlert.style.display = 'none';
-        }, 1000); // 2000 milisegundos = 2 segundos
+        }, 2000); // 2000 milisegundos = 2 segundos
       </script>";
 
 ?>
@@ -111,7 +111,7 @@ echo "<script>
 
         </div>
         <div id="canvas-overlay"></div>
-        <div class="boxed-page">
+        
             <nav id="navbar-header" class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">
@@ -164,10 +164,133 @@ echo "<script>
                     </div>
                 </div>
             </nav>
-    </header>
+</header>
     <main >
+    <div class="heading-section text-center">
+                <h2 class="subheading">Productos</h2>
+            </div>
+    <div class="products" id="product-list"></div>
 
-        <div id="app">
+    <h2>Carrito</h2>
+    <div class="cart">
+        <ul id="cart-items"></ul>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+    <script>
+
+let cart = [];
+
+function addToCart(tipo, precio) {
+    cart.push({ tipo: tipo, precio: precio });
+    updateCartUI();
+}
+
+function updateCartUI() {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+    cart.forEach((item, index) => {
+        cartItems.innerHTML += `
+            <li>
+                <img src="${item.img}" alt="${item.tipo}" style="width:50px; height:50px;">
+                ${item.tipo} - $${item.precio} - ${item.tam}
+                <button onclick="removeFromCart(${index})">Eliminar</button>
+            </li>
+        `;
+    });
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+}
+
+function checkout() {
+    fetch('../mvc/app/Controllers/Controller-guardarpedido.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cart)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert('Compra realizada: ' + data);
+        cart = [];
+        updateCartUI();
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function loadProducts() {
+    console.log('Cargando productos...');
+    fetch('../mvc/app/Controllers/Controller-mostrarproductos.php')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('La respuesta no fue exitosa');
+        }
+        return response.json();
+    })
+    .then(products => {
+
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = ''; // Limpiar el contenido antes de agregar nuevos productos
+
+        if (!Array.isArray(products)) {
+            throw new Error('Los productos no están en un formato válido');
+        }
+
+        products.forEach(product => {
+            // Crear un elemento de imagen
+            const img = document.createElement('img');
+            img.src = product.img; // Asignar la URL de la imagen
+
+            // Crear un h3 para mostrar el nombre del producto
+            const nom = document.createElement('h3');
+            nom.textContent = product.nombre;
+
+            // Crear un h4 para mostrar el tamaño del producto
+            const tam = document.createElement('h4');
+            tam.textContent = product.tamaño;
+
+            // Crear un p para mostrar el precio del producto
+            const pre = document.createElement('p');
+            pre.textContent = '$' + product.precio;
+
+            // Crear un botón para agregar al carrito
+            const addButton = document.createElement('button');
+            addButton.textContent = 'Agregar';
+            addButton.onclick = function() {
+                addToCart(product.nombre, product.precio,product.tam,product.img);
+            };
+
+            // Asignar la clase "btn_card" al botón
+            addButton.classList.add("btn-primary");
+
+            // Crear un div con la clase card para contener la información del producto
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card');
+
+            // Agregar los elementos al div de la tarjeta (card)
+            cardDiv.appendChild(img);
+            cardDiv.appendChild(nom);
+            cardDiv.appendChild(tam);
+            cardDiv.appendChild(pre);
+            cardDiv.appendChild(addButton);
+
+            // Agregar la tarjeta al listado de productos
+            productList.appendChild(cardDiv);
+        });
+    })
+    .catch(error => console.error('Error al cargar productos:', error));
+}
+
+
+
+
+
+// Llamar a la función para cargar productos al cargar la página
+window.onload = loadProducts;</script>
+    <!-- <div id="app">
             <div class="heading-section text-center">
                 <h2 class="subheading">Productos</h2>
             </div>
@@ -184,8 +307,7 @@ echo "<script>
                 </div>
             </div>
         
-            <div class="agregado-container">
-    <form id="pedidoForm" action="../mvc/app/Controller-guardarpedido.php" method="POST">
+        <div class="agregado-container">
         <div class="agregado" v-for="(producto, index) in carrito" :key="producto.id">
             <div class="info">
                 <h5>{{ producto.nombre }}</h5>
@@ -199,25 +321,17 @@ echo "<script>
             </div>
            
         </div>
-        </form>
         <div v-if="carrito.length > 0">
             <br>
             <h6 id="tot">TOTAL: ${{total}}</h6>
-            
             <button @click="borrarTodo" class="delet-all">Borrar todo</button>
             <input type="hidden" name="total" :value="total">
-            <button type="submit" @click="pagar"  class="pay"><a href="http://mercadopago.com">Pagar</a></button>
+            <button type="submit" @click="pagar"  class="pay"><a href="../mvc/app/Controllers/Controller-guardarpedido.php">Pagar</a></button>
+        </div>    
         </div>
-    
-        
-</div>
+    </div> -->
 
-        </div>
-        
-
-        </div>
-    </main>
-
+</main>
     <footer>
         <div class="inner container">
             <div class="row">
@@ -279,8 +393,8 @@ echo "<script>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="../public/js/menu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="js/comprar.js"></script>
+
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="vendor/bootstrap/popper.min.js"></script>
@@ -293,8 +407,5 @@ echo "<script>
 
     <!-- Main JS -->
     <script src="js/app.min.js "></script>
-
-
 </body>
-
 </html>

@@ -40,8 +40,6 @@
                 $registros= mysqli_query($conexion,"insert into menu (tipo,stock,tamaño,precio) values ('$_POST[type]','$_POST[stock]','$_POST[tam]','$_POST[price]')  ") or die ("Error al insertar los datos"); 
             }
     
-    
-    
             
             $registros = mysqli_query($conexion,"select * from menu") or die ("Problemas en la conexion con la tabla");
     

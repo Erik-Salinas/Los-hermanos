@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+/* include('../mvc/app/Controllers/Controller-cerrarsesion.php'); */
 ?>
 <!DOCTYPE php>
 <html lang="es">
@@ -138,6 +139,11 @@ session_start();
                                             <a id="side-search-open" class="nav-link" href="../mvc/views/company.php">
                                                 Empresa
                                             </a>
+                                           <!--  <form method="post" >
+                                                <input type="hidden" name="cerrar" value="1">
+                                                <button type="submit">Cerrar sesión</button>
+                                            </form> -->
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
