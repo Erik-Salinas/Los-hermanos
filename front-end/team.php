@@ -107,10 +107,36 @@
                 </li>
             </div>
             <li class="nav-item">
-                <a id="side-search-open" class="nav-link" href="../mvc/views/user.php">
-                    <i class="fa-solid fa-user "></i>
-                </a>
-            </li>
+                            <!-- Button trigger modal -->
+                            <button type="button" id="side-search-open" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fa-solid fa-user "></i>
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <a id="side-search-open" class="nav-link" href="../mvc/views/user.php">
+                                                Usuario
+                                            </a>
+                                            <a id="side-search-open" class="nav-link" href="../mvc/views/company.php">
+                                                Empresa
+                                            </a>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
         </ul>
     </div>
 </div>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,9 +28,20 @@
     <!-- Modernizr JS for IE8 support of php5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<<<<<<< HEAD
 
+=======
+     <!-- Incluye Axios desde un CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .card { border: 1px solid #ccc; padding: 16px; margin: 16px; text-align: center; }
+        .cart-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .agregado img { width: 50px; height: 50px; }
+        .quantity-controls { display: flex; align-items: center;}
+        .quantity-controls button { margin: 0 5px;  border:solid 1px black; background-color: white;}
+    </style>
+>>>>>>> erik
 </head>
-
 <body>
 <?php
 session_start();
@@ -73,7 +83,11 @@ echo "<script>
         // Desaparecer la ventana emergente después de 2 segundos
         setTimeout(function() {
             customAlert.style.display = 'none';
+<<<<<<< HEAD
         }, 1000); // 2000 milisegundos = 2 segundos
+=======
+        }, 2000); // 2000 milisegundos = 2 segundos
+>>>>>>> erik
       </script>";
 
 ?>
@@ -166,8 +180,190 @@ echo "<script>
             </nav>
     </header>
     <main >
+<<<<<<< HEAD
 
         <div id="app">
+=======
+    <div class="heading-section text-center">
+    <h2 class="subheading">Productos</h2>
+</div>
+<div class="products" id="product-list"></div>
+<h2>Carrito</h2>
+<div class="agregado-container">
+    <ul id="cart-items"></ul>
+    <h5 id="cart-total">Total: $0</h5>
+    <button class="pay" onclick="checkout()">Pedir</button>
+    <button onclick="borrarTodo()" class="delet-all">Borrar todo</button>
+</div>
+    <script>
+
+let cart = [];
+
+function addToCart(tipo, precio, tam, img) {
+    const productKey = `${tipo}-${precio}-${tam}-${img}`;
+    const productIndex = cart.findIndex(item => item.key === productKey);
+    if (productIndex !== -1) {
+        cart[productIndex].cantidad += 1;
+    } else {
+        cart.push({ key: productKey, tipo: tipo, precio: precio, tam: tam, img: img, cantidad: 1 });
+    }
+    updateCartUI();
+}
+
+function updateCartUI() {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+    cart.forEach((item, index) => {
+        cartItems.innerHTML += `
+            <li class="agregado">
+                <img src="${item.img}" alt="${item.tipo}">
+                <span>${item.tipo} - $${item.precio} - ${item.tam}</span>
+                <div class="quantity-controls">
+                    <button onclick="decrementar(${index})">-</button>
+                    <span>${item.cantidad}</span>
+                    <button onclick="incrementar(${index})">+</button>
+                </div>
+                <button class="delet" onclick="removeFromCart(${index})">Eliminar</button>
+            </li>
+        `;
+    });
+    updateCartTotal();
+}
+
+function incrementar(index) {
+    cart[index].cantidad += 1;
+    updateCartUI();
+}
+
+function decrementar(index) {
+    if (cart[index].cantidad > 1) {
+        cart[index].cantidad -= 1;
+    } else {
+        cart.splice(index, 1);
+    }
+    updateCartUI();
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+}
+
+function borrarTodo() {
+    cart = [];
+    updateCartUI();
+}
+
+function updateCartTotal() {
+    const total = cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+    document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
+}
+
+function checkout() {
+    const order = {
+        productos: cart,
+        total: cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0)
+    };
+
+    fetch('../mvc/app/Controllers/Controller-guardarpedido.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(order)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert('Compra realizada: ' + data);
+        cart = [];
+        updateCartUI();
+
+        // Construir la cadena de texto con los detalles del pedido
+        const pedidoText = `¡Hola! He realizado una compra en su tienda.%0AMi número de pedido es: ${data}`;
+
+        // Codificar la cadena de texto para que sea válida en una URL
+        const encodedPedidoText = encodeURIComponent(pedidoText);
+
+        // Número de teléfono de WhatsApp
+        const phoneNumber = '+5491132742025';
+
+        // URL de WhatsApp con el mensaje como parámetro
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedPedidoText}`;
+
+        // Abrir la ventana de WhatsApp
+        window.open(whatsappUrl, '_blank');
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+function loadProducts() {
+    console.log('Cargando productos...');
+    fetch('../mvc/app/Controllers/Controller-mostrarproductos.php')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('La respuesta no fue exitosa');
+        }
+        return response.json();
+    })
+    .then(products => {
+
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = ''; // Limpiar el contenido antes de agregar nuevos productos
+
+        if (!Array.isArray(products)) {
+            throw new Error('Los productos no están en un formato válido');
+        }
+
+        products.forEach(product => {
+            // Crear un elemento de imagen
+            const img = document.createElement('img');
+            img.src = product.img; // Asignar la URL de la imagen
+
+            // Crear un h3 para mostrar el nombre del producto
+            const nom = document.createElement('h3');
+            nom.textContent = product.tipo;
+
+            // Crear un h4 para mostrar el tamaño del producto
+            const tam = document.createElement('h4');
+            tam.textContent = product.tamaño;
+
+            // Crear un p para mostrar el precio del producto
+            const pre = document.createElement('p');
+            pre.textContent = '$' + product.precio;
+
+            // Crear un botón para agregar al carrito
+            const addButton = document.createElement('button');
+            addButton.textContent = 'Agregar';
+            addButton.onclick = function() {
+                addToCart(product.tipo, product.precio, product.tamaño, product.img);
+            };
+
+            // Asignar la clase "btn_card" al botón
+            addButton.classList.add("btn-primary");
+
+            // Crear un div con la clase card para contener la información del producto
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card');
+
+            // Agregar los elementos al div de la tarjeta (card)
+            cardDiv.appendChild(img);
+            cardDiv.appendChild(nom);
+            cardDiv.appendChild(tam);
+            cardDiv.appendChild(pre);
+            cardDiv.appendChild(addButton);
+
+            // Agregar la tarjeta al listado de productos
+            productList.appendChild(cardDiv);
+        });
+    })
+    .catch(error => console.error('Error al cargar productos:', error));
+}
+
+// Llamar a la función para cargar productos al cargar la página
+window.onload = loadProducts;</script>
+    <!-- <div id="app">
+>>>>>>> erik
             <div class="heading-section text-center">
                 <h2 class="subheading">Productos</h2>
             </div>
@@ -184,8 +380,12 @@ echo "<script>
                 </div>
             </div>
         
+<<<<<<< HEAD
             <div class="agregado-container">
     <form id="pedidoForm" action="../mvc/app/Controller-guardarpedido.php" method="POST">
+=======
+        <div class="agregado-container">
+>>>>>>> erik
         <div class="agregado" v-for="(producto, index) in carrito" :key="producto.id">
             <div class="info">
                 <h5>{{ producto.nombre }}</h5>
@@ -198,6 +398,7 @@ echo "<script>
                 <button @click.prevent="incrementar(index)">+</button>
             </div>
            
+<<<<<<< HEAD
         </div>
         </form>
         <div v-if="carrito.length > 0">
@@ -215,9 +416,20 @@ echo "<script>
         </div>
         
 
+=======
+>>>>>>> erik
         </div>
-    </main>
+        <div v-if="carrito.length > 0">
+            <br>
+            <h6 id="tot">TOTAL: ${{total}}</h6>
+            <button @click="borrarTodo" class="delet-all">Borrar todo</button>
+            <input type="hidden" name="total" :value="total">
+            <button type="submit" @click="pagar"  class="pay"><a href="../mvc/app/Controllers/Controller-guardarpedido.php">Pagar</a></button>
+        </div>    
+        </div>
+    </div> -->
 
+</main>
     <footer>
         <div class="inner container">
             <div class="row">
@@ -279,8 +491,13 @@ echo "<script>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="../public/js/menu.js"></script>
+<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="js/comprar.js"></script>
+=======
+
+  
+>>>>>>> erik
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="vendor/bootstrap/popper.min.js"></script>
@@ -293,8 +510,10 @@ echo "<script>
 
     <!-- Main JS -->
     <script src="js/app.min.js "></script>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> erik
 </body>
-
 </html>

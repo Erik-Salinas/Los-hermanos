@@ -1,4 +1,5 @@
 <?php 
+<<<<<<< HEAD
    /*  if (!empty($_POST["btnRecord"])) {  // Comprueba si el campo "registro" no está vacío
         // El usuario envió el formulario (asumiendo que "registro" es un campo oculto)
         if (empty($_POST["name"]) or empty($_POST["lastname"]) or empty($_POST["user_registration"]) or empty($_POST["registry_key"])or empty($_POST["email"])or empty($_POST["date"])or empty($_POST["sex"])) {
@@ -30,6 +31,8 @@
             }
         }
     } */
+=======
+>>>>>>> erik
 
 if (!empty($_POST["btnRecord"])) {  // Comprueba si el campo "btnRecord" no está vacío
     // El usuario envió el formulario

@@ -1,25 +1,25 @@
-const app = new Vue({
+/* const app = new Vue({
     el: '#app',
     data: {
         carrito: [],
         producto: [{
                 id: 1,
                 nombre: 'BBQ Pollo',
-                tamaño: 'Chica',
+                tam: 'Chica',
                 imagen:'img/pizza-bbq-Pollo.jpg',
                 precio: 9000,
             },
             {
                 id: 2,
                 nombre: 'Margarita',
-                tamaño: 'Chica',
+                tam: 'Chica',
                 imagen:'img/pizza-margarita.jpg',
                 precio: 11000,
             },
             {
                 id: 3,
                 nombre: 'Vegetariana',
-                tamaño: 'Chica',
+                tam: 'Chica',
                 imagen:'img/pizza-vegetariana.jpg',
                 precio: 11000,
 
@@ -28,62 +28,62 @@ const app = new Vue({
                 id: 4,
                 nombre: 'Marinera',
                 imagen:'img/pizza-marinera.jpg',
-                tamaño: 'Chica',
+                tam: 'Chica',
                 precio: 15000,
             },
             {
                 id: 5,
                 nombre: 'Pepperoni',
-                tamaño: 'Chica',
+                tam: 'Chica',
                 imagen:'img/pizza-pepperoni.jpg',
                 precio: 11500,
             },
             {
                 id: 6,
                 nombre: 'Hawaiana',
-                tamaño: 'Chica',
+                tam: 'Chica',
                 imagen:'img/pizza-hawaiana.jpg',
                 precio: 14000,
             },
             {
                 id:7,
                 nombre:'Cuatro Quesos',
-                tamaño:'Chica',
+                tam:'Chica',
                 imagen:'img/pizzacuatro-quesos.jpg',
                 precio: 14500,
             },
             {
                 id:8,
                 nombre:'Diavola',
-                tamaño:'Chica',
+                tam:'Chica',
                 imagen:'img/pizza-diavola.jpg',
                 precio:1400,
             },
             {
                 id:9,
                 nombre:'Capricciosa',
-                tamaño:'Chica',
+                tam:'Chica',
                 imagen:'img/pizza-capricciosa.jpg',
                 precio:14000,
             },
             {
                 id: 10,
                 nombre: 'BBQ Pollo',
-                tamaño: 'Grande',
+                tam: 'Grande',
                 imagen:'img/pizza-bbq-Pollo.jpg',
                 precio: 15000,
             },
             {
                 id: 11,
                 nombre: 'Margarita',
-                tamaño: 'Grande',
+                tam: 'Grande',
                 imagen:'img/pizza-margarita.jpg',
                 precio: 18000,
             },
             {
                 id: 12,
                 nombre: 'Vegetariana',
-                tamaño: 'Grande',
+                tam: 'Grande',
                 imagen:'img/pizza-vegetariana.jpg',
                 precio: 18500,
             },
@@ -91,41 +91,41 @@ const app = new Vue({
                 id: 13,
                 nombre: 'Marinera',
                 imagen:'img/pizza-marinera.jpg',
-                tamaño: 'Grande',
+                tam: 'Grande',
                 precio: 17500,
             },
             {
                 id: 14,
                 nombre: 'Pepperoni',
-                tamaño: 'Grande',
+                tam: 'Grande',
                 imagen:'img/pizza-pepperoni.jpg',
                 precio: 16999,
             },
             {
                 id: 15,
                 nombre: 'Hawaiana',
-                tamaño: 'Grande',
+                tam: 'Grande',
                 imagen:'img/pizza-hawaiana.jpg',
                 precio: 17500,
             },
             {
                 id:16,
                 nombre:'Cuatro Quesos',
-                tamaño:'Grande',
+                tam:'Grande',
                 imagen:'img/pizzacuatro-quesos.jpg',
                 precio: 20000,
             },
             {
                 id:17,
                 nombre:'Diavola',
-                tamaño:'Grande',
+                tam:'Grande',
                 imagen:'img/pizza-diavola.jpg',
                 precio:21100,
             },
             {
                 id:18,
                 nombre:'Capricciosa',
-                tamaño:'Grande',
+                tam:'Grande',
                 imagen:'img/pizza-capricciosa.jpg',
                 precio:18250,
             },
@@ -180,26 +180,46 @@ const app = new Vue({
             // Itera sobre los productos en el carrito y crea un array de objetos para enviar
             const data = this.carrito.map(producto => ({
                 tipo: producto.nombre,
+<<<<<<< HEAD
                 tamaño: producto.tamaño,
                 precio: producto.precio,
                 cantidad: producto.cantidad
             }));
     
             fetch('../../mvc/app/Controllers/Controller-guardarpedido.php', {
+=======
+                tam: producto.tam,
+                precio: producto.precio,
+                cantidad: producto.cantidad
+            }));
+        
+            fetch('../mvc/app/Controllers/Controller-guardarpedido.php', {
+>>>>>>> erik
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data) // Envía el array de objetos JSON
             })
+<<<<<<< HEAD
             .then(response => response.text())
             .then(data => {
                 console.log(data);
                 this.borrarTodo();
+=======
+            .then(response => response.json()) // Usar .json() si la respuesta es JSON
+            .then(data => {
+                console.log(data);
+                this.borrarTodo(); // Asegúrate de que 'this' esté en el contexto correcto
+>>>>>>> erik
             })
             .catch(error => {
                 console.error('Error', error);
             });
         }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> erik
     },
-});
+}); */
