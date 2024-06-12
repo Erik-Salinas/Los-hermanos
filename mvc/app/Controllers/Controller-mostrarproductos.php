@@ -13,7 +13,7 @@ if ($conexion->connect_error) {
 }
 
 // Consultar productos
-$sql = "SELECT tipo, precio,img FROM menu";
+$sql = "SELECT tipo, precio,img,tamaño FROM menu";
 $result = $conexion->query($sql);
 
 if ($result === false) {
@@ -37,4 +37,6 @@ $conexion->close();
 // Devolver los productos en formato JSON
 echo json_encode($products, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 ?>
+
+
 

@@ -60,7 +60,8 @@
         echo "<td class='nameCliente'>CANTIDAD</td>";
         echo "<td class='lastnameCliente'>TAMAÑO</td>";
         echo "<td class='nameCliente'>PRECIO</td>";
-        echo "<td class='nameCliente'>Acción</td>";
+        echo "<td class='nameCliente'>IMAGEN</td>";
+        echo "<td class='nameCliente'>ACCIÓN</td>";
         echo "</tr><br>";
 
         while ($reg = mysqli_fetch_array($registros)) {
@@ -70,6 +71,7 @@
             echo "<td>{$reg['stock']}</td>";
             echo "<td>{$reg['tamaño']}</td>";
             echo "<td>$ {$reg['precio']}</td>";
+            echo "<td><img src='{$reg['img']}'></td>";
             echo "<td>
                     <form method='post' action=''>
                         <input type='hidden' name='delete_id' value='{$reg['id_producto']}'>

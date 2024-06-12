@@ -33,6 +33,7 @@
         TIPO
         <input type="text" autocomplete="off" name="type" id="">
         <br>
+        <input type="file" name="img">
         STOCK
         <input type="number" autocomplete="off" name="stock" id="">
         <br>

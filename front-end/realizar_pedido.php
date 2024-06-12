@@ -30,17 +30,23 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
      <!-- Incluye Axios desde un CDN -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <style>
+        .card { border: 1px solid #ccc; padding: 16px; margin: 16px; text-align: center; }
+        .cart-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .agregado img { width: 50px; height: 50px; }
+        .quantity-controls { display: flex; align-items: center;}
+        .quantity-controls button { margin: 0 5px;  border:solid 1px black; background-color: white;}
+    </style>
 </head>
 <body>
 <?php
-    session_start();
+session_start();
 
 // Iniciar sesión si no está iniciada
-/*      if (!isset($_SESSION['user'])) {
+    if (!isset($_SESSION['user'])) {
     header("Location: ../mvc/views/user.php");
     exit();
-}  */
+}
 // Mostrar una ventana emergente con el mensaje de bienvenida usando JavaScript
 $username = strtoupper($_SESSION['user']);
 
@@ -111,7 +117,7 @@ echo "<script>
 
         </div>
         <div id="canvas-overlay"></div>
-        
+        <div class="boxed-page">
             <nav id="navbar-header" class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">
@@ -156,58 +162,39 @@ echo "<script>
                                 </li>
                             </div>
                             <li class="nav-item">
-                            <!-- Button trigger modal -->
-                            <button type="button" id="side-search-open" class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                                <i class="fa-solid fa-user "></i>
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <a id="side-search-open" class="nav-link" href="../mvc/views/user.php">
-                                                Usuario
-                                            </a>
-                                            <a id="side-search-open" class="nav-link" href="../mvc/views/company.php">
-                                                Empresa
-                                            </a>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                                <a id="side-search-open" class="nav-link" href="../mvc/views/user.php">
+                                    <i class="fa-solid fa-user "></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-</header>
+    </header>
     <main >
     <div class="heading-section text-center">
-                <h2 class="subheading">Productos</h2>
-            </div>
-    <div class="products" id="product-list"></div>
-
-    <h2>Carrito</h2>
-    <div class="cart">
-        <ul id="cart-items"></ul>
-        <button onclick="checkout()">Checkout</button>
-    </div>
+    <h2 class="subheading">Productos</h2>
+</div>
+<div class="products" id="product-list"></div>
+<h2>Carrito</h2>
+<div class="agregado-container">
+    <ul id="cart-items"></ul>
+    <h5 id="cart-total">Total: $0</h5>
+    <button class="pay" onclick="checkout()">Pedir</button>
+    <button onclick="borrarTodo()" class="delet-all">Borrar todo</button>
+</div>
     <script>
 
 let cart = [];
 
-function addToCart(tipo, precio) {
-    cart.push({ tipo: tipo, precio: precio });
+function addToCart(tipo, precio, tam, img) {
+    const productKey = `${tipo}-${precio}-${tam}-${img}`;
+    const productIndex = cart.findIndex(item => item.key === productKey);
+    if (productIndex !== -1) {
+        cart[productIndex].cantidad += 1;
+    } else {
+        cart.push({ key: productKey, tipo: tipo, precio: precio, tam: tam, img: img, cantidad: 1 });
+    }
     updateCartUI();
 }
 
@@ -216,13 +203,33 @@ function updateCartUI() {
     cartItems.innerHTML = '';
     cart.forEach((item, index) => {
         cartItems.innerHTML += `
-            <li>
-                <img src="${item.img}" alt="${item.tipo}" style="width:50px; height:50px;">
-                ${item.tipo} - $${item.precio} - ${item.tam}
-                <button onclick="removeFromCart(${index})">Eliminar</button>
+            <li class="agregado">
+                <img src="${item.img}" alt="${item.tipo}">
+                <span>${item.tipo} - $${item.precio} - ${item.tam}</span>
+                <div class="quantity-controls">
+                    <button onclick="decrementar(${index})">-</button>
+                    <span>${item.cantidad}</span>
+                    <button onclick="incrementar(${index})">+</button>
+                </div>
+                <button class="delet" onclick="removeFromCart(${index})">Eliminar</button>
             </li>
         `;
     });
+    updateCartTotal();
+}
+
+function incrementar(index) {
+    cart[index].cantidad += 1;
+    updateCartUI();
+}
+
+function decrementar(index) {
+    if (cart[index].cantidad > 1) {
+        cart[index].cantidad -= 1;
+    } else {
+        cart.splice(index, 1);
+    }
+    updateCartUI();
 }
 
 function removeFromCart(index) {
@@ -230,13 +237,28 @@ function removeFromCart(index) {
     updateCartUI();
 }
 
+function borrarTodo() {
+    cart = [];
+    updateCartUI();
+}
+
+function updateCartTotal() {
+    const total = cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+    document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
+}
+
 function checkout() {
+    const order = {
+        productos: cart,
+        total: cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0)
+    };
+
     fetch('../mvc/app/Controllers/Controller-guardarpedido.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(cart)
+        body: JSON.stringify(order)
     })
     .then(response => response.text())
     .then(data => {
@@ -244,12 +266,20 @@ function checkout() {
         cart = [];
         updateCartUI();
 
+        // Construir la cadena de texto con los detalles del pedido
+        const pedidoText = `¡Hola! He realizado una compra en su tienda.%0AMi número de pedido es: ${data}`;
 
-        const message = encodeURIComponent('¡Hola! He realizado una compra en su tienda. Mi número de pedido es: ' + data);
+        // Codificar la cadena de texto para que sea válida en una URL
+        const encodedPedidoText = encodeURIComponent(pedidoText);
 
-        const whatsappUrl = `https://wa.me/+5491132742025?text=${message}`;
+        // Número de teléfono de WhatsApp
+        const phoneNumber = '+5491132742025';
+
+        // URL de WhatsApp con el mensaje como parámetro
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedPedidoText}`;
+
+        // Abrir la ventana de WhatsApp
         window.open(whatsappUrl, '_blank');
-
     })
     .catch(error => console.error('Error:', error));
 }
@@ -280,7 +310,7 @@ function loadProducts() {
 
             // Crear un h3 para mostrar el nombre del producto
             const nom = document.createElement('h3');
-            nom.textContent = product.nombre;
+            nom.textContent = product.tipo;
 
             // Crear un h4 para mostrar el tamaño del producto
             const tam = document.createElement('h4');
@@ -294,7 +324,7 @@ function loadProducts() {
             const addButton = document.createElement('button');
             addButton.textContent = 'Agregar';
             addButton.onclick = function() {
-                addToCart(product.nombre, product.precio,product.tam,product.img);
+                addToCart(product.tipo, product.precio, product.tamaño, product.img);
             };
 
             // Asignar la clase "btn_card" al botón
@@ -317,10 +347,6 @@ function loadProducts() {
     })
     .catch(error => console.error('Error al cargar productos:', error));
 }
-
-
-
-
 
 // Llamar a la función para cargar productos al cargar la página
 window.onload = loadProducts;</script>
