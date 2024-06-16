@@ -33,20 +33,20 @@
     <style>
         .card { border: 1px solid #ccc; padding: 16px; margin: 16px; text-align: center; }
         .cart-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-        .cart-item img { width: 50px; height: 50px; }
-        .quantity-controls { display: flex; align-items: center; }
-        .quantity-controls button { margin: 0 5px; }
+        .agregado img { width: 50px; height: 50px; }
+        .quantity-controls { display: flex; align-items: center;}
+        .quantity-controls button { margin: 0 5px;  border:solid 1px black; background-color: white;}
     </style>
 </head>
 <body>
 <?php
-    session_start();
+session_start();
 
 // Iniciar sesión si no está iniciada
-/*      if (!isset($_SESSION['user'])) {
+    if (!isset($_SESSION['user'])) {
     header("Location: ../mvc/views/user.php");
     exit();
-}  */
+}
 // Mostrar una ventana emergente con el mensaje de bienvenida usando JavaScript
 $username = strtoupper($_SESSION['user']);
 
@@ -170,20 +170,21 @@ echo "<script>
                     </div>
                 </div>
             </nav>
-</header>
+    </header>
     <main >
     <div class="heading-section text-center">
     <h2 class="subheading">Productos</h2>
 </div>
 <div class="products" id="product-list"></div>
 <h2>Carrito</h2>
-<div class="cart">
+<div class="agregado-container">
     <ul id="cart-items"></ul>
-    <p id="cart-total">Total: $0</p>
-    <button onclick="checkout()">Checkout</button>
+    <h5 id="cart-total">Total: $0</h5>
+    <button class="pay" onclick="checkout()">Pedir</button>
+    <button onclick="borrarTodo()" class="delet-all">Borrar todo</button>
 </div>
+    <script>
 
-<script>
 let cart = [];
 
 function addToCart(tipo, precio, tam, img) {
@@ -202,7 +203,7 @@ function updateCartUI() {
     cartItems.innerHTML = '';
     cart.forEach((item, index) => {
         cartItems.innerHTML += `
-            <li class="cart-item">
+            <li class="agregado">
                 <img src="${item.img}" alt="${item.tipo}">
                 <span>${item.tipo} - $${item.precio} - ${item.tam}</span>
                 <div class="quantity-controls">
@@ -210,7 +211,7 @@ function updateCartUI() {
                     <span>${item.cantidad}</span>
                     <button onclick="incrementar(${index})">+</button>
                 </div>
-                <button onclick="removeFromCart(${index})">Eliminar</button>
+                <button class="delet" onclick="removeFromCart(${index})">Eliminar</button>
             </li>
         `;
     });
@@ -236,7 +237,7 @@ function removeFromCart(index) {
     updateCartUI();
 }
 
-function clearCart() {
+function borrarTodo() {
     cart = [];
     updateCartUI();
 }
@@ -265,16 +266,24 @@ function checkout() {
         cart = [];
         updateCartUI();
 
-        const message = encodeURIComponent('¡Hola! He realizado una compra en su tienda. Mi número de pedido es: ' + data);
+        // Construir la cadena de texto con los detalles del pedido
+        const pedidoText = `¡Hola! He realizado una compra en su tienda.%0AMi número de pedido es: ${data}`;
 
-        const phoneNumber = '+5491132742025'; // Número de teléfono de WhatsApp
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+        // Codificar la cadena de texto para que sea válida en una URL
+        const encodedPedidoText = encodeURIComponent(pedidoText);
+
+        // Número de teléfono de WhatsApp
+        const phoneNumber = '+5491132742025';
+
+        // URL de WhatsApp con el mensaje como parámetro
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedPedidoText}`;
+
+        // Abrir la ventana de WhatsApp
         window.open(whatsappUrl, '_blank');
-
-
     })
     .catch(error => console.error('Error:', error));
 }
+
 
 function loadProducts() {
     console.log('Cargando productos...');

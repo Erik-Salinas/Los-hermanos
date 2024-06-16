@@ -232,6 +232,7 @@ header {
     color: white;
     font-size: 2rem;
 }
+
 .loginForm button,
 .signUpForm button {
     font-family: var(--font-family-first);
@@ -328,14 +329,33 @@ header {
 }
 
 table{
-    width: 100vw;
+    width: 100%;
     text-align: center;
     background-color: white;
     border: solid 2px rgba(0, 0, 0, 0.727);
     padding: 2%;
 }
-.titulo{
-    padding: 10%;
+table tr{
+    height: auto; /* Ajusta la altura según tus necesidades */
+    overflow-y: scroll; /* Agrega un scroll vertical */
+}
+table tr td{
+    border-bottom: rgb(145, 138, 138) 2px solid;
+    padding: 0.5rem 0;
+}
+.cliente h2, .pedidos h2{
+    font-size: 1.5rem;
+    color: #000000;
+    text-align: center;
+    margin:1rem 0;
+    font-weight: bold;
+    
+}
+.nameCliente,.lastnameCliente{
+    font-size: 1rem;
+    color: #000000;
+    font-weight: bold;
+    padding: 0.5rem;
     background-color: var(--second-color);
 }
 .opciones{

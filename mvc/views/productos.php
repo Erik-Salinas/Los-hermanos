@@ -44,15 +44,15 @@
     
     
         while($reg=mysqli_fetch_array($registros)){
-    
+            echo "<div class='pedidos '><h2>PRODUCTOS</h2></div>";
             echo "<div class=card> ";
             echo "<img>".$reg['imagen']."</img>";
-            echo "<h3 >".$reg['tipo']."</h3>"
+            echo "<h3 >".$reg['tipo']."</h3>";
             echo "<h3 >". $reg['tamaño']."</h3>";
             echo "<h4 >"."$".$reg['precio']."</h4>";
             echo "<h4 >"."$".$reg['descripcion']."</h4>";
-            echo "<button ><a href="">Eliminar</a></button>";
-            echo "<button ><a href="">Editar</a></button>";
+            echo "<button ><a href=''>Eliminar</a></button>";
+            echo "<button ><a href=''>Editar</a></button>";
             echo "</div>";
     
         }

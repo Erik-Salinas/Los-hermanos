@@ -44,16 +44,19 @@
     
     
             
-            $registros = mysqli_query($conexion,"select * from menu") or die ("Problemas en la conexion con la tabla");
+            $registros = mysqli_query($conexion,"select * from pedido") or die ("Problemas en la conexion con la tabla");
     
     
             //las opciones ya las cambie por las q estan en el diseño
+            echo "<div class='pedidos '><h2>PEDIDOS</h2></div>";
             echo "<table>";
             echo "<tr class=titulo>";
-            echo "<td  >"."Id"."</td>";
-            echo "<td  >"."Tipo"."</td>";
-            echo "<td  >"."Tamaño". "</td>";
-            echo "<td  >"."Precio". "</td>";
+            echo "<td class='nameCliente' >"."ID"."</td>";
+            echo "<td  class='lastnameCliente' >"."TIPO"."</td>";
+            echo "<td class='nameCliente' >"."CANTIDAD". "</td>";
+            echo "<td  class='lastnameCliente' >"."CLIENTE". "</td>";
+            echo "<td class='nameCliente' >"."TAMAÑO". "</td>";
+            echo "<td  class='lastnameCliente' >"."TOTAL". "</td>";
             echo "</tr>"."<br>";
     
             while($reg=mysqli_fetch_array($registros)){
@@ -61,10 +64,12 @@
        // HAY QUE CAMBIAR LO QUE SIGE A $REG CON LO QUE PONGAMOS EN LA BASE DE DATOS
     
                 echo "<tr class=opciones>";
-                echo "<td  >"."N°:".$reg['id_producto']."</td>" ;
+                echo "<td  >"."N°:".$reg['id_pedido']."</td>" ;
                 echo "<td >".$reg['tipo']."</td>";
                 echo "<td >". $reg['tamaño']."</td>";
-                echo "<td >"."$".$reg['precio']."</td>";
+                echo "<td >".$reg['cantidad']."</td>";
+                echo "<td >".$reg['nombre_cliente']."</td>";
+                echo "<td >"."$".$reg['total']."</td>";
                 echo "</tr>";
     
             }

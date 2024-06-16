@@ -42,15 +42,16 @@
     
     
             //las opciones ya las cambie por unas q invente yo
+            echo "<div class='pedidos '><h2>USUARIOS</h2></div>";
             echo "<table>";
             echo "<tr class=titulo>";
-            echo "<td  >"."ID"."</td>";
-            echo "<td  >"."Nombre"."</td>";
-            echo "<td >"."Apellido"."</td>";
-            echo "<td  >"."Usuario". "</td>";
-            echo "<td  >"."Email". "</td>";
-            echo "<td  >"."Fecha de Nacimineto". "</td>";
-            echo "<td  >"."Genero". "</td>";
+            echo "<td class='lastnameCliente' >"."ID"."</td>";
+            echo "<td class='nameCliente' >"."NOMBRE"."</td>";
+            echo "<td class='lastnameCliente'>"."APELLIDO"."</td>";
+            echo "<td class='nameCliente' >"."USUARIO". "</td>";
+            echo "<td class='lastnameCliente' >"."EMAIL". "</td>";
+            echo "<td class='nameCliente' >"."FECHA DE NACIMIENTO". "</td>";
+            echo "<td class='lastnameCliente' >"."GENERO". "</td>";
             echo "</tr>"."<br>";
     
             while($reg=mysqli_fetch_array($registros)){
