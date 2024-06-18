@@ -112,6 +112,9 @@
                     <a class="nav-link" href="team.php">Equipo</a>
                 </li>
             </div>
+            <div>
+                <a href="realizar_pedido.php" class="btn-primary">Comprar</a>
+            </div>
             <li class="nav-item">
                             <!-- Button trigger modal -->
                             <button type="button" id="side-search-open" class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -135,6 +138,9 @@
                                             <a id="side-search-open" class="nav-link" href="../mvc/views/company.php">
                                                 Empresa
                                             </a>
+                                            <form action="../mvc/app/Controllers/Controller-cerrarsesion.php" method="post">
+                                                <button type="submit" id="side-search-open" class="nav-link"> <a href="index.php"></a>Cerrar sesión</button>
+                                            </form>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -172,10 +178,32 @@
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
+                                    Margarita
                                     <h4>Pizza Margarita</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "Margarita";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                                 </div>
                             </div>
                             <p>Tomate, Mozzarella, Albahaca fresca</p>
@@ -191,7 +219,28 @@
                                     <h4>Pizza Hawaiana</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "Hawaiana";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                                 </div>
                             </div>
                             <p>Salsa de tomate, Mozzarella, Jamón, Piña</p>
@@ -207,7 +256,28 @@
                                     <h4>Pizza Pepperoni</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "Pepperoni";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                                 </div>
                             </div>
                             <p>Salsa de tomate, Mozzarella, Pepperoni</p>
@@ -226,7 +296,28 @@
                                     <h4>Pizza Vegetariana</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "Vegetariana";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                                 </div>
                             </div>
                             <p>Salsa de tomate,
@@ -246,7 +337,28 @@
                                     <h4>Pizza Cuatro Quesos</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "Cuatro Quesos";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                                 </div>
                             </div>
                             <p>Salsa de tomate,
@@ -265,7 +377,28 @@
                                     <h4>Pizza BBQ Pollo</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "BBQ Pollo";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                                 </div>
                             </div>
                             <p>Salsa barbacoa,
@@ -288,7 +421,28 @@
                                     <h4>Pizza Marinera</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "Marinera";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                                 </div>
                             </div>
                             <p>Salsa de tomate,
@@ -309,7 +463,28 @@
                                     <h4>Pizza Capricciosa</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "Capricciosa";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                                 </div>
                             </div>
                             <p>Salsa de tomate,
@@ -329,7 +504,28 @@
                                     <h4>Pizza Diavola</h4>
                                 </div>
                                 <div class="col-4">
-                                    <h4 class="text-muted menu-price">$30</h4>
+                                <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "Diavola";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                                 </div>
                             </div>
                             <p>Salsa de tomate,
@@ -352,13 +548,13 @@
          			<img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">
 	         		<p>Disfruta del auténtico sabor italiano en Pizzería Los Hermanos. Variedad, frescura y tradición en cada pizza. ¡Visítanos y déjate llevar por el deleite</p>
 	         		<nav class="nav nav-mastfoot justify-content-start">
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://www.facebook.com/?locale=es_LA">
 		                	<i class="fab fa-facebook-f"></i>
 		                </a>
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://x.com/?lang=es">
 		                	<i class="fab fa-twitter"></i>
 		                </a>
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://www.instagram.com/">
 		                	<i class="fab fa-instagram"></i>
 		                </a>
 		            </nav>

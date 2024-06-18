@@ -44,7 +44,7 @@
     
     
             
-            $registros = mysqli_query($conexion,"select * from pedido") or die ("Problemas en la conexion con la tabla");
+            $registros = mysqli_query($conexion,"SELECT * FROM pedido ORDER BY id_pedido DESC LIMIT 10 ") or die ("Problemas en la conexion con la tabla");
     
     
             //las opciones ya las cambie por las q estan en el diseño

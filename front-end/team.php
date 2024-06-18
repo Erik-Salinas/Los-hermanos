@@ -106,6 +106,10 @@
                     <a class="nav-link" href="team.php">Equipo</a>
                 </li>
             </div>
+            <div>
+                <a href="realizar_pedido.php" class="btn-primary">Comprar</a>
+            </div>
+            
             <li class="nav-item">
                             <!-- Button trigger modal -->
                             <button type="button" id="side-search-open" class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -129,10 +133,11 @@
                                             <a id="side-search-open" class="nav-link" href="../mvc/views/company.php">
                                                 Empresa
                                             </a>
+                                            <form action="../mvc/app/Controllers/Controller-cerrarsesion.php" method="post">
+                                                <button type="submit" id="side-search-open" class="nav-link"> <a href="index.php"></a>Cerrar sesión</button>
+                                            </form>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -158,22 +163,22 @@
                             <p class="mb-1">CEO</p>
                             <ul class="list-inline mb-0 team-social-links">
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.facebook.com/?locale=es_LA">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://x.com/?lang=es">
                                         <i class="fab fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.instagram.com/">
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.google.com/?hl=es">
                                         <i class="fab fa-google-plus-g"></i>
                                     </a>
                                 </li>
@@ -189,22 +194,22 @@
                             <p class="mb-1">Chef</p>
                             <ul class="list-inline mb-0 team-social-links">
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.facebook.com/?locale=es_LA">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://x.com/?lang=es">
                                         <i class="fab fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.instagram.com/">
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.google.com/?hl=es">
                                         <i class="fab fa-google-plus-g"></i>
                                     </a>
                                 </li>
@@ -220,22 +225,22 @@
                             <p class="mb-1">Chef</p>
                             <ul class="list-inline mb-0 team-social-links">
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.facebook.com/?locale=es_LA">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://x.com/?lang=es">
                                         <i class="fab fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.instagram.com/">
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.google.com/?hl=es">
                                         <i class="fab fa-google-plus-g"></i>
                                     </a>
                                 </li>
@@ -255,13 +260,13 @@
          			<img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">
 	         		<p>Disfruta del auténtico sabor italiano en Pizzería Los Hermanos. Variedad, frescura y tradición en cada pizza. ¡Visítanos y déjate llevar por el deleite</p>
 	         		<nav class="nav nav-mastfoot justify-content-start">
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://www.facebook.com/?locale=es_LA">
 		                	<i class="fab fa-facebook-f"></i>
 		                </a>
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://x.com/?lang=es">
 		                	<i class="fab fa-twitter"></i>
 		                </a>
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://www.instagram.com/">
 		                	<i class="fab fa-instagram"></i>
 		                </a>
 		            </nav>

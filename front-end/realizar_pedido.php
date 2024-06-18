@@ -27,9 +27,6 @@
     
     <!-- Modernizr JS for IE8 support of php5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-     <!-- Incluye Axios desde un CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
         .card { border: 1px solid #ccc; padding: 16px; margin: 16px; text-align: center; }
         .cart-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
@@ -176,14 +173,13 @@ echo "<script>
     <h2 class="subheading">Productos</h2>
 </div>
 <div class="products" id="product-list"></div>
-<h2>Carrito</h2>
 <div class="agregado-container">
     <ul id="cart-items"></ul>
     <h5 id="cart-total">Total: $0</h5>
     <button class="pay" onclick="checkout()">Pedir</button>
     <button onclick="borrarTodo()" class="delet-all">Borrar todo</button>
 </div>
-    <script>
+<script>
 
 let cart = [];
 
@@ -307,7 +303,8 @@ function loadProducts() {
             // Crear un elemento de imagen
             const img = document.createElement('img');
             img.src = product.img; // Asignar la URL de la imagen
-
+            //Agrega la clase "imgPedido"
+            img.classList.add("imgPedido");
             // Crear un h3 para mostrar el nombre del producto
             const nom = document.createElement('h3');
             nom.textContent = product.tipo;
@@ -329,7 +326,7 @@ function loadProducts() {
 
             // Asignar la clase "btn_card" al botón
             addButton.classList.add("btn-primary");
-
+            
             // Crear un div con la clase card para contener la información del producto
             const cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
@@ -350,47 +347,6 @@ function loadProducts() {
 
 // Llamar a la función para cargar productos al cargar la página
 window.onload = loadProducts;</script>
-    <!-- <div id="app">
-            <div class="heading-section text-center">
-                <h2 class="subheading">Productos</h2>
-            </div>
-        
-            <div>
-                <div class="card" v-for="(producto, index) in producto" :key="producto.id">
-                    <img :src="producto.imagen" alt="">
-                    <h3>{{ producto.nombre }}</h3>
-                    <h4>{{ producto.tamaño }}</h4>
-                    <p>${{ producto.precio }}</p>
-                    <div class="btn_card">
-                        <button @click="agregar(producto)" class="btn-primary mt-3">Agregar</button>
-                    </div>
-                </div>
-            </div>
-        
-        <div class="agregado-container">
-        <div class="agregado" v-for="(producto, index) in carrito" :key="producto.id">
-            <div class="info">
-                <h5>{{ producto.nombre }}</h5>
-                <p>${{ producto.precio * producto.cantidad }}</p>
-            </div>
-            <div class="quantity-controls">
-               
-                <button @click.prevent="decrementar(index)">-</button>
-                <span>{{ producto.cantidad }}</span>
-                <button @click.prevent="incrementar(index)">+</button>
-            </div>
-           
-        </div>
-        <div v-if="carrito.length > 0">
-            <br>
-            <h6 id="tot">TOTAL: ${{total}}</h6>
-            <button @click="borrarTodo" class="delet-all">Borrar todo</button>
-            <input type="hidden" name="total" :value="total">
-            <button type="submit" @click="pagar"  class="pay"><a href="../mvc/app/Controllers/Controller-guardarpedido.php">Pagar</a></button>
-        </div>    
-        </div>
-    </div> -->
-
 </main>
     <footer>
         <div class="inner container">
@@ -400,16 +356,16 @@ window.onload = loadProducts;</script>
                         <img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">
                         <p>Disfruta del auténtico sabor italiano en Pizzería Los Hermanos. Variedad, frescura y tradición en cada pizza. ¡Visítanos y déjate llevar por el deleite</p>
                         <nav class="nav nav-mastfoot justify-content-start">
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </nav>
+		                    <a class="nav-link" href="https://www.facebook.com/?locale=es_LA">
+		                	    <i class="fab fa-facebook-f"></i>
+		                </a>
+		                <a class="nav-link" href="https://x.com/?lang=es">
+		                	<i class="fab fa-twitter"></i>
+		                </a>
+		                <a class="nav-link" href="https://www.instagram.com/">
+		                	<i class="fab fa-instagram"></i>
+		                </a>
+		            </nav>
                     </div>
 
                 </div>
@@ -451,7 +407,6 @@ window.onload = loadProducts;</script>
     </footer>
     </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="../public/js/menu.js"></script>
 
   

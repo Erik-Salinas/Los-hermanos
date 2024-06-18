@@ -112,6 +112,9 @@
                     <a class="nav-link" href="team.php">Equipo</a>
                 </li>
             </div>
+            <div>
+                <a href="realizar_pedido.php" class="btn-primary">Comprar</a>
+            </div>
             <li class="nav-item">
                             <!-- Button trigger modal -->
                             <button type="button" id="side-search-open" class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -135,10 +138,11 @@
                                             <a id="side-search-open" class="nav-link" href="../mvc/views/company.php">
                                                 Empresa
                                             </a>
+                                            <form action="../mvc/app/Controllers/Controller-cerrarsesion.php" method="post">
+                                                <button type="submit" id="side-search-open" class="nav-link"> <a href="index.php"></a>Cerrar sesión</button>
+                                            </form>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +168,28 @@
                     <div class="dishes-text">
                         <h3><span>Pizza BBQ Pollo</span></h3>
                         <p class="pt-3">Para aquellos que buscan una explosión de sabores audaces y deliciosos, la Pizza BBQ Pollo es la opción ideal. Esta pizza combina la dulzura ahumada de la salsa barbacoa con la jugosidad del pollo a la parrilla, creando una experiencia gastronómica inolvidable. La mezcla de sabores salados, dulces y picantes se complementa a la perfección con la cremosidad de la mozzarella y el toque crujiente de la cebolla roja. Cada bocado es una fiesta para el paladar, y su combinación única de ingredientes la convierte en una opción popular entre los amantes de la pizza que buscan algo fuera de lo común. Ya sea que estés celebrando una ocasión especial o simplemente buscando una aventura culinaria, la Pizza BBQ Pollo seguramente satisfará tus antojos y te dejará con ganas de más.</p>
-                        <h3 class="special-dishes-price">$15.00</h3>
+                        <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "BBQ Pollo";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo "<h3 class=special-dishes-price>$$row[precio]</h3>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                         <a href="#" class="btn-primary mt-3">Comprar</a>
                     </div>
                 </div>
@@ -181,7 +206,28 @@
                     <div class="dishes-text">
                         <h3><span>Pizza Margarita:</span></h3>
                         <p class="pt-3">La Pizza Margarita es una elección clásica y atemporal que nunca decepciona. Su sencillez es su mayor fortaleza, ya que combina la frescura del tomate con la suavidad de la mozzarella y el aroma distintivo de la albahaca fresca. Esta pizza es ideal para aquellos que buscan una experiencia auténtica y tradicional italiana. La combinación de sabores naturales y la delicadeza de la albahaca hacen que cada bocado sea una verdadera delicia. Además, su versatilidad la convierte en una opción perfecta para cualquier ocasión, desde una cena informal con amigos hasta una comida familiar. Si buscas una pizza que resalte los sabores básicos pero deliciosos de la cocina italiana, la Pizza Margarita es definitivamente la elección perfecta.</p>
-                        <h3 class="special-dishes-price">$12.00</h3>
+                        <?php
+                                include '../mvc/config/conexcion.php';
+
+                                // Nombre del producto
+                                $producto = "Margarita";
+                                
+                                // Consulta SQL para obtener el precio del producto
+                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+                                
+                                $resultado = $conexion->query($sql);
+                                
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar el precio del producto
+                                    $row = $resultado->fetch_assoc();
+                                    echo "<h3 class=special-dishes-price>$$row[precio]</h3>";
+                                } else {
+                                    echo "Producto no encontrado";
+                                }
+                                
+                                // Cerrar conexión
+                                $conexion->close();
+                                ?>
                         <a href="#" class="btn-primary mt-3">Comprar <span><i class="fa fa-long-arrow-right"></i></span></a>
                     </div>
                 </div>
@@ -197,13 +243,13 @@
          			<img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">
 	         		<p>Disfruta del auténtico sabor italiano en Pizzería Los Hermanos. Variedad, frescura y tradición en cada pizza. ¡Visítanos y déjate llevar por el deleite</p>
 	         		<nav class="nav nav-mastfoot justify-content-start">
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://www.facebook.com/?locale=es_LA">
 		                	<i class="fab fa-facebook-f"></i>
 		                </a>
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://x.com/?lang=es">
 		                	<i class="fab fa-twitter"></i>
 		                </a>
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://www.instagram.com/">
 		                	<i class="fab fa-instagram"></i>
 		                </a>
 		            </nav>

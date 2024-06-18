@@ -38,7 +38,7 @@
     
     
             
-            $registros = mysqli_query($conexion,"select * from registro_usuario") or die ("Problemas en la conexion con la tabla");
+            $registros = mysqli_query($conexion,"select * from registro_usuario ORDER BY id_regis_usuario DESC LIMIT 10") or die ("Problemas en la conexion con la tabla");
     
     
             //las opciones ya las cambie por unas q invente yo

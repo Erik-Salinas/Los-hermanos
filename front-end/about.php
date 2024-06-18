@@ -112,6 +112,9 @@
                     <a class="nav-link" href="team.php">Equipo</a>
                 </li>
             </div>
+            <div>
+                <a href="realizar_pedido.php" class="btn-primary">Comprar</a>
+            </div>
             <li class="nav-item">
                             <!-- Button trigger modal -->
                             <button type="button" id="side-search-open" class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -135,10 +138,11 @@
                                             <a id="side-search-open" class="nav-link" href="../mvc/views/company.php">
                                                 Empresa
                                             </a>
+                                            <form action="../mvc/app/Controllers/Controller-cerrarsesion.php" method="post">
+                                                <button type="submit" id="side-search-open" class="cerrar"> <a href="index.php"></a>Cerrar sesión</button>
+                                            </form>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -184,13 +188,13 @@
          			<img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">
 	         		<p>Disfruta del auténtico sabor italiano en Pizzería Los Hermanos. Variedad, frescura y tradición en cada pizza. ¡Visítanos y déjate llevar por el deleite</p>
 	         		<nav class="nav nav-mastfoot justify-content-start">
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://www.facebook.com/?locale=es_LA">
 		                	<i class="fab fa-facebook-f"></i>
 		                </a>
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://x.com/?lang=es">
 		                	<i class="fab fa-twitter"></i>
 		                </a>
-		                <a class="nav-link" href="#">
+		                <a class="nav-link" href="https://www.instagram.com/">
 		                	<i class="fab fa-instagram"></i>
 		                </a>
 		            </nav>

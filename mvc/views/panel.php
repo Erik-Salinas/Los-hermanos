@@ -34,7 +34,7 @@
         <?php
         $conexion = mysqli_connect("localhost", "root", "", "loshermanos") or die("Problemas con la conexion a la base de datos");
 
-        $registros = mysqli_query($conexion, "SELECT * FROM registro_usuario") or die("Problemas en la conexión con la tabla");
+        $registros = mysqli_query($conexion, "SELECT * FROM registro_usuario ORDER BY id_regis_usuario  DESC LIMIT 10") or die("Problemas en la conexión con la tabla");
         echo "<div class='cliente '><h2>CLIENTES</h2></div>";
         echo "<table>";
         echo "<tr class='titulo'>";
@@ -51,7 +51,7 @@
         echo "</table>";
 
 
-        $registros = mysqli_query($conexion, "select * from pedido") or die("Problemas en la conexion con la tabla");
+        $registros = mysqli_query($conexion, "SELECT * FROM pedido ORDER BY id_pedido DESC LIMIT 6") or die("Problemas en la conexion con la tabla");
 
 
         //las opciones ya las cambie por las q estan en el diseño
@@ -64,8 +64,6 @@
         echo "</tr>" . "<br>";
 
         while ($reg = mysqli_fetch_array($registros)) {
-
-            // HAY QUE CAMBIAR LO QUE SIGE A $REG CON LO QUE PONGAMOS EN LA BASE DE DATOS
 
             echo "<tr class=opciones>";
             echo "<td >" . $reg['tipo'] . "</td>";

@@ -80,7 +80,11 @@ a:hover {
 
 .nav-link {
   color: #000; }
-
+.cerrar{
+  background: none;
+  border: none;
+  color: #e22104;
+  }
 #navbar-header {
   height: 100px; }
   #navbar-header .navbar-nav .dropdown-menu {
@@ -428,7 +432,15 @@ a:hover {
   visibility: visible; }
 
   /*REALIZAR PEDIDO*/
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+  align-items: center;
+  justify-content: center;
+}
 .card{
+  max-width: 30%;
   align-items: center;
   justify-content: center;
   padding: 1rem;
@@ -549,6 +561,17 @@ button.pay{
   display: none !important; }
 
 @media (max-width: 992px) {
+  .products{
+    flex-wrap: nowrap;
+  }
+  .card{
+    max-width: 100%;
+  }
+  .card img {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 10%;
+  }
   .hero {
     height: 100%; }
   .boxed-page {
@@ -578,8 +601,29 @@ button.pay{
   .hero-left {
     padding-top: 30px;
     padding-bottom: 30px; } }
+    @media only screen and (min-width: 768px) and (max-width: 991px){
+      .products{
+        flex-wrap: wrap;
 
+      }
+      .card{
+        max-width: 40%;
+      }
+      .card img {
+        width: 100%;
+        margin-bottom: 1rem;
+        border-radius: 10%;
+      }
+    }
 @media (max-width: 767px) {
+  .products{
+    flex-wrap: nowrap;
+    display: block;
+  }
+  .card{
+    margin: none;
+    width: 90%;
+  }
   .hero-left,
   .hero-carousel .owl-item img {
     height: 600px; }
