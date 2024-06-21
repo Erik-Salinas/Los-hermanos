@@ -53,9 +53,9 @@
             echo "<tr class=titulo>";
             echo "<td class='nameCliente' >"."ID"."</td>";
             echo "<td  class='lastnameCliente' >"."TIPO"."</td>";
-            echo "<td class='nameCliente' >"."CANTIDAD". "</td>";
-            echo "<td  class='lastnameCliente' >"."CLIENTE". "</td>";
             echo "<td class='nameCliente' >"."TAMAÑO". "</td>";
+            echo "<td  class='lastnameCliente' >"."CANTIDAD". "</td>";
+            echo "<td class='nameCliente' >"."CLIENTE". "</td>";
             echo "<td  class='lastnameCliente' >"."TOTAL". "</td>";
             echo "</tr>"."<br>";
     

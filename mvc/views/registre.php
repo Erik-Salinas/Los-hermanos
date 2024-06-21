@@ -38,7 +38,7 @@
                     <input type="tel" name="tel" placeholder="Celular">
                 </div>
                 <div class="input">
-                    <input type="text" name="address" placeholder="Dirección">
+                    <input type="text" name="dire" placeholder="Dirección">
                 </div>
                 <div class="input">
                     <input type="email" name="email" placeholder="Correo">

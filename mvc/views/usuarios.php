@@ -49,6 +49,8 @@
             echo "<td class='nameCliente' >"."NOMBRE"."</td>";
             echo "<td class='lastnameCliente'>"."APELLIDO"."</td>";
             echo "<td class='nameCliente' >"."USUARIO". "</td>";
+            echo "<td class='nameCliente' >"."TELEFONO". "</td>";
+            echo "<td class='nameCliente' >"."DIRECCIÓN". "</td>";
             echo "<td class='lastnameCliente' >"."EMAIL". "</td>";
             echo "<td class='nameCliente' >"."FECHA DE NACIMIENTO". "</td>";
             echo "<td class='lastnameCliente' >"."GENERO". "</td>";
@@ -61,6 +63,8 @@
                 echo "<td  >".$reg['name']."</td>" ;
                 echo "<td >".$reg['lastname']."</td>";
                 echo "<td >".$reg['user_registration']."</td>";
+                echo "<td >".$reg['tel']."</td>";
+                echo "<td >".$reg['dire']."</td>";
                 echo "<td >". $reg['email']."</td>";
                 echo "<td >".$reg['date']."</td>";
                 echo "<td >".$reg['sex']."</td>";

@@ -160,7 +160,7 @@
                         <div class="text-wrap">
                             <div class="row align-items-start">
                                 <div class="col-8">
-                                    Margarita
+                                    
                                     <h4>Pizza Margarita</h4>
                                 </div>
                                 <div class="col-4">
@@ -188,7 +188,7 @@
                                 ?>
                                 </div>
                             </div>
-                            <p>Tomate, Mozzarella, Albahaca fresca</p>
+                            <p>Tomate, Mozzarella, Albahaca fresca.</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
@@ -225,7 +225,7 @@
                                 ?>
                                 </div>
                             </div>
-                            <p>Salsa de tomate, Mozzarella, Jamón, Piña</p>
+                            <p>Salsa de tomate, Mozzarella, Jamón, Piña.</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
@@ -262,7 +262,7 @@
                                 ?>
                                 </div>
                             </div>
-                            <p>Salsa de tomate, Mozzarella, Pepperoni</p>
+                            <p>Salsa de tomate, Mozzarella, Pepperoni.</p>
                         </div>
                     </div>
                 </div>
@@ -306,7 +306,7 @@
                                 Mozzarella,
                                 Champiñones,
                                 Pimientos,
-                                Cebolla</p>
+                                Cebolla.</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
@@ -346,7 +346,7 @@
                             <p>Salsa de tomate,
                                 Mozzarella,
                                 Queso parmesano,
-                                Queso azul</p>
+                                Queso azul.</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
@@ -387,7 +387,7 @@
                                 Mozzarella,
                                 Pollo a la parrilla,
                                 Cebolla roja,
-                                Maíz dulce</p>
+                                Maíz dulce.</p>
                         </div>
                     </div>
                 </div>
@@ -432,7 +432,7 @@
                                 Mejillones,
                                 Calamares,
                                 Gambas,
-                                Almejas</p>
+                                Almejas.</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
@@ -473,7 +473,7 @@
                                 Mozzarella,
                                 Jamón,
                                 Champiñones,
-                                Aceitunas</p>
+                                Aceitunas.</p>
                         </div>
                     </div>
                     <div class="menus d-flex align-items-center">
@@ -514,7 +514,7 @@
                                 Mozzarella,
                                 Salami picante,
                                 Jalapeños,
-                                Aceitunas negras</p>
+                                Aceitunas negras.</p>
                         </div>
                     </div>
                 </div>

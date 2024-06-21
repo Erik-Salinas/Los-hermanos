@@ -29,10 +29,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <style>
         .card { border: 1px solid #ccc; padding: 16px; margin: 16px; text-align: center; }
-        .cart-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-        .agregado img { width: 50px; height: 50px; }
-        .quantity-controls { display: flex; align-items: center;}
-        .quantity-controls button { margin: 0 5px;  border:solid 1px black; background-color: white;}
+        
     </style>
 </head>
 <body>

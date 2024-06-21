@@ -50,6 +50,45 @@
             }
         }
 
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['editar_producto'])) {
+            $edit_id = $_POST['editar_producto'];
+            $editQuery = "SELECT * FROM menu WHERE id_producto = $edit_id";
+            $result = mysqli_query($conexion, $editQuery);
+            $editData = mysqli_fetch_assoc($result); // Fetch the data as an associative array
+        
+            // Now build the edit form using $editData
+            echo '
+            <form class="nuevoProdu" action="../app/Controllers/Controller-editarmenu.php" method="post">
+                <input type="hidden" name="id" value="'.$editData['id_producto'].'">
+                ID
+                <input type="number" autocomplete="off" name="id_producto" id="id_producto" value="'.$editData['id_producto'].'" disabled>
+                <br>
+                TIPO
+                <input type="text" autocomplete="off" name="tipo" id="tipo" value="'.$editData['tipo'].'">
+                <br>
+                STOCK
+                <input type="number" autocomplete="off" name="stock" id="stock" value="'.$editData['stock'].'">
+                <br>
+                TAMAÑO
+                <select name="tamaño" id="tamaño">
+                    <option value="Chica" '.($editData['tamaño'] == 'Chica' ? 'selected' : '').'>Chica</option>
+                    <option value="Grande" '.($editData['tamaño'] == 'Grande' ? 'selected' : '').'>Grande</option>
+                </select>
+                <br>
+                PRECIO
+                <input type="number" autocomplete="off" name="precio" id="precio" value="'.$editData['precio'].'">
+                <br>
+                <button class="ag" type="submit">Confirmar</button>
+            </form>';
+        }
+    
+
+            if (isset($_POST['is_ajax'])) {
+                echo json_encode(['success' => true]);
+                exit;
+            }
+        
+
         $registros = mysqli_query($conexion, "SELECT * FROM menu") or die("Problemas en la conexión con la tabla");
 
         echo "<div class='pedidos'><h2>MENU</h2></div>";
@@ -57,7 +96,7 @@
         echo "<tr class='titulo'>";
         echo "<td class='nameCliente'>ID</td>";
         echo "<td class='lastnameCliente'>TIPO</td>";
-        echo "<td class='nameCliente'>CANTIDAD</td>";
+        echo "<td class='nameCliente'>STOCK</td>";
         echo "<td class='lastnameCliente'>TAMAÑO</td>";
         echo "<td class='nameCliente'>PRECIO</td>";
         echo "<td class='nameCliente'>IMAGEN</td>";
@@ -71,13 +110,23 @@
             echo "<td>{$reg['stock']}</td>";
             echo "<td>{$reg['tamaño']}</td>";
             echo "<td>$ {$reg['precio']}</td>";
-            echo "<td><img src='{$reg['img']}'></td>";
-            echo "<td>
-                    <form method='post' action=''>
+            echo "<td><img style= 'width:4rem; height:4rem; margin:auto; '  src='{$reg['img']}'></td>";
+            echo "<td style='display:flex; align-items:center;'>
+            
+             <form  method='post'>
+                <input type='hidden' name='editar_producto' value='{$reg['id_producto']}'>
+                <button type='submit' style='color:black; cursor: pointer; border: none; background: none; padding: 0; text-decoration: underline;'>Editar</button>
+            </form>;
+
+                
+                    
+                <form method='post' >
                         <input type='hidden' name='delete_id' value='{$reg['id_producto']}'>
                         <button type='submit' style='color:red; cursor: pointer;' >Eliminar</button>
-                    </form>
-                  </td>";
+                </form>
+                
+                </td>";
+
             echo "</tr>";
         }
         echo "</table>";
