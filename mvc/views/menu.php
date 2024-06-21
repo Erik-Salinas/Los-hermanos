@@ -28,18 +28,6 @@
             </ul>
         </nav>
     </header>
-<<<<<<< HEAD
-    <main class="">
-        <div class="botones">
-            <button ><a href="nuevo-producto.php">Agregar</a></button>
-            <button ><a href="edit-menu.php">Editar</a></button>
-        </div>
-        <?php
-            $conexion= mysqli_connect("localhost","root","","loshermanos") or die ("Problemas con la conexion a la base de datos");
-    
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $registros= mysqli_query($conexion,"insert into menu (tipo,stock,tamaño,precio) values ('$_POST[type]','$_POST[stock]','$_POST[tam]','$_POST[price]')  ") or die ("Error al insertar los datos"); 
-=======
     <main>
     <div>
         <button><a href="nuevo-producto.php">Agregar</a></button>
@@ -59,7 +47,6 @@
             if (isset($_POST['is_ajax'])) {
                 echo json_encode(['success' => true]);
                 exit;
->>>>>>> erik
             }
         }
 
