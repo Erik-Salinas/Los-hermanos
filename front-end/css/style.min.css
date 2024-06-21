@@ -84,7 +84,12 @@ a:hover {
   background: none;
   border: none;
   color: #e22104;
+  cursor: pointer;
   }
+  .modal-backdrop{
+    position: inherit;
+  }
+
 #navbar-header {
   height: 100px; }
   #navbar-header .navbar-nav .dropdown-menu {
@@ -428,7 +433,7 @@ a:hover {
 .sidenav-open #canvas-overlay,
 .sidesearch-open #canvas-overlay {
   max-width: 100%;
-  opacity: .4;
+  opacity: 0;
   visibility: visible; }
 
   /*REALIZAR PEDIDO*/

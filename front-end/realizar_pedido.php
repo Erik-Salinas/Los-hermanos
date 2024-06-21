@@ -94,24 +94,6 @@ echo "<script>
                 <p>info@yourdomain.com</p>
             </div>
         </div>
-        <div id="side-search" class="sidenav">
-            <a href="javascript:void(0)" id="side-search-close">&times;</a>
-            <div class="sidenav-content">
-                <form action="">
-
-                    <div class="input-group md-form form-sm form-2 pl-0">
-                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="input-group-text red lighten-3" id="basic-text1">
-                                <i class="fas fa-search text-grey" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-
-
         </div>
         <div id="canvas-overlay"></div>
         
@@ -146,9 +128,9 @@ echo "<script>
                             </div>
                         </ul>
 
-                        <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
-                            <img src="img/logo.png" alt="">
-                        </a>
+                        <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="index.php">
+            <img src="img/logo.png" alt="Logo de la empresa">
+        </a>
                         <ul class="navbar-nav d-flex justify-content-between">
                             <div class="d-flex flex-lg-row flex-column">
                                 <li class="nav-item active">
@@ -158,11 +140,44 @@ echo "<script>
                                     <a class="nav-link" href="team.php">Equipo</a>
                                 </li>
                             </div>
-                            <li class="nav-item">
-                                <a id="side-search-open" class="nav-link" href="../mvc/views/user.php">
-                                    <i class="fa-solid fa-user "></i>
-                                </a>
-                            </li>
+                            <div>
+                        <a href="realizar_pedido.php" class="btn-primary">Comprar</a>
+                        </div>
+                        <li class="nav-item">
+                            <!-- Button trigger modal -->
+                           <button type="button" id="side-search-open" class="nav-link" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fa-solid fa-user "></i>
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <a id="side-search-open" class="nav-link" href="../mvc/views/user.php">
+                                                Usuario
+                                            </a>
+                                            <a id="side-search-open" class="nav-link" href="../mvc/views/company.php">
+                                                Empresa
+                                            </a>
+                                            <form action="../mvc/app/Controllers/Controller-cerrarsesion.php" method="post">
+                                                <button type="submit" id="side-search-open" class="cerrar"> <a href="index.php"></a>Cerrar sesión</button>
+                                            </form>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         </ul>
                     </div>
                 </div>

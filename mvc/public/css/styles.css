@@ -227,10 +227,16 @@ header {
     font-family: var(--font-family-first);
     font-size: 0.8rem;
 }
+.alert{
+    margin:0.5rem auto;
+}
 .alert h2{
     background-color: var(--alert-login-color);
     color: white;
-    font-size: 2rem;
+    font-size: 2rem !important;
+    text-align: center;
+    padding: 1rem;
+    border-radius:10px ;
 }
 
 .loginForm button,

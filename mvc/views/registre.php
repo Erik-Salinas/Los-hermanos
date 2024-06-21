@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <main class="mainMenu">
+    <main class="inicioS">
         <?php 
         include ("../config/conexcion.php");
         include ("../app/Controllers/Controller-registro.php");
@@ -35,6 +35,12 @@
                     <input type="password" name="registry_key" placeholder="Contraseña">
                 </div>
                 <div class="input">
+                    <input type="tel" name="tel" placeholder="Celular">
+                </div>
+                <div class="input">
+                    <input type="text" name="address" placeholder="Dirección">
+                </div>
+                <div class="input">
                     <input type="email" name="email" placeholder="Correo">
                 </div>
                 <div class="input">
@@ -47,7 +53,6 @@
                         <option value="#" disabled selected>Seleccionar</option>
                         <option value="Mujer">Mujer</option>
                         <option value="Hombre">Hombre</option>
-                        <option value="Personalizado">Personalizado</option>
                     </select>
                 </div>
                 <div class="btnRecord">
