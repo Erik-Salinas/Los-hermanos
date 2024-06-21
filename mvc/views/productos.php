@@ -29,7 +29,7 @@
         </nav>
     </header>
     <main class="">
-        
+    <div class="">
         <?php
         $conexion= mysqli_connect("localhost","root","","loshermanos") or die ("Problemas con la conexion a la base de datos");
     
@@ -42,23 +42,33 @@
         
         $registros = mysqli_query($conexion,"select * from menu") or die ("Problemas en la conexion con la tabla");
     
-    
+        echo "<div class='pedidos '><h2>PRODUCTOS</h2></div>";
+        echo "<div class='products'</div>";
         while($reg=mysqli_fetch_array($registros)){
-            echo "<div class='pedidos '><h2>PRODUCTOS</h2></div>";
+
             echo "<div class=card> ";
-            echo "<img>".$reg['imagen']."</img>";
-            echo "<h3 >".$reg['tipo']."</h3>";
+            echo '<img  src="' . $reg['img'] . '">';
+            echo "<div class=item>";
+            echo "<h2 >".$reg['tipo']."</h2>";
             echo "<h3 >". $reg['tamaño']."</h3>";
+            if ($reg['stock'] == 0) {
+                echo "<h3 class='cero'>" . $reg['stock'] . "</h3>";
+            }elseif ($reg['stock'] > 0 && $reg['stock'] < 101) {
+                echo "<h3 class='medio'>" . $reg['stock'] . "</h3>";
+            }else{
+                echo "<h3 class='aprobado'>" . $reg['stock'] . "</h3>";
+            }
+            
+            
             echo "<h4 >"."$".$reg['precio']."</h4>";
-            echo "<h4 >"."$".$reg['descripcion']."</h4>";
-            echo "<button ><a href=''>Eliminar</a></button>";
-            echo "<button ><a href=''>Editar</a></button>";
+            
+            echo "</div>";
             echo "</div>";
     
         }
-        echo "</table>";
         mysqli_close($conexion);
     ?>
+    </div>
     </main>
     <script src="../public/js/menu.js"></script>
 </body>

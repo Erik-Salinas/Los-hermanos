@@ -8,7 +8,8 @@
     <title>Los hermanos</title>
     <meta name="description" content="Resto">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
+    </style>
     <!-- External CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/select2/select2.min.css">
@@ -49,25 +50,7 @@
             <p>info@yourdomain.com</p>
         </div>
     </div>
-    <div id="side-search" class="sidenav">
-        <a href="javascript:void(0)" id="side-search-close">&times;</a>
-        <div class="sidenav-content">
-            <form action="">
-
-                <div class="input-group md-form form-sm form-2 pl-0">
-                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="input-group-text red lighten-3" id="basic-text1">
-                            <i class="fas fa-search text-grey" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </form>
-        </div>
-
-
-    </div>
+   
     <div id="canvas-overlay"></div>
     <div class="boxed-page">
         <nav id="navbar-header" class="navbar navbar-expand-lg">

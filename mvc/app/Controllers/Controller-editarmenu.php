@@ -8,6 +8,7 @@ $tamaño = $_POST['tamaño'];
 $stock = $_POST['stock'];
 $precio = $_POST['precio'];
 
+
 $sql = $conexion->query("UPDATE menu SET tipo='$tipo', stock='$stock', tamaño='$tamaño', precio='$precio' WHERE id_producto='$id'");
 
 if ($sql) {
@@ -26,5 +27,11 @@ if ($sql) {
         alert('Error al actualizar los datos ');
         window.history.back(); // Regresa al formulario
         </script>";
-}
+} 
+// Incluir la conexión a la base de datos y cualquier otra configuración necesaria
+
+// Verificar si se recibió un ID válido para editar el producto
+
+
+
 ?>
