@@ -84,8 +84,8 @@
                         </div>
                     </ul>
 
-                    <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
-                        <img src="img/logo.png" alt="">
+                    <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="index.php">
+                        <img src="img/logo.png" alt="Logo de la empresa">
                     </a>
                     <ul class="navbar-nav d-flex justify-content-between">
                         <div class="d-flex flex-lg-row flex-column">
@@ -101,7 +101,7 @@
                         </div>
                         <li class="nav-item">
                             <!-- Button trigger modal -->
-                            <button type="button" id="side-search-open" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                           <button type="button" id="side-search-open" class="nav-link" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fa-solid fa-user "></i>
                             </button>
 

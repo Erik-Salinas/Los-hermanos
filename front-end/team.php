@@ -43,24 +43,8 @@
 		</p>
 		<p>info@yourdomain.com</p>
 	</div>
-</div>	<div id="side-search" class="sidenav">
-	<a href="javascript:void(0)" id="side-search-close">&times;</a>
-	<div class="sidenav-content">
-		<form action="">
+</div>
 
-			<div class="input-group md-form form-sm form-2 pl-0">
-			  <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-			  <div class="input-group-append">
-			    <button class="input-group-text red lighten-3" id="basic-text1">
-			    	<i class="fas fa-search text-grey" aria-hidden="true"></i>
-			    </button>
-			  </div>
-			</div>
-
-		</form>
-	</div>
-	
- 	
 </div>	<div id="canvas-overlay"></div>
 <div class="boxed-page">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
@@ -94,8 +78,8 @@
             </div>
         </ul>
         
-        <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
-            <img src="img/logo.png" alt="">
+        <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="index.php">
+            <img src="img/logo.png" alt="Logo de la empresa">
         </a>
         <ul class="navbar-nav d-flex justify-content-between">
             <div class="d-flex flex-lg-row flex-column">
