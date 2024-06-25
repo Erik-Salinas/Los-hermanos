@@ -101,7 +101,7 @@
             </div>
             <li class="nav-item">
                             <!-- Button trigger modal -->
-                           <button type="button" id="side-search-open" class="nav-link" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal">
+                           <button type="button" id="side-search-open" class="nav-link btn-nav" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fa-solid fa-user "></i>
                             </button>
 

@@ -52,15 +52,14 @@
             echo "<h2 >".$reg['tipo']."</h2>";
             echo "<h3 >". $reg['tamaño']."</h3>";
             if ($reg['stock'] == 0) {
-                echo "<h3 class='cero'>" . $reg['stock'] . "</h3>";
+                echo "<h3 class='cero btn-primary'>" . $reg['stock'] . "</h3>";
             }elseif ($reg['stock'] > 0 && $reg['stock'] < 101) {
-                echo "<h3 class='medio'>" . $reg['stock'] . "</h3>";
+                echo "<h3 class='medio btn-primary'>" . $reg['stock'] . "</h3>";
             }else{
-                echo "<h3 class='aprobado'>" . $reg['stock'] . "</h3>";
+                echo "<h3 class='aprobado btn-primary'>" . $reg['stock'] . "</h3>";
             }
             
-            
-            echo "<h4 >"."$".$reg['precio']."</h4>";
+            echo "<h3 >"."$".$reg['precio']."</h3>";
             
             echo "</div>";
             echo "</div>";
