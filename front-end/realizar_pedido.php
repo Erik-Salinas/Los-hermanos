@@ -29,10 +29,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+=======
+     <!-- Incluye Axios desde un CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
         .card { border: 1px solid #ccc; padding: 16px; margin: 16px; text-align: center; }
         
     </style>
+>>>>>>> erik
 </head>
 <body>
 <?php
@@ -75,7 +79,11 @@ echo "<script>
         // Desaparecer la ventana emergente después de 2 segundos
         setTimeout(function() {
             customAlert.style.display = 'none';
+<<<<<<< HEAD
+        }, 1000); // 2000 milisegundos = 2 segundos
+=======
         }, 2000); // 2000 milisegundos = 2 segundos
+>>>>>>> erik
       </script>";
 
 ?>
@@ -183,6 +191,10 @@ echo "<script>
             </nav>
     </header>
     <main >
+<<<<<<< HEAD
+
+        <div id="app">
+=======
     <div class="heading-section text-center">
     <h2 class="subheading">Productos</h2>
 </div>
@@ -395,6 +407,73 @@ function loadProducts() {
 
 // Llamar a la función para cargar productos al cargar la página
 window.onload = loadProducts;</script>
+    <!-- <div id="app">
+>>>>>>> erik
+            <div class="heading-section text-center">
+                <h2 class="subheading">Productos</h2>
+            </div>
+        
+            <div>
+                <div class="card" v-for="(producto, index) in producto" :key="producto.id">
+                    <img :src="producto.imagen" alt="">
+                    <h3>{{ producto.nombre }}</h3>
+                    <h4>{{ producto.tamaño }}</h4>
+                    <p>${{ producto.precio }}</p>
+                    <div class="btn_card">
+                        <button @click="agregar(producto)" class="btn-primary mt-3">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        
+<<<<<<< HEAD
+            <div class="agregado-container">
+    <form id="pedidoForm" action="../mvc/app/Controller-guardarpedido.php" method="POST">
+=======
+        <div class="agregado-container">
+>>>>>>> erik
+        <div class="agregado" v-for="(producto, index) in carrito" :key="producto.id">
+            <div class="info">
+                <h5>{{ producto.nombre }}</h5>
+                <p>${{ producto.precio * producto.cantidad }}</p>
+            </div>
+            <div class="quantity-controls">
+               
+                <button @click.prevent="decrementar(index)">-</button>
+                <span>{{ producto.cantidad }}</span>
+                <button @click.prevent="incrementar(index)">+</button>
+            </div>
+           
+<<<<<<< HEAD
+        </div>
+        </form>
+        <div v-if="carrito.length > 0">
+            <br>
+            <h6 id="tot">TOTAL: ${{total}}</h6>
+            
+            <button @click="borrarTodo" class="delet-all">Borrar todo</button>
+            <input type="hidden" name="total" :value="total">
+            <button type="submit" @click="pagar"  class="pay"><a href="http://mercadopago.com">Pagar</a></button>
+        </div>
+    
+        
+</div>
+
+        </div>
+        
+
+=======
+>>>>>>> erik
+        </div>
+        <div v-if="carrito.length > 0">
+            <br>
+            <h6 id="tot">TOTAL: ${{total}}</h6>
+            <button @click="borrarTodo" class="delet-all">Borrar todo</button>
+            <input type="hidden" name="total" :value="total">
+            <button type="submit" @click="pagar"  class="pay"><a href="../mvc/app/Controllers/Controller-guardarpedido.php">Pagar</a></button>
+        </div>    
+        </div>
+    </div> -->
+
 </main>
     <footer>
         <div class="inner container">
@@ -456,8 +535,13 @@ window.onload = loadProducts;</script>
     </div>
     </footer>
     <script src="../public/js/menu.js"></script>
+<<<<<<< HEAD
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="js/comprar.js"></script>
+=======
 
   
+>>>>>>> erik
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="vendor/bootstrap/popper.min.js"></script>

@@ -180,27 +180,46 @@
             // Itera sobre los productos en el carrito y crea un array de objetos para enviar
             const data = this.carrito.map(producto => ({
                 tipo: producto.nombre,
+<<<<<<<<< Temporary merge branch 1
+                tamaño: producto.tamaño,
+                precio: producto.precio,
+                cantidad: producto.cantidad
+            }));
+    
+            fetch('../../mvc/app/Controllers/Controller-guardarpedido.php', {
+=========
                 tam: producto.tam,
                 precio: producto.precio,
                 cantidad: producto.cantidad
             }));
         
             fetch('../mvc/app/Controllers/Controller-guardarpedido.php', {
+>>>>>>>>> Temporary merge branch 2
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data) // Envía el array de objetos JSON
             })
+<<<<<<<<< Temporary merge branch 1
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                this.borrarTodo();
+=========
             .then(response => response.json()) // Usar .json() si la respuesta es JSON
             .then(data => {
                 console.log(data);
                 this.borrarTodo(); // Asegúrate de que 'this' esté en el contexto correcto
+>>>>>>>>> Temporary merge branch 2
             })
             .catch(error => {
                 console.error('Error', error);
             });
         }
+<<<<<<<<< Temporary merge branch 1
+=========
         
+>>>>>>>>> Temporary merge branch 2
     },
 }); */
