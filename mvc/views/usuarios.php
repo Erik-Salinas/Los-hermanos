@@ -64,7 +64,7 @@
                 echo "<td >".$reg['lastname']."</td>";
                 echo "<td >".$reg['user_registration']."</td>";
                 echo "<td >".$reg['tel']."</td>";
-                echo "<td >".$reg['address']."</td>";
+                echo "<td >".$reg['dire']."</td>";
                 echo "<td >". $reg['email']."</td>";
                 echo "<td >".$reg['date']."</td>";
                 echo "<td >".$reg['sex']."</td>";

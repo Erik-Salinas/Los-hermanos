@@ -27,6 +27,8 @@
     
     <!-- Modernizr JS for IE8 support of php5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .card { border: 1px solid #ccc; padding: 16px; margin: 16px; text-align: center; }
         
@@ -192,6 +194,7 @@ echo "<script>
     <button onclick="borrarTodo()" class="delet-all">Borrar todo</button>
 </div>
 <script>
+    
 
 let cart = [];
 
@@ -254,7 +257,7 @@ function updateCartTotal() {
     const total = cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
     document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
 }
-
+     
 function checkout() {
     const order = {
         productos: cart,
@@ -268,14 +271,45 @@ function checkout() {
         },
         body: JSON.stringify(order)
     })
-    .then(response => response.text())
+    .then(response => response.json()) // Parsear la respuesta como JSON
     .then(data => {
-        alert('Compra realizada: ' + data);
+        // Mensaje de éxito
+        alert('Compra realizada con éxito!');
+
+        // Limpiar el carrito después de la compra
         cart = [];
         updateCartUI();
 
-        // Construir la cadena de texto con los detalles del pedido
-        const pedidoText = `¡Hola! He realizado una compra en su tienda.%0AMi número de pedido es: ${data}`;
+        // Función para iniciar el polling AJAX
+        function hacerPolling() {
+            $.ajax({
+                url: 'buscar_ultimo_pedido.php', // Archivo PHP que devuelve el último ID de pedido
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    if (data.id_pedido) {
+                        $('#resultado').html("Se ha realizado un nuevo pedido. ID del pedido: " + data.id_pedido);
+                    } else {
+                        $('#resultado').html("No hay nuevos pedidos.");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error en la solicitud AJAX:", status, error);
+                },
+                complete: function() {
+                    setTimeout(hacerPolling, 5000); // Realiza el polling cada 5 segundos (ajusta según necesites)
+                }
+            });
+        }
+
+        // Iniciar el polling después de un breve retraso para asegurar que el pedido se haya registrado completamente
+        setTimeout(hacerPolling, 1000);
+
+        // Extraer el número de pedido
+        const id_pedido = data.id_pedido;
+
+        // Preparar mensaje para WhatsApp
+        const pedidoText = `¡Hola! He realizado una compra en su tienda. Mi número de pedido es: ${id_pedido}`;
 
         // Codificar la cadena de texto para que sea válida en una URL
         const encodedPedidoText = encodeURIComponent(pedidoText);
@@ -291,6 +325,8 @@ function checkout() {
     })
     .catch(error => console.error('Error:', error));
 }
+
+
 
 
 function loadProducts() {

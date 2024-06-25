@@ -29,8 +29,15 @@
         </nav>
     </header>
     <main>
+    <script type="text/javascript">
+        function abrirVentanaEmergente() {
+            window.open("ventanaEmergente.html", "popupWindow", "width=600,height=400,scrollbars=yes");
+        }
+    </script>
     <div>
-        <button><a href="nuevo-producto.php">Agregar</a></button>
+        <form action="nuevo-producto.php" method="get">
+            <button class="agregar" type="submit">Agregar</button>
+        </form>
     </div>
     <?php
         $conexion = mysqli_connect("localhost", "root", "", "loshermanos") or die("Problemas con la conexión a la base de datos");
@@ -57,6 +64,7 @@
             $editData = mysqli_fetch_assoc($result); // Fetch the data as an associative array
         
             // Now build the edit form using $editData
+            
             echo '
             <form class="nuevoProdu" action="../app/Controllers/Controller-editarmenu.php" method="post">
                 <input type="hidden" name="id" value="'.$editData['id_producto'].'">

@@ -28,12 +28,14 @@
             </ul>
         </nav>
     </header>
-    <main class="mainMenu">
+    <main class="mainNProdu">
     <form class="nuevoProdu" action="menu.php" method="post" enctype="multipart/form-data">
         TIPO
         <input type="text" autocomplete="off" name="type" id="">
         <br>
-        <input type="file" name="img">
+        IMAGEN
+        <input type="file" name="img" >
+        <br>
         STOCK
         <input type="number" autocomplete="off" name="stock" id="">
         <br>
@@ -46,7 +48,7 @@
         PRECIO
         <input type="number" autocomplete="off" name="price" id="">
         <br>
-        <button class="ag" type="submit">Agregar</button>
+        <button class="agregar" type="submit">Agregar</button>
         <button class="delet" type="reset">Eliminar</button>
     </form>
 </main>

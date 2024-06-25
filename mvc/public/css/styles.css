@@ -416,52 +416,53 @@ table tr td{
 td{
     margin: 2%;
 }
-button{
+
+.agregar{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    padding: 3%;
-    margin: 2%;
+    padding: 1rem;
+    margin: 1.5rem;
     border: solid 1px black;
     background-color: white;
     border-radius: 10%;
     color: white;
-}
-button a{
     text-decoration: none;
     color: black;
 }
 .delet{
-    margin-top: 10%;
     color: white;
-    padding: 6%;
+    padding: 1rem;
     border: solid 1px black;
     background-color: rgba(255, 0, 0, 0.778);
-    border-radius: 10%;
-}
-.ag{
-    color: var(--text-first-color);
-    padding: 6%;
+    border-radius: 10% ;
 }
 .botones{
     display: flex;
     align-items: center;
     justify-content:space-between ;
 }
+.mainNProdu{
+    width: 100vw;
+    height: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
 .nuevoProdu{
-    width: 80vw;
+    padding-top: auto;
+    width: 90vw;
     background-color: rgba(244, 180, 121, 0.398);
     border: solid 2px var(--first-color);
-    padding: 5%;
+    padding: 2%;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 0.5rem;
 }
 input,select{
-    padding: 5%;
-    margin-top: 5%;
+    padding: 0.2rem;
+    margin-top: 1rem;
 } 
-
 .botonesHeader{
     display: flex;
     flex-direction: column;
@@ -490,7 +491,11 @@ input,select{
 @media screen and (min-width:768px) and (max-width: 992px) {}
 
 /* ?Desktops */
-@media screen and (min-width: 992px) {}
+@media screen and (min-width: 992px) {
+    .nuevoProdu{
+        width: 50vw;
+    }
+}
 
 /* ?Alta resolución  img*/
 @media (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 3) {}
