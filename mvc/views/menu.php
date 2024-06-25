@@ -30,7 +30,7 @@
     </header>
     <main>
         <div>
-            <button><a href="nuevo-producto.php">Agregar</a></button>
+            <button class="agregar"><a href="nuevo-producto.php">Agregar</a></button>
         </div>
         <?php
 $conexion = mysqli_connect("localhost", "root", "", "loshermanos") or die("Problemas con la conexión a la base de datos");

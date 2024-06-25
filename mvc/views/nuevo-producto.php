@@ -48,7 +48,7 @@
     PRECIO
     <input type="number" autocomplete="off" name="price" id="">
     <br>
-    <button class="ag" type="submit">Agregar</button>
+    <button class="agregar" type="submit">Agregar</button>
     <button class="delet" type="reset">Eliminar</button>
 </form>
 
