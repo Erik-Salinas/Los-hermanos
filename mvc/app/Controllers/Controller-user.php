@@ -11,7 +11,8 @@
                 $sql->bind_param("s", $user);
                 $sql->execute();
                 $result = $sql->get_result();
-        
+                
+
                 if ($result->num_rows > 0) {
                     $data = $result->fetch_assoc();
                     // Verifica la contraseña
@@ -20,6 +21,7 @@
                         // Inicia una sesión de usuario
                         session_start();
                         $_SESSION['user'] = $user;
+                        var_dump($_SESSION);
                         header("Location: ../../front-end/index.php");
                         exit();
                     } else {

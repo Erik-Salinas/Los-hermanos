@@ -55,6 +55,8 @@
             echo "<td  class='lastnameCliente' >"."TIPO"."</td>";
             echo "<td class='nameCliente' >"."TAMAÑO". "</td>";
             echo "<td  class='lastnameCliente' >"."CANTIDAD". "</td>";
+            echo "<td  class='lastnameCliente' >"."DIRECCION". "</td>";
+            echo "<td  class='lastnameCliente' >"."TELEFONO". "</td>";
             echo "<td class='nameCliente' >"."CLIENTE". "</td>";
             echo "<td  class='lastnameCliente' >"."TOTAL". "</td>";
             echo "</tr>"."<br>";
@@ -68,6 +70,8 @@
                 echo "<td >".$reg['tipo']."</td>";
                 echo "<td >". $reg['tamaño']."</td>";
                 echo "<td >".$reg['cantidad']."</td>";
+                echo "<td >".$reg['dire']."</td>";
+                echo "<td >".$reg['tel']."</td>";
                 echo "<td >".$reg['nombre_cliente']."</td>";
                 echo "<td >"."$".$reg['total']."</td>";
                 echo "</tr>";

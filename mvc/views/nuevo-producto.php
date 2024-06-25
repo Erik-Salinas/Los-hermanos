@@ -28,7 +28,7 @@
             </ul>
         </nav>
     </header>
-    <main class="mainMenu">
+    <main class="mainNProdu">
     <form class="nuevoProdu" action="menu.php" method="post" enctype="multipart/form-data">
     TIPO
     <input type="text" autocomplete="off" name="type" id="">
