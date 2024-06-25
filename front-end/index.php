@@ -8,26 +8,31 @@
     <title>Los hermanos</title>
     <meta name="description" content="Resto">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     </style>
     <!-- External CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/select2/select2.min.css">
     <link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/brands.css">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Josefin+Sans:300,400,700">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Josefin+Sans:300,400,700">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.min.css">
 
     <!--Font awesome  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Modernizr JS for IE8 support of php5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
@@ -36,7 +41,7 @@
 </head>
 
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
-    
+
     <div id="side-nav" class="sidenav">
         <a href="javascript:void(0)" id="side-nav-close">&times;</a>
 
@@ -57,7 +62,9 @@
                 <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">
                     <img src="img/logo.png" alt="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="lnr lnr-menu"></span>
                 </button>
 
@@ -72,7 +79,8 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Platos especiales
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -96,16 +104,18 @@
                             </li>
                         </div>
                         <div>
-                        <a href="realizar_pedido.php" class="btn-primary">Comprar</a>
+                            <a href="realizar_pedido.php" class="btn-primary">Comprar</a>
                         </div>
                         <li class="nav-item">
                             <!-- Button trigger modal -->
-                           <button type="button" id="side-search-open" class="nav-link" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" id="side-search-open" class="nav-link" style="cursor: pointer;"
+                                data-toggle="modal" data-target="#exampleModal">
                                 <i class="fa-solid fa-user "></i>
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -121,13 +131,16 @@
                                             <a id="side-search-open" class="nav-link" href="../mvc/views/company.php">
                                                 Empresa
                                             </a>
-                                            <form action="../mvc/app/Controllers/Controller-cerrarsesion.php" method="post">
-                                                <button type="submit" id="side-search-open" class="cerrar"> <a href="index.php"></a>Cerrar sesión</button>
+                                            <form action="../mvc/app/Controllers/Controller-cerrarsesion.php"
+                                                method="post">
+                                                <button type="submit" id="side-search-open" class="cerrar"> <a
+                                                        href="index.php"></a>Cerrar sesión</button>
                                             </form>
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Cerrar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +151,7 @@
             </div>
         </nav>
         <div class="hero">
-            
+
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6 hero-left">
@@ -146,7 +159,9 @@
                             las comidas deliciosas!</h1>
                         <div class="mb-2">
                             <a class="btn btn-primary btn-shadow btn-lg" href="#" role="button">Explore Menu</a>
-                            <a class="btn btn-icon btn-lg" href="https://www.youtube.com/embed/AxwkGuS2HRY?si=IHySDJfczxVw2Q7K" data-featherlight="iframe" data-featherlight-iframe-allowfullscreen="true">
+                            <a class="btn btn-icon btn-lg"
+                                href="https://www.youtube.com/embed/AxwkGuS2HRY?si=IHySDJfczxVw2Q7K"
+                                data-featherlight="iframe" data-featherlight-iframe-allowfullscreen="true">
                                 <span class="lnr lnr-film-play"></span>
                                 Play Video
                             </a>
@@ -194,7 +209,8 @@
             <div class="container">
                 <div class="section-content">
                     <div class="row">
-                        <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2" style="background-image: url(img/nosotros.jpg);">
+                        <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"
+                            style="background-image: url(img/nosotros.jpg);">
 
                         </div>
                         <div class="col-sm-7 py-5 pl-md-0 pl-4">
@@ -210,9 +226,16 @@
                                 <p>
                                     ¡Descubre el sabor auténtico en la Pizzería Los Hermanos!
 
-                                    Bienvenidos a nuestra página web, donde la pasión por la pizza se fusiona con la calidad y el servicio excepcional. En la Pizzería Los Hermanos, cada bocado es una experiencia inigualable, elaborada con ingredientes frescos y auténticas recetas que deleitan los paladares más exigentes.
+                                    Bienvenidos a nuestra página web, donde la pasión por la pizza se fusiona con la
+                                    calidad y el servicio excepcional. En la Pizzería Los Hermanos, cada bocado es una
+                                    experiencia inigualable, elaborada con ingredientes frescos y auténticas recetas que
+                                    deleitan los paladares más exigentes.
 
-                                    Desde nuestras tradicionales pizzas hasta nuestras especialidades únicas, cada plato es cuidadosamente preparado para ofrecer un festín de sabores que te transportará a Italia en cada mordisco. Acompaña tu elección con una selección de acompañamientos y ensaladas frescas, y culmina tu experiencia con nuestros irresistibles postres caseros.</p>
+                                    Desde nuestras tradicionales pizzas hasta nuestras especialidades únicas, cada plato
+                                    es cuidadosamente preparado para ofrecer un festín de sabores que te transportará a
+                                    Italia en cada mordisco. Acompaña tu elección con una selección de acompañamientos y
+                                    ensaladas frescas, y culmina tu experiencia con nuestros irresistibles postres
+                                    caseros.</p>
                             </div>
                         </div>
                     </div>
@@ -236,18 +259,27 @@
                             <h2 class="special-number">01.</h2>
                             <div class="dishes-text">
                                 <h3><span>Pizza BBQ Pollo</span></h3>
-                                <p class="pt-3">Para aquellos que buscan una explosión de sabores audaces y deliciosos, la Pizza BBQ Pollo es la opción ideal. Esta pizza combina la dulzura ahumada de la salsa barbacoa con la jugosidad del pollo a la parrilla, creando una experiencia gastronómica inolvidable. La mezcla de sabores salados, dulces y picantes se complementa a la perfección con la cremosidad de la mozzarella y el toque crujiente de la cebolla roja. Cada bocado es una fiesta para el paladar, y su combinación única de ingredientes la convierte en una opción popular entre los amantes de la pizza que buscan algo fuera de lo común. Ya sea que estés celebrando una ocasión especial o simplemente buscando una aventura culinaria, la Pizza BBQ Pollo seguramente satisfará tus antojos y te dejará con ganas de más.</p>
+                                <p class="pt-3">Para aquellos que buscan una explosión de sabores audaces y deliciosos,
+                                    la Pizza BBQ Pollo es la opción ideal. Esta pizza combina la dulzura ahumada de la
+                                    salsa barbacoa con la jugosidad del pollo a la parrilla, creando una experiencia
+                                    gastronómica inolvidable. La mezcla de sabores salados, dulces y picantes se
+                                    complementa a la perfección con la cremosidad de la mozzarella y el toque crujiente
+                                    de la cebolla roja. Cada bocado es una fiesta para el paladar, y su combinación
+                                    única de ingredientes la convierte en una opción popular entre los amantes de la
+                                    pizza que buscan algo fuera de lo común. Ya sea que estés celebrando una ocasión
+                                    especial o simplemente buscando una aventura culinaria, la Pizza BBQ Pollo
+                                    seguramente satisfará tus antojos y te dejará con ganas de más.</p>
                                 <?php
                                 include '../mvc/config/conexcion.php';
 
                                 // Nombre del producto
                                 $producto = "BBQ Pollo";
-                                
+
                                 // Consulta SQL para obtener el precio del producto
                                 $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
+
                                 $resultado = $conexion->query($sql);
-                                
+
                                 if ($resultado->num_rows > 0) {
                                     // Mostrar el precio del producto
                                     $row = $resultado->fetch_assoc();
@@ -255,11 +287,11 @@
                                 } else {
                                     echo "Producto no encontrado";
                                 }
-                                
+
                                 // Cerrar conexión
                                 $conexion->close();
                                 ?>
-                                
+
                                 <a href="realizar_pedido.php" class="btn-primary mt-3">Comprar</a>
                             </div>
                         </div>
@@ -275,18 +307,27 @@
                             <h2 class="special-number">02.</h2>
                             <div class="dishes-text">
                                 <h3><span>Pizza Margarita:</span></h3>
-                                <p class="pt-3">La Pizza Margarita es una elección clásica y atemporal que nunca decepciona. Su sencillez es su mayor fortaleza, ya que combina la frescura del tomate con la suavidad de la mozzarella y el aroma distintivo de la albahaca fresca. Esta pizza es ideal para aquellos que buscan una experiencia auténtica y tradicional italiana. La combinación de sabores naturales y la delicadeza de la albahaca hacen que cada bocado sea una verdadera delicia. Además, su versatilidad la convierte en una opción perfecta para cualquier ocasión, desde una cena informal con amigos hasta una comida familiar. Si buscas una pizza que resalte los sabores básicos pero deliciosos de la cocina italiana, la Pizza Margarita es definitivamente la elección perfecta.</p>
+                                <p class="pt-3">La Pizza Margarita es una elección clásica y atemporal que nunca
+                                    decepciona. Su sencillez es su mayor fortaleza, ya que combina la frescura del
+                                    tomate con la suavidad de la mozzarella y el aroma distintivo de la albahaca fresca.
+                                    Esta pizza es ideal para aquellos que buscan una experiencia auténtica y tradicional
+                                    italiana. La combinación de sabores naturales y la delicadeza de la albahaca hacen
+                                    que cada bocado sea una verdadera delicia. Además, su versatilidad la convierte en
+                                    una opción perfecta para cualquier ocasión, desde una cena informal con amigos hasta
+                                    una comida familiar. Si buscas una pizza que resalte los sabores básicos pero
+                                    deliciosos de la cocina italiana, la Pizza Margarita es definitivamente la elección
+                                    perfecta.</p>
                                 <?php
                                 include '../mvc/config/conexcion.php';
 
                                 // Nombre del producto
                                 $producto = "Margarita";
-                                
+
                                 // Consulta SQL para obtener el precio del producto
                                 $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
+
                                 $resultado = $conexion->query($sql);
-                                
+
                                 if ($resultado->num_rows > 0) {
                                     // Mostrar el precio del producto
                                     $row = $resultado->fetch_assoc();
@@ -294,7 +335,7 @@
                                 } else {
                                     echo "Producto no encontrado";
                                 }
-                                
+
                                 // Cerrar conexión
                                 $conexion->close();
                                 ?>
@@ -322,378 +363,379 @@
                         </div>
                     </div>
                     <div class="row">
-                <div class="col-lg-4 menu-wrap">
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/pizza-margarita.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    Margarita
-                                    <h4>Pizza Margarita</h4>
+                        <div class="col-lg-4 menu-wrap">
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="img/pizza-margarita.jpg" alt="">
                                 </div>
-                                <div class="col-4">
-                                <?php
-                                include '../mvc/config/conexcion.php';
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            Margarita
+                                            <h4>Pizza Margarita</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <?php
+                                            include '../mvc/config/conexcion.php';
 
-                                // Nombre del producto
-                                $producto = "Margarita";
-                                
-                                // Consulta SQL para obtener el precio del producto
-                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
-                                $resultado = $conexion->query($sql);
-                                
-                                if ($resultado->num_rows > 0) {
-                                    // Mostrar el precio del producto
-                                    $row = $resultado->fetch_assoc();
-                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
-                                } else {
-                                    echo "Producto no encontrado";
-                                }
-                                
-                                // Cerrar conexión
-                                $conexion->close();
-                                ?>
+                                            // Nombre del producto
+                                            $producto = "Margarita";
+
+                                            // Consulta SQL para obtener el precio del producto
+                                            $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+
+                                            $resultado = $conexion->query($sql);
+
+                                            if ($resultado->num_rows > 0) {
+                                                // Mostrar el precio del producto
+                                                $row = $resultado->fetch_assoc();
+                                                echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                            } else {
+                                                echo "Producto no encontrado";
+                                            }
+
+                                            // Cerrar conexión
+                                            $conexion->close();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <p>Tomate, Mozzarella, Albahaca fresca</p>
                                 </div>
                             </div>
-                            <p>Tomate, Mozzarella, Albahaca fresca</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/pizza-hawaiana.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Pizza Hawaiana</h4>
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="img/pizza-hawaiana.jpg" alt="">
                                 </div>
-                                <div class="col-4">
-                                <?php
-                                include '../mvc/config/conexcion.php';
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Pizza Hawaiana</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <?php
+                                            include '../mvc/config/conexcion.php';
 
-                                // Nombre del producto
-                                $producto = "Hawaiana";
-                                
-                                // Consulta SQL para obtener el precio del producto
-                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
-                                $resultado = $conexion->query($sql);
-                                
-                                if ($resultado->num_rows > 0) {
-                                    // Mostrar el precio del producto
-                                    $row = $resultado->fetch_assoc();
-                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
-                                } else {
-                                    echo "Producto no encontrado";
-                                }
-                                
-                                // Cerrar conexión
-                                $conexion->close();
-                                ?>
+                                            // Nombre del producto
+                                            $producto = "Hawaiana";
+
+                                            // Consulta SQL para obtener el precio del producto
+                                            $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+
+                                            $resultado = $conexion->query($sql);
+
+                                            if ($resultado->num_rows > 0) {
+                                                // Mostrar el precio del producto
+                                                $row = $resultado->fetch_assoc();
+                                                echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                            } else {
+                                                echo "Producto no encontrado";
+                                            }
+
+                                            // Cerrar conexión
+                                            $conexion->close();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <p>Salsa de tomate, Mozzarella, Jamón, Piña</p>
                                 </div>
                             </div>
-                            <p>Salsa de tomate, Mozzarella, Jamón, Piña</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/pizza-pepperoni.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Pizza Pepperoni</h4>
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="img/pizza-pepperoni.jpg" alt="">
                                 </div>
-                                <div class="col-4">
-                                <?php
-                                include '../mvc/config/conexcion.php';
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Pizza Pepperoni</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <?php
+                                            include '../mvc/config/conexcion.php';
 
-                                // Nombre del producto
-                                $producto = "Pepperoni";
-                                
-                                // Consulta SQL para obtener el precio del producto
-                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
-                                $resultado = $conexion->query($sql);
-                                
-                                if ($resultado->num_rows > 0) {
-                                    // Mostrar el precio del producto
-                                    $row = $resultado->fetch_assoc();
-                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
-                                } else {
-                                    echo "Producto no encontrado";
-                                }
-                                
-                                // Cerrar conexión
-                                $conexion->close();
-                                ?>
+                                            // Nombre del producto
+                                            $producto = "Pepperoni";
+
+                                            // Consulta SQL para obtener el precio del producto
+                                            $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+
+                                            $resultado = $conexion->query($sql);
+
+                                            if ($resultado->num_rows > 0) {
+                                                // Mostrar el precio del producto
+                                                $row = $resultado->fetch_assoc();
+                                                echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                            } else {
+                                                echo "Producto no encontrado";
+                                            }
+
+                                            // Cerrar conexión
+                                            $conexion->close();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <p>Salsa de tomate, Mozzarella, Pepperoni</p>
                                 </div>
                             </div>
-                            <p>Salsa de tomate, Mozzarella, Pepperoni</p>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-4 menu-wrap">
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/pizza-vegetariana.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Pizza Vegetariana</h4>
+                        <div class="col-lg-4 menu-wrap">
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="img/pizza-vegetariana.jpg" alt="">
                                 </div>
-                                <div class="col-4">
-                                <?php
-                                include '../mvc/config/conexcion.php';
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Pizza Vegetariana</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <?php
+                                            include '../mvc/config/conexcion.php';
 
-                                // Nombre del producto
-                                $producto = "Vegetariana";
-                                
-                                // Consulta SQL para obtener el precio del producto
-                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
-                                $resultado = $conexion->query($sql);
-                                
-                                if ($resultado->num_rows > 0) {
-                                    // Mostrar el precio del producto
-                                    $row = $resultado->fetch_assoc();
-                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
-                                } else {
-                                    echo "Producto no encontrado";
-                                }
-                                
-                                // Cerrar conexión
-                                $conexion->close();
-                                ?>
+                                            // Nombre del producto
+                                            $producto = "Vegetariana";
+
+                                            // Consulta SQL para obtener el precio del producto
+                                            $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+
+                                            $resultado = $conexion->query($sql);
+
+                                            if ($resultado->num_rows > 0) {
+                                                // Mostrar el precio del producto
+                                                $row = $resultado->fetch_assoc();
+                                                echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                            } else {
+                                                echo "Producto no encontrado";
+                                            }
+
+                                            // Cerrar conexión
+                                            $conexion->close();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <p>Salsa de tomate,
+                                        Mozzarella,
+                                        Champiñones,
+                                        Pimientos,
+                                        Cebolla</p>
                                 </div>
                             </div>
-                            <p>Salsa de tomate,
-                                Mozzarella,
-                                Champiñones,
-                                Pimientos,
-                                Cebolla</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/pizzacuatro-quesos.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Pizza Cuatro Quesos</h4>
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="img/pizzacuatro-quesos.jpg" alt="">
                                 </div>
-                                <div class="col-4">
-                                <?php
-                                include '../mvc/config/conexcion.php';
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Pizza Cuatro Quesos</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <?php
+                                            include '../mvc/config/conexcion.php';
 
-                                // Nombre del producto
-                                $producto = "Cuatro Quesos";
-                                
-                                // Consulta SQL para obtener el precio del producto
-                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
-                                $resultado = $conexion->query($sql);
-                                
-                                if ($resultado->num_rows > 0) {
-                                    // Mostrar el precio del producto
-                                    $row = $resultado->fetch_assoc();
-                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
-                                } else {
-                                    echo "Producto no encontrado";
-                                }
-                                
-                                // Cerrar conexión
-                                $conexion->close();
-                                ?>
+                                            // Nombre del producto
+                                            $producto = "Cuatro Quesos";
+
+                                            // Consulta SQL para obtener el precio del producto
+                                            $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+
+                                            $resultado = $conexion->query($sql);
+
+                                            if ($resultado->num_rows > 0) {
+                                                // Mostrar el precio del producto
+                                                $row = $resultado->fetch_assoc();
+                                                echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                            } else {
+                                                echo "Producto no encontrado";
+                                            }
+
+                                            // Cerrar conexión
+                                            $conexion->close();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <p>Salsa de tomate,
+                                        Mozzarella,
+                                        Queso parmesano,
+                                        Queso azul</p>
                                 </div>
                             </div>
-                            <p>Salsa de tomate,
-                                Mozzarella,
-                                Queso parmesano,
-                                Queso azul</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/pizza-bbq-Pollo.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Pizza BBQ Pollo</h4>
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="img/pizza-bbq-Pollo.jpg" alt="">
                                 </div>
-                                <div class="col-4">
-                                <?php
-                                include '../mvc/config/conexcion.php';
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Pizza BBQ Pollo</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <?php
+                                            include '../mvc/config/conexcion.php';
 
-                                // Nombre del producto
-                                $producto = "BBQ Pollo";
-                                
-                                // Consulta SQL para obtener el precio del producto
-                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
-                                $resultado = $conexion->query($sql);
-                                
-                                if ($resultado->num_rows > 0) {
-                                    // Mostrar el precio del producto
-                                    $row = $resultado->fetch_assoc();
-                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
-                                } else {
-                                    echo "Producto no encontrado";
-                                }
-                                
-                                // Cerrar conexión
-                                $conexion->close();
-                                ?>
+                                            // Nombre del producto
+                                            $producto = "BBQ Pollo";
+
+                                            // Consulta SQL para obtener el precio del producto
+                                            $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+
+                                            $resultado = $conexion->query($sql);
+
+                                            if ($resultado->num_rows > 0) {
+                                                // Mostrar el precio del producto
+                                                $row = $resultado->fetch_assoc();
+                                                echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                            } else {
+                                                echo "Producto no encontrado";
+                                            }
+
+                                            // Cerrar conexión
+                                            $conexion->close();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <p>Salsa barbacoa,
+                                        Mozzarella,
+                                        Pollo a la parrilla,
+                                        Cebolla roja,
+                                        Maíz dulce</p>
                                 </div>
                             </div>
-                            <p>Salsa barbacoa,
-                                Mozzarella,
-                                Pollo a la parrilla,
-                                Cebolla roja,
-                                Maíz dulce</p>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-4 menu-wrap">
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/pizza-marinera.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Pizza Marinera</h4>
+                        <div class="col-lg-4 menu-wrap">
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="img/pizza-marinera.jpg" alt="">
                                 </div>
-                                <div class="col-4">
-                                <?php
-                                include '../mvc/config/conexcion.php';
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Pizza Marinera</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <?php
+                                            include '../mvc/config/conexcion.php';
 
-                                // Nombre del producto
-                                $producto = "Marinera";
-                                
-                                // Consulta SQL para obtener el precio del producto
-                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
-                                $resultado = $conexion->query($sql);
-                                
-                                if ($resultado->num_rows > 0) {
-                                    // Mostrar el precio del producto
-                                    $row = $resultado->fetch_assoc();
-                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
-                                } else {
-                                    echo "Producto no encontrado";
-                                }
-                                
-                                // Cerrar conexión
-                                $conexion->close();
-                                ?>
+                                            // Nombre del producto
+                                            $producto = "Marinera";
+
+                                            // Consulta SQL para obtener el precio del producto
+                                            $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+
+                                            $resultado = $conexion->query($sql);
+
+                                            if ($resultado->num_rows > 0) {
+                                                // Mostrar el precio del producto
+                                                $row = $resultado->fetch_assoc();
+                                                echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                            } else {
+                                                echo "Producto no encontrado";
+                                            }
+
+                                            // Cerrar conexión
+                                            $conexion->close();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <p>Salsa de tomate,
+                                        Mozzarella,
+                                        Mejillones,
+                                        Calamares,
+                                        Gambas,
+                                        Almejas</p>
                                 </div>
                             </div>
-                            <p>Salsa de tomate,
-                                Mozzarella,
-                                Mejillones,
-                                Calamares,
-                                Gambas,
-                                Almejas</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/pizza-capricciosa.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Pizza Capricciosa</h4>
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="img/pizza-capricciosa.jpg" alt="">
                                 </div>
-                                <div class="col-4">
-                                <?php
-                                include '../mvc/config/conexcion.php';
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Pizza Capricciosa</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <?php
+                                            include '../mvc/config/conexcion.php';
 
-                                // Nombre del producto
-                                $producto = "Capricciosa";
-                                
-                                // Consulta SQL para obtener el precio del producto
-                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
-                                $resultado = $conexion->query($sql);
-                                
-                                if ($resultado->num_rows > 0) {
-                                    // Mostrar el precio del producto
-                                    $row = $resultado->fetch_assoc();
-                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
-                                } else {
-                                    echo "Producto no encontrado";
-                                }
-                                
-                                // Cerrar conexión
-                                $conexion->close();
-                                ?>
+                                            // Nombre del producto
+                                            $producto = "Capricciosa";
+
+                                            // Consulta SQL para obtener el precio del producto
+                                            $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+
+                                            $resultado = $conexion->query($sql);
+
+                                            if ($resultado->num_rows > 0) {
+                                                // Mostrar el precio del producto
+                                                $row = $resultado->fetch_assoc();
+                                                echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                            } else {
+                                                echo "Producto no encontrado";
+                                            }
+
+                                            // Cerrar conexión
+                                            $conexion->close();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <p>Salsa de tomate,
+                                        Mozzarella,
+                                        Jamón,
+                                        Champiñones,
+                                        Aceitunas</p>
                                 </div>
                             </div>
-                            <p>Salsa de tomate,
-                                Mozzarella,
-                                Jamón,
-                                Champiñones,
-                                Aceitunas</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/pizza-diavola.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Pizza Diavola</h4>
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="img/pizza-diavola.jpg" alt="">
                                 </div>
-                                <div class="col-4">
-                                <?php
-                                include '../mvc/config/conexcion.php';
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Pizza Diavola</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <?php
+                                            include '../mvc/config/conexcion.php';
 
-                                // Nombre del producto
-                                $producto = "Diavola";
-                                
-                                // Consulta SQL para obtener el precio del producto
-                                $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
-                                
-                                $resultado = $conexion->query($sql);
-                                
-                                if ($resultado->num_rows > 0) {
-                                    // Mostrar el precio del producto
-                                    $row = $resultado->fetch_assoc();
-                                    echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
-                                } else {
-                                    echo "Producto no encontrado";
-                                }
-                                
-                                // Cerrar conexión
-                                $conexion->close();
-                                ?>
+                                            // Nombre del producto
+                                            $producto = "Diavola";
+
+                                            // Consulta SQL para obtener el precio del producto
+                                            $sql = "SELECT precio FROM menu WHERE tipo = '$producto'";
+
+                                            $resultado = $conexion->query($sql);
+
+                                            if ($resultado->num_rows > 0) {
+                                                // Mostrar el precio del producto
+                                                $row = $resultado->fetch_assoc();
+                                                echo " <h4 class=text-muted menu-price>$$row[precio]</h4>";
+                                            } else {
+                                                echo "Producto no encontrado";
+                                            }
+
+                                            // Cerrar conexión
+                                            $conexion->close();
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <p>Salsa de tomate,
+                                        Mozzarella,
+                                        Salami picante,
+                                        Jalapeños,
+                                        Aceitunas negras</p>
                                 </div>
                             </div>
-                            <p>Salsa de tomate,
-                                Mozzarella,
-                                Salami picante,
-                                Jalapeños,
-                                Aceitunas negras</p>
                         </div>
                     </div>
-                </div>
-            </div>
                 </div>
             </div>
         </section>
         <!-- End of menu Section --> <!-- Testimonial Section-->
-        <section id="gtco-testimonial" class="overlay bg-fixed section-padding" style="background-image: url(img/pizza-vegetariana.jpg);">
+        <section id="gtco-testimonial" class="overlay bg-fixed section-padding"
+            style="background-image: url(img/pizza-vegetariana.jpg);">
             <div class="container">
                 <div class="section-content">
                     <div class="heading-section text-center">
@@ -714,7 +756,8 @@
                             </div>
                             <div class="testi-item">
                                 <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                                <p class="testi-text">"El arte de la pizza, horneado con pasión y servido con sonrisas."</p>
+                                <p class="testi-text">"El arte de la pizza, horneado con pasión y servido con sonrisas."
+                                </p>
                                 <p class="testi-author">Pablo Torres</p>
                             </div>
                         </div>
@@ -801,7 +844,7 @@
                                     <p class="mb-1">Chef</p>
                                     <ul class="list-inline mb-0 team-social-links">
                                         <li class="list-inline-item">
-                                        <a href="https://www.facebook.com/?locale=es_LA">
+                                            <a href="https://www.facebook.com/?locale=es_LA">
                                                 <i class="fab fa-facebook-f"></i>
                                             </a>
                                         </li>
@@ -836,10 +879,11 @@
                     <div class="col-lg-4">
                         <div class="footer-widget pr-lg-5 pr-0">
                             <img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">
-                            <p>Disfruta del auténtico sabor italiano en Pizzería Los Hermanos. Variedad, frescura y tradición en cada pizza. ¡Visítanos y déjate llevar por el deleite</p>
+                            <p>Disfruta del auténtico sabor italiano en Pizzería Los Hermanos. Variedad, frescura y
+                                tradición en cada pizza. ¡Visítanos y déjate llevar por el deleite</p>
                             <nav class="nav nav-mastfoot justify-content-start">
                                 <a class="nav-link" href="https://www.facebook.com/?locale=es_LA">
-		                	        <i class="fab fa-facebook-f"></i>
+                                    <i class="fab fa-facebook-f"></i>
                                 </a>
                                 <a class="nav-link" href="https://x.com/?lang=es">
                                     <i class="fab fa-twitter"></i>
@@ -855,13 +899,20 @@
                         <div class="footer-widget px-lg-5 px-0">
                             <h4>Horario de apertura</h4>
                             <ul class="list-unstyled open-hours">
-                                <li class="d-flex justify-content-between"><span>Lunes</span><span>9:00 - 24:00</span></li>
-                                <li class="d-flex justify-content-between"><span>Martes</span><span>9:00 - 24:00</span></li>
-                                <li class="d-flex justify-content-between"><span>Miercoles</span><span>9:00 - 24:00</span></li>
-                                <li class="d-flex justify-content-between"><span>Jueves</span><span>9:00 - 24:00</span></li>
-                                <li class="d-flex justify-content-between"><span>Viernes</span><span>9:00 - 02:00</span></li>
-                                <li class="d-flex justify-content-between"><span>Sabado</span><span>9:00 - 02:00</span></li>
-                                <li class="d-flex justify-content-between"><span>Domingo</span><span> Cerrado</span></li>
+                                <li class="d-flex justify-content-between"><span>Lunes</span><span>9:00 - 24:00</span>
+                                </li>
+                                <li class="d-flex justify-content-between"><span>Martes</span><span>9:00 - 24:00</span>
+                                </li>
+                                <li class="d-flex justify-content-between"><span>Miercoles</span><span>9:00 -
+                                        24:00</span></li>
+                                <li class="d-flex justify-content-between"><span>Jueves</span><span>9:00 - 24:00</span>
+                                </li>
+                                <li class="d-flex justify-content-between"><span>Viernes</span><span>9:00 - 02:00</span>
+                                </li>
+                                <li class="d-flex justify-content-between"><span>Sabado</span><span>9:00 - 02:00</span>
+                                </li>
+                                <li class="d-flex justify-content-between"><span>Domingo</span><span> Cerrado</span>
+                                </li>
                             </ul>
                         </div>
 
@@ -873,7 +924,8 @@
                             <p>Te informamos de las nuevas novedades.</p>
                             <form id="newsletter">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="emailNewsletter" aria-describedby="emailNewsletter" placeholder="Enter email">
+                                    <input type="email" class="form-control" id="emailNewsletter"
+                                        aria-describedby="emailNewsletter" placeholder="Enter email">
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100">Enviar</button>
                             </form>
@@ -881,7 +933,8 @@
 
                     </div>
                     <div class="col-md-12 d-flex align-items-center">
-                        <p class="mx-auto text-center mb-0">Copyright 2019. All Right Reserved. Design by <a href="https://gettemplates.co" target="_blank">GetTemplates</a></p>
+                        <p class="mx-auto text-center mb-0">Copyright 2019. All Right Reserved. Design by <a
+                                href="https://gettemplates.co" target="_blank">GetTemplates</a></p>
                     </div>
 
                 </div>
@@ -898,7 +951,8 @@
     <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
     <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js"></script>
     <script src="vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Main JS -->
     <script src="js/app.min.js "></script>
