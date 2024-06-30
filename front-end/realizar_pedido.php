@@ -309,7 +309,7 @@ function checkout() {
         const id_pedido = data.id_pedido;
 
         // Preparar mensaje para WhatsApp
-        const pedidoText = `¡Hola! He realizado una compra en su tienda. Mi número de pedido es: ${id_pedido}`;
+        const pedidoText = '¡Hola! He realizado una compra en su tienda. Mi número de pedido es: ${id_pedido}';
 
         // Codificar la cadena de texto para que sea válida en una URL
         const encodedPedidoText = encodeURIComponent(pedidoText);
@@ -318,15 +318,13 @@ function checkout() {
         const phoneNumber = '+5491132742025';
 
         // URL de WhatsApp con el mensaje como parámetro
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedPedidoText}`;
+        const whatsappUrl =' https://wa.me/${phoneNumber}?text=${encodedPedidoText}';
 
         // Abrir la ventana de WhatsApp
         window.open(whatsappUrl, '_blank');
     })
     .catch(error => console.error('Error:', error));
 }
-
-
 
 
 function loadProducts() {
